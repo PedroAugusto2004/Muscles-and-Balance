@@ -1,0 +1,472 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* General adjustments for mobile screens */
+@media (max-width: 600px) {
+    .welcome-container {
+        padding: 20px;
+        margin: 100px auto; /* Reduced margin for smaller screens */
+    }
+
+    .welcome-title {
+        font-size: 1.8em; /* Smaller title size for mobile */
+    }
+
+    .welcome-text {
+        font-size: 1em; /* Adjust text size for readability */
+    }
+
+    .top-right-buttons {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 5px; /* Reduce gap between buttons */
+    }
+
+    .auth-button {
+        padding: 8px 16px; /* Smaller padding for buttons */
+        font-size: 12px; /* Adjust font size */
+    }
+}
+
+/* Fixing overlapping button content */
+.auth-button {
+    position: relative; /* Ensure it stays on top */
+    z-index: 10; /* Higher z-index to avoid overlap */
+}
+
+/* Ensure Welcome Container doesn't overlap buttons */
+.welcome-container {
+    position: relative;
+    z-index: 1; /* Lower z-index than buttons */
+}
+
+/* Additional responsiveness for background video */
+.background-video {
+    object-fit: cover;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Improved accessibility for buttons */
+.auth-button:focus {
+    outline: 2px solid #990606; /* Visible focus outline for accessibility */
+}
+
+/* Custom scrollbar for Webkit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Track background */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar color */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Adds space around the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Thumb color on hover */
+  }
+  
+  /* Custom scrollbar for Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00000088 #f0f0f0;
+  }
+  
+  /* Dark mode scrollbar */
+  @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track {
+      background: #333;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border: 2px solid #333;
+    }
+  
+    * {
+      scrollbar-color: #888888 #33333300;
+    }
+  }
+  
+/* Container for the top-right buttons */
+.top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Base styling for both buttons */
+.auth-button {
+    padding: 1.3em 3em;
+    text-decoration: none;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Style for the Sign In button */
+.auth-button.sign-in {
+    background-color: black;
+    color: white;
+}
+
+.auth-button.sign-in:hover {
+    background-color: #3b3b3b;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  
+.auth-button.sign-in:active {
+    transform: translateY(-1px);
+  }
+
+/* Style for the Sign Up button */
+.auth-button.sign-up {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+.auth-button.sign-up:hover {
+    background-color: #3b3b3b;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    border: 2px solid #3b3b3b;
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.auth-button.sign-up:active {
+    transform: translateY(-1px);
+  }
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .top-right-buttons {
+        top: 10px;
+        right: 10px;
+    }
+    .auth-button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Welcome message container styling */
+#auth-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Welcome message styling */
+.welcome-message {
+    font-size: 22px; /* Larger font for improved readability */
+    color: #ffffff; /* Keep text white for contrast */
+    font-weight: 300; /* Light font weight for elegance */
+    margin: 20px 0;
+    line-height: 1.5; /* Add spacing between lines for better readability */
+}
+
+/* Heading styling */
+.heading {
+    font-size: 40px; /* Larger size for emphasis */
+    color: #f1c40f; /* Gold color for a more premium feel */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .welcome-message {
+        font-size: 18px;
+    }
+    .heading {
+        font-size: 32px;
+    }
+}
+/* Welcome Container */
+.welcome-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    margin: 150px auto; /* Space added to center it better */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.welcome-logo {
+    max-width: 150px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 20px; /* Spacing between logo and title */
+}
+
+.welcome-quote {
+    font-family: 'Playfair Display', serif; /* Formal serif font */
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #616161;
+    margin-top: 20px;
+    padding: 0 20px;
+    font-style: italic;
+    line-height: 1.6;
+    display: inline-block;
+}
+
+.welcome-title {
+    font-size: 2.5em;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s; /* Slight delay for the title */
+}
+
+.welcome-text {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s; /* Delay for the text */
+}
+/* Animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove underline from anchor link */
+.button-link {
+    text-decoration: none; /* Removes the default underline of the link */
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center; /* Centers the button vertically */
+    height: 100%; /* Ensure the parent div has enough height for centering */
+}
+
+/* Button Styling */
+.cssbuttons-io-button {
+    background: #990606;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #990606;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    margin: 0 auto; /* Centers the button horizontally */
+}
+
+/* Icon inside button */
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #990606;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+/* Hover effects */
+.cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #990606;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Background Video Styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(60%);
+}
+
+/* Specific section space */
+
+.about-section,
+.how-it-works-section {
+    margin-top: 60px; /* Extra space between sections */
+}
+
+/* Section Styling */
+section {
+    padding: 80px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.548);
+    margin: 40px auto;
+    color: white;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); /* Start below */
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 2;
+}
+
+section.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Bring into place */
+}
+
+h2 {
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 400;
+    opacity: 0; /* Initial hidden state */
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+h2.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Bring into place */
+}
+
+.feature {
+    margin: 20px 0;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    opacity: 0; /* Initial hidden state */
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.feature h3.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Bring into place */
+}
+
+.feature p {
+    font-size: 1.1em;
+    color: #f0f0f0;
+    opacity: 0; /* Initial hidden state */
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.feature p.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Bring into place */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000a8;
+    color: #fff;
+}
+
+section,
+h2,
+.feature h3,
+.feature p {
+    opacity: 0; /* Hidden initially */
+    transform: translateY(50px); /* Start below */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+section.visible,
+h2.visible,
+.feature h3.visible,
+.feature p.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Bring into place */
+}
+
+section.fade-out,
+h2.fade-out,
+.feature h3.fade-out,
+.feature p.fade-out {
+    opacity: 0; /* Fade out */
+    transform: translateY(50px); /* Move back below */
+}

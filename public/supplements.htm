@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Muscles & Balance</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muscles & Balance">
+    <link rel="shortcut icon" href="images/MBlogo.png"> 
+    
+  <!-- FontAwesome CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="css/supplements.css">
+
+</head> 
+
+<body>
+    
+
+	<header class="header text-center">
+		<a class="site-title pt-lg-4 mb-0" href="home.htm">Muscles & Balance</a>
+	
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" 
+					aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<label class="hamburger-menu">
+					<div class="checkmark">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</label>
+			</button>
+	
+			<div id="navigation" class="collapse navbar-collapse flex-column">
+				<img class="mb-3 mx-auto logo" src="images/MBlogo.png" alt="logo">
+	
+				<ul class="navbar-nav flex-column text-sm-center text-md-left" id="navbar">
+				  <li class="nav-item">
+					  <a class="nav-link" href="home.htm"><i class="fas fa-home fa-fw mr-2"></i>Home</a>
+				  </li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="nutrition.htm"><i class="fas fa-utensils fa-fw mr-2"></i>Nutrition</a>
+				  </li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="workout.htm"><i class="fas fa-dumbbell fa-fw mr-2"></i>Workout</a>
+				  </li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="supplements.htm"><i class="fa-solid fa-pills fa-fw mr-2"></i>Supplements</a>
+				  </li>
+				  <li class="nav-item-alt">
+					  <a class="nav-link-alt" href="contact.htm"><i class="fas fa-envelope fa-fw mr-2"></i>Contact Us</a>
+				  </li>
+				  <li class="nav-item-custom">
+					  <a class="nav-link-custom" href="help.htm"><i class="bi bi-info-circle"></i>How it Works</a>
+				  </li>
+			  </ul>
+						  
+			<!-- Social Media Links -->
+			<hr>
+			<ul class="social-list list-inline py-3 mx-auto">
+			  <li class="list-inline-item"><a href="http://www.youtube.com/@MusclesBalance"><i class="fab fa-youtube fa-fw"></i></a></li>
+			  <li class="list-inline-item"><a href="https://pedroaugusto2004.github.io/PersonalPortfolio/"><i class="fab fa-solid fa-globe fa-fw"></i></a></li>
+			  <li class="list-inline-item"><a href="https://github.com/PedroAugusto2004"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			  <li class="list-inline-item"><a href="https://www.instagram.com/muscles_and_balance?igsh=Z3c4eHhwcGtzenVs&utm_source=qr"><i class="fab fa-instagram fa-fw"></i></a></li>
+			  <li class="list-inline-item"><a href="https://www.tiktok.com/@musclesandbalance?_t=8pG6mxXu5rh&_r=1"><i class="fab fa-tiktok"></i></a></li>
+			</ul>
+	
+			<!-- Share Button -->
+			<button class="share-button" onclick="openModal()">
+			  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="icon">
+				<path
+				  d="M307 34.8c-11.5 5.1-19 16.6-19 29.2v64H176C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96h96v64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"
+				></path>
+			  </svg>
+			  Share
+			</button>
+			
+	<!-- Modal structure -->
+	<div class="modal" id="shareModal">
+	  <div class="modal-content">
+		  <span class="close" onclick="closeModal()">&times;</span>
+		  <h3>SHARE</h3>
+	
+	<!-- Copy link section -->
+	<div class="copy-section">
+	  <input type="text" id="shareLink" value="https://muscles-and-balance-7.web.app/" readonly>
+	  <button class="copy-btn" onclick="copyLink()">COPY</button>
+	</div>
+	
+	<!-- Minimalist Alert Container -->
+	<div id="customAlert" >
+	  <span>Link copied!</span>
+	</div>
+	
+		  <ul class="wrapper">
+			<li class="icon facebook" onclick="share('facebook')">
+				<span class="tooltip">Facebook</span>
+			  <svg viewBox="0 0 320 512" height="1.2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+			  </svg>
+			</li>
+		  
+			<li class="icon twitter" onclick="share('twitter')">          
+			  <span class="tooltip">X(twitter)</span>
+			  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+				<path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"/>
+			  </svg>
+			</li>
+		  
+			<li class="icon instagram">
+			  <a href="https://www.instagram.com/muscles_and_balance?igsh=Z3c4eHhwcGtzenVs&utm_source=qr" target="_blank">         
+			  <span class="tooltip">Instagram</span>
+			  <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" fill="currentColor" viewBox="0 0 16 16">
+				<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+			  </svg>
+			</a> 
+			</li>
+	
+			<li class="icon linkedin" onclick="share('linkedin')">          
+			  <span class="tooltip">LinkedIn</span>
+			  <svg viewBox="0 0 448 512" height="1.2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path d="M100.28 480H7.4V165.13h92.88zm-46.42-362.7c-29.49 0-53.43-24.03-53.43-53.49 0-29.47 23.94-53.48 53.43-53.48 29.5 0 53.43 24.02 53.43 53.48 0 29.46-23.93 53.49-53.43 53.49zm365.64 362.7h-92.88V309.69c0-40.23-14.37-67.73-50.29-67.73-27.42 0-43.63 18.48-50.89 36.31-2.61 6.31-3.25 15.12-3.25 23.93v182.1h-92.88s1.23-295.19 0-325.03h92.88v46.04c-0.19.28-0.43.6-0.66.9h0.66v-0.9c12.32-19 34.23-46.2 83.29-46.2 60.78 0 106.53 39.68 106.53 124.7v200.59z"/>
+			  </svg>
+			</li>              
+		  <li class="icon whatsapp" onclick="share('whatsapp')">          
+			<span class="tooltip">WhatsApp</span>
+			  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+				<path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd"/>
+				<path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"/>
+			  </svg>
+			</li>
+		 </ul>
+					  
+		  </div>
+		</nav>
+	</header>
+		
+<!----------SIGN IN---------->
+<div class="main-wrapper">
+	<header class="page-title theme-bg-light text-center gradient py-5">
+	  
+  <!-- HTML for Sign-In button -->
+  <div class="container-1">
+	<!-- Single placeholder for authentication elements -->
+	<div id="auth-placeholder">
+		
+		<div class="top-right-buttons">
+			<a href="login.htm" class="button" id="signin-link">Sign In</a>
+		  </div>
+		
+	  <!-- Welcome message (dynamically updated via JavaScript) -->
+	  <p class="welcome-message hidden" id="welcome-message">Welcome!</p>
+  
+	  <!-- LOGOUT BUTTON -->
+	  <button class="Btn hidden" id="logout-button">
+		<div class="sign">
+		  <svg viewBox="0 0 512 512">
+			<path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+		  </svg>
+		</div>
+		<div class="text">Logout</div>
+	  </button>
+	</div>
+  </div>
+			
+			<h1 class="heading">Supplements</h1>
+		</header>
+
+		    <!--GO TO THE TOP-->
+            
+	<btn id="scrollToTopBtn" title="Go to the top">
+
+		<svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+
+	</btn>
+  
+		    <!-- SHORTCUT -->
+
+			<div class="shortcut-menu">
+				<input type="checkbox" id="toggle-menu" hidden /> <!-- Hidden input -->
+			  
+				<label for="toggle-menu" class="burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				  </label>
+				  
+				  <!-- Shortcut Options -->
+				<nav class="shortcut-options">
+				  <button class="close-button">&times;</button>
+				  <a href="#types">💊Types of supplement</a>
+				  <a href="#quiz">📝Supplement Quiz</a>
+				  <a href="#tracker">📈Supplement Tracker</a>
+				</nav>
+			  </div>
+														
+			  
+	  <article class="about-section content px-3 py-5 p-md-5">
+		<div class="container">			    
+		<div class="section">
+		<div class="content">
+
+			<p class="mt-3 lead"> <h1>What Are Supplements?</h1>
+
+				
+					<p>Supplements are products designed to enhance your diet by providing essential nutrients that may not be consumed in sufficient quantities through food alone. These can include vitamins, minerals, amino acids, enzymes, and other substances. Supplements come in various forms such as tablets, capsules, powders, and liquids. They are often used to fill nutritional gaps, support specific health goals like improving immunity, boosting energy levels, or enhancing athletic performance. While supplements can be beneficial, it's important to use them wisely and preferably under the guidance of a healthcare professional, as overuse or misuse can lead to adverse effects.</p></p>
+
+					<div class="custom-text">
+						In the supplement section, you'll find tools and information to guide you in making the best supplement choices. Start with our supplement quiz, which provides personalized recommendations based on your specific goals. You can also track your intake with the supplement tracker, logging the type, amount, time, and date of each supplement you take.
+
+						Additionally, there's a detailed article covering the different types of supplements, and at the end, you'll find my personal recommendations to help you make informed decisions. Take advantage of these resources to optimize your supplement strategy!					</div>			  		
+
+						<div class="video-container">
+							<video autoplay muted loop playsinline id="background-video">
+								<source src="videos/Supplements.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+									
+
+<div class="section">
+	<div class="content">
+	<section class="quiz bg-grid" id="types">
+
+	<h1 class="my-3">Types of Supplements</h1>
+
+	<blockquote class="blockquote m-lg-5 py-3 pl-4 px-lg-5">
+		<p class="mb-2">Supplements come in various types, each designed to support different health and wellness goals. Protein supplements, like whey or plant-based protein powders, are popular among athletes and fitness enthusiasts for muscle recovery and growth. Vitamins and minerals, such as vitamin D, vitamin B12, calcium, and iron, are often used to address dietary gaps and boost overall health. Pre-workout supplements contain ingredients like caffeine and beta-alanine to enhance energy, focus, and endurance before physical activities. Post-workout supplements, often rich in amino acids, aid in muscle repair and recovery. Omega-3 fatty acids, commonly found in fish oil supplements, support heart and brain health. Additionally, herbal supplements, like turmeric and ashwagandha, are known for their anti-inflammatory and stress-relieving properties. Each supplement type serves a unique purpose, making it essential to choose them based on individual needs and health goals. </p>
+	</blockquote>					
+
+	
+ <!-- Vitamins Section -->
+ <h5 class="section-title">Vitamins</h5>
+ <img class="article-image" src="images/supplements/vitamins.png" alt="Vitamins">
+ <p class="section-intro">Vitamins and minerals are essential nutrients that the body needs to function correctly. Here's an overview of some of the most important ones:</p>
+ 
+ <ul class="item-list">
+   <li><strong>Vitamin A:</strong> Supports vision, immune function, and skin health.</li>
+   <li><strong>Vitamin C:</strong> Important for the immune system, skin health, and wound healing; helps with the absorption of iron.</li>
+   <li><strong>Vitamin D:</strong> Essential for bone health, as it helps the body absorb calcium; also supports immune function.</li>
+   <li><strong>Vitamin E:</strong> Acts as an antioxidant, protecting cells from damage; also supports immune function.</li>
+   <li><strong>Vitamin K:</strong> Important for blood clotting and bone health.</li>
+   <li><strong>B Vitamins:</strong> Support energy metabolism, red blood cell formation, and brain function.</li>
+ </ul>
+ 
+ <h5 class="section-title">Minerals</h5>
+ <ul class="item-list">
+   <li><strong>Calcium:</strong> Essential for strong bones and teeth, muscle function, and nerve signaling.</li>
+   <li><strong>Iron:</strong> Crucial for the formation of hemoglobin, which carries oxygen in the blood.</li>
+   <li><strong>Magnesium:</strong> Supports muscle and nerve function, blood sugar control, and bone health.</li>
+   <li><strong>Potassium:</strong> Helps regulate fluid balance, muscle contractions, and nerve signals.</li>
+   <li><strong>Zinc:</strong> Important for immune function, wound healing, and DNA synthesis.</li>
+   <li><strong>Iodine:</strong> Essential for thyroid function, which regulates metabolism.</li>
+   <li><strong>Sodium:</strong> Essential for maintaining fluid balance, nerve function, and muscle contractions.</li>
+   <li><strong>Phosphorus:</strong> Important for bone formation, energy production, and cell repair.</li>
+</ul>
+
+<h5 class="my-3 section-title">Protein Supplements</h5>
+<p class="section-intro">Proteins are essential nutrients that play a crucial role in building and repairing tissues, producing enzymes and hormones, and supporting overall bodily functions. There are different types of protein sources, each with unique benefits. Here's an overview:</p>
+
+<h6 class="section-title">Animal-Based Proteins</h6>
+
+<img class="img-fluid article-image" src="images/supplements/whey.png" alt="image">
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Whey Protein</h6>
+    <li class="mb-2">Sources: Derived from milk; it's the liquid part that separates from the curds during cheese production.</li>
+    <li class="mb-2">Benefits: Fast Absorption, High Biological Value and Muscle Growth</li>
+    <li class="mb-2">Considerations: May not be suitable for those with lactose intolerance or dairy allergies.</li>
+</ul>
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Casein Protein</h6>
+    <li class="mb-2">Sources: Also derived from milk, but it makes up about 80% of the protein in milk, compared to whey’s 20%.</li>
+    <li class="mb-2">Benefits: Slow Digestion, Sustained Protein Supply, Muscle Preservation</li>
+    <li class="mb-2">Considerations: Like whey, it may not be suitable for those with lactose intolerance or dairy allergies.</li>
+</ul>
+
+<h6 class="section-title">Plant-Based Proteins</h6>
+
+<img class="img-fluid article-image" src="images/supplements/vegan.png" alt="image">
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Soy Protein</h6>
+    <li class="mb-2">Sources: Extracted from soybeans, available as soy protein isolate or concentrate.</li>
+    <li class="mb-2">Benefits: Complete Protein, Heart Health, Hormonal Balance</li>
+    <li class="mb-2">Considerations: Some concerns over its phytoestrogen content, but moderate consumption is generally considered safe.</li>
+</ul>
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Pea Protein</h6>
+    <li class="mb-2">Sources: Extracted from yellow split peas.</li>
+    <li class="mb-2">Benefits: Allergen-Free, Good Amino Acid Profile, Sustainable</li>
+    <li class="mb-2">Considerations: Not a complete protein, often combined with other plant proteins to achieve a full amino acid profile.</li>
+</ul>
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Rice Protein</h6>
+    <li class="mb-2">Sources: Extracted from yellow split peas.</li>
+    <li class="mb-2">Benefits: Allergen-Free, Good Amino Acid Profile, Sustainable</li>
+    <li class="mb-2">Considerations: Not a complete protein, often combined with other plant proteins to achieve a full amino acid profile.</li>
+</ul>
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Hemp Protein</h6>
+    <li class="mb-2">Sources: Derived from hemp seeds.</li>
+    <li class="mb-2">Benefits: Rich in Fiber, Omega Fatty Acids, Complete Protein</li>
+    <li class="mb-2">Considerations: Earthy taste and lower protein content per serving compared to other protein powders.</li>
+</ul>
+
+<ul class="mb-5 item-list">
+    <h6 class="mb-2 section-title">Mixed Plant-Based Proteins</h6>
+    <li class="mb-2">Sources: Blends of different plant-based proteins like pea, rice, hemp, chia, and quinoa.</li>
+    <li class="mb-2">Benefits: Complete Amino Acid Profile, Versatility, Nutrient-Rich</li>
+    <li class="mb-2">Considerations: Taste and texture can vary depending on the blend and processing.</li>
+</ul>
+
+<h5 class="my-3 section-title">Herbal Supplements</h5>
+
+<img class="img-fluid article-image" src="images/supplements/herbal.jpg" alt="image">
+
+<p class="section-intro">Supplementation with herbs like turmeric, ginkgo biloba, and echinacea has become increasingly popular due to their potential health benefits. Here's an overview of how each herb is commonly used in supplementation, the forms available, dosages, and considerations:</p>
+
+<h6 class="section-title">Turmeric</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Forms: Capsules, powders, tinctures, topicals.</li>
+    <li class="mb-2">Dosage: Typically 500-2,000 mg/day, often with black pepper extract (piperine) to improve absorption.</li>
+    <li class="mb-2">Benefits: Anti-inflammatory, antioxidant, supports heart and brain health.</li>
+    <li class="mb-2">Considerations: Poor absorption without piperine or fat, may interact with blood thinners.</li>
+</ul>
+
+<h6 class="section-title">Ginkgo Biloba</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Forms: Capsules, liquid extracts, teas.</li>
+    <li class="mb-2">Dosage: 120-240 mg/day, standardized to 24% flavonoids and 6% terpenoids.</li>
+    <li class="mb-2">Benefits: Supports cognitive function, circulation, and may reduce anxiety.</li>
+    <li class="mb-2">Considerations: Risk of bleeding, especially with anticoagulants; possible side effects include dizziness and headaches.</li>
+</ul>
+
+<h6 class="section-title">Echinacea</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Forms: Capsules, tinctures, teas.</li>
+    <li class="mb-2">Dosage: 300-500 mg 2-3 times daily, or 2.5 ml tincture three times a day during illness.</li>
+    <li class="mb-2">Benefits: Boosts immune system, often used to prevent or treat colds.</li>
+    <li class="mb-2">Considerations: Allergic reactions possible, especially in those with allergies to the daisy family; not recommended for long-term use or autoimmune disorders without medical advice.</li>
+</ul>
+
+<h6 class="section-title">General Tips</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Consult a Healthcare Provider: Especially if you have existing conditions or are on other medications.</li>
+    <li class="mb-2">Quality Matters: Choose supplements from reputable brands that use standardized extracts to ensure potency and consistency.</li>
+</ul>
+
+<h5 class="my-3 section-title">Probiotics and Prebiotics:</h5>
+
+<p class="section-intro">Probiotics are live beneficial bacteria that help maintain gut health by balancing microbiota, supporting digestion, and combating harmful bacteria. Prebiotics are non-digestible fibers that feed these beneficial bacteria, promoting their growth and enhancing gut microbiome diversity. Together, they support digestive health, boost immunity, and improve overall well-being. Probiotics are found in foods like yogurt and sauerkraut, while prebiotics are in garlic, onions, and whole grains.</p>
+
+<h5 class="my-3 section-title">Omega-3 Fatty Acids</h5>
+
+<img class="img-fluid article-image" src="images/supplements/omega-3.jpg" alt="image">
+
+<p class="section-intro">Omega-3 fatty acids are essential fats that play a crucial role in overall health. The three main types are ALA (alpha-linolenic acid), EPA (eicosapentaenoic acid), and DHA (docosahexaenoic acid). Here’s how they benefit the body:</p>
+
+<h6 class="section-title">Heart Health</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Reduced Risk of Heart Disease</li>
+    <li class="mb-2">Anti-Inflammatory Effects</li>
+    <li class="mb-2">Improved Heart Rhythm</li>
+</ul>
+
+<h6 class="section-title">Brain Health</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Cognitive Function</li>
+    <li class="mb-2">Mental Health</li>
+</ul>
+
+<h6 class="section-title">Eye Health</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Retinal Health</li>
+    <li class="mb-2">Visual Development in Infants</li>
+</ul>
+
+<h6 class="section-title">Joint and Bone Health</h6>
+
+<ul class="mb-5 item-list">
+    <li class="mb-2">Reduced Inflammation</li>
+    <li class="mb-2">Bone Strength</li>
+</ul>
+
+<p class="section-intro">Omega-3 supplements are often derived from fish oil, krill oil, or algae. Consider your diet and consult a healthcare provider to determine the appropriate type and dosage for your needs.</p>
+
+
+<h6 class="section-title">Skin Health</h6>
+<ul class="mb-5 item-list">
+    <li class="mb-2">Moisture and Elasticity</li>
+    <li class="mb-2">Anti-Aging</li>
+</ul>
+
+<h6 class="section-title">Immune System Support</h6>
+<ul class="mb-5 item-list">
+    <li class="mb-2">Inflammation Regulation</li>
+</ul>
+
+<h6 class="section-title">Sources</h6>
+<ul class="mb-5 item-list">
+    <li class="mb-2">Fish Oil</li>
+    <li class="mb-2">Fatty Fish</li>
+    <li class="mb-2">Flaxseeds and Chia Seeds</li>
+    <li class="mb-2">Walnuts</li>
+    <li class="mb-2">Algal Oil</li>
+    <li class="mb-2">Omega-3 Fortified Foods</li>
+</ul>
+
+	<div class="considerations-section">
+		<h6>Considerations</h6>
+		<ul class="mb-5">
+			<li class="mb-2">Balanced Intake: While omega-3s are beneficial, it’s important to maintain a balance with omega-6 fatty acids, which are also essential but can promote inflammation if consumed in excess relative to omega-3s.</li>
+			<li class="mb-2">Consultation for Supplementation: If considering omega-3 supplements, especially fish oil, it’s advisable to consult with a healthcare provider, particularly if you have any underlying health conditions or are on medications.</li>
+		</ul>
+	</div>
+	
+</section>
+</div>
+</div>
+
+
+<!-------------SUPPLEMENT QUIZ--------------->
+<div class="section">
+    <div class="content">
+        <section class="quiz bg-grid" id="quiz">
+            <h2>Supplement Quiz</h2>
+            <div class="login-box">
+                <form id="supplementQuiz">
+                    <div class="user-box">
+                        <select id="goal" name="goal" class="input">
+                            <option value="" disabled selected>What is your goal?</option>
+                            <option value="muscleGain">Muscle Gain</option>
+                            <option value="weightLoss">Weight Loss</option>
+                            <option value="energyBoost">Energy Boost</option>
+                            <option value="generalHealth">General Health</option>
+                        </select>
+                    </div>
+                    <div class="user-box">
+                        <select id="activityLevel" name="activityLevel" class="input">
+                            <option value="" disabled selected>What is your activity level?</option>
+                            <option value="low">Low</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="user-box">
+                        <select id="dietType" name="dietType" class="input">
+                            <option value="" disabled selected>What is your diet type?</option>
+                            <option value="omnivore">Omnivore</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="calculateRecommendation()" class="calculate-button">
+                        <span></span>
+                        Get Recommendation
+                    </button>
+                </form>
+                <!-- Loader -->
+                <div id="loader" class="loader" style="display: none;">
+                    <div class="loaderMiniContainer">
+                        <div class="barContainer">
+                            <span class="bar"></span>
+                            <span class="bar bar2"></span>
+                        </div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 101 114"
+                            class="svgIcon"
+                        >
+                            <circle
+                                stroke-width="7"
+                                stroke="black"
+                                transform="rotate(36.0692 46.1726 46.1727)"
+                                r="29.5497"
+                                cy="46.1727"
+                                cx="46.1726"
+                            ></circle>
+                            <line
+                                stroke-width="7"
+                                stroke="black"
+                                y2="111.784"
+                                x2="97.7088"
+                                y1="67.7837"
+                                x1="61.7089"
+                            ></line>
+                        </svg>
+                    </div>
+                    <!-- Minimalist loading text -->
+                    <p class="loader-text">Finding the best supplements...</p>
+                </div>
+                <div id="result" class="result" style="display: none;">
+                    <h5>Your Recommended Supplementation</h5>
+                    <p id="recommendationText"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="shortcut">
+	<a href="help.htm">Not so sure how it works? Click here!</a>
+  </div>
+				  
+<p>‎ </p>
+<p>‎ </p>
+<p>‎ </p>
+
+<!-------------SUPPLEMENT TRACKER--------------->
+
+<div class="section">
+	<div class="content">
+	  <section class="tracker bg-grid" id="tracker" style="height: auto;">
+		<h2>Supplement Tracker</h2>
+  
+		<div class="login-box tracker-container">
+		  <!-- Form to log supplements -->
+		  <form id="supplement-form">
+			<div class="user-box">
+			  <input type="text" id="supplement-name" required>
+			  <label for="supplement-name">Supplement Name:</label>
+			</div>
+			<div class="user-box">
+			  <input type="number" id="dosage" required>
+			  <label for="dosage">Dosage (mg):</label>
+			</div>
+			<div class="user-box">
+			  <input type="text" id="category" required>
+			  <label for="category">Category (e.g., Vitamin, Protein):</label>
+			</div>
+			<div class="user-box">
+			  <input type="date" id="date" required>
+			  <label for="date">Date:</label>
+			</div>
+			<div class="user-box">
+			  <input type="time" id="time" required>
+			  <label for="time">Time:</label>
+			</div>
+			<div class="user-box">
+				Notes:
+				<textarea id="notes" placeholder="Write about your results!" required></textarea>
+			</div>
+		    <button type="button" id="log-supplement" class="calculate-button">
+				<span></span>
+				Log Supplement
+			</button>
+			
+			<p>‎ </p>
+
+<!-- Form Container to center the loader -->
+<div class="form-container">
+	<!-- Loading animation -->
+	<div class="loading-animation" style="display: none;">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	  <div class="bar4"></div>
+	  <div class="bar5"></div>
+	  <div class="bar6"></div>
+	  <div class="bar7"></div>
+	  <div class="bar8"></div>
+	  <div class="bar9"></div>
+	  <div class="bar10"></div>
+	  <div class="bar11"></div>
+	  <div class="bar12"></div> 
+	</div>
+  </div>
+			</form>
+  
+		  <!-- Supplement intake history -->
+		  <div class="history-list" id="history-list">
+			<!-- Intake log items will appear here -->
+		  </div>
+		</div>
+	  </section>
+	</div>
+  </div>
+  <div class="shortcut">
+	<a href="help.htm">Not so sure how it works? Click here!</a>
+  </div>
+
+<p>‎ </p>
+<p>‎ </p>
+<p>‎ </p>
+
+		<h4 class="my-3">My supplemments recommendations:</h4>
+
+        <p>If i had to choose only 3 Supplements these are my choices:</p>
+
+	    <section class="content px-3 py-5 p-md-5">
+		    <div class="container">
+			    <div class="post mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="images/supplements/creatine.jpeg" alt="image">
+					    <div class="media-body">
+						    <h4 class="title mb-1">Creatine</a></h4>
+						    <div class="intro">Creatine is a popular supplement known for its benefits in enhancing athletic performance and supporting muscle growth. It works by increasing the availability of ATP, the primary energy currency of cells, which is particularly beneficial during high-intensity, short-duration activities like weightlifting and sprinting. Regular supplementation can lead to increased strength, improved power output, and greater muscle mass over time. Additionally, creatine has been shown to aid in faster recovery between workouts, reduce muscle fatigue, and may even have neuroprotective effects, making it a valuable addition to both athletes and fitness enthusiasts' routines.</div>
+					    </div>
+				    </div>
+			    </div>
+			    <div class="post mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="images/supplements/Whey Protein.jpeg" alt="image">
+					    <div class="media-body">
+						    <h4 class="title mb-1">Whey Protein</h4>
+						    <div class="intro">Whey protein is a highly effective supplement for supporting muscle growth, recovery, and overall health. It is rich in essential amino acids, particularly leucine, which plays a key role in stimulating muscle protein synthesis. This makes whey protein ideal for post-workout recovery, helping to repair and build muscle tissue. Additionally, it is easily digestible and absorbed quickly by the body, providing a convenient and efficient source of high-quality protein. Beyond muscle support, whey protein can aid in weight management by promoting satiety and preserving lean muscle mass during calorie restriction. Its versatility and benefits make it a staple in many fitness and health routines.</div>
+					    </div>
+				    </div>
+			    </div>
+			    
+			    <div class="post mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="images/supplements/pre workout.jpeg" alt="image">
+					    <div class="media-body">
+						    <h4 class="title mb-1">Pre Workout</h4>
+						    <div class="intro">Pre-workout supplements are designed to enhance exercise performance by boosting energy, focus, and endurance. They typically contain ingredients like caffeine, which increases alertness and reduces perceived exertion, allowing for more intense and prolonged workouts. Other common components, such as beta-alanine and citrulline, help reduce muscle fatigue and improve blood flow, enhancing overall exercise capacity. By providing these benefits, pre-workouts can lead to better performance, greater strength gains, and improved muscle pumps, making them a valuable tool for anyone looking to maximize their workout potential.</div>
+					    </div>
+				    </div>
+			    </div>
+				
+		    </div>
+	    </section>
+	    
+		<div class="warning">
+			<p><strong>Warning:</strong> This article is only a recommendation. It is important to consult with a nutritionist or healthcare professional before starting taking any supplement!</p>
+		</div>
+		
+	</article>
+
+	<footer class="footer">
+		<p>&copy; 2024 Muscles & Balance. All rights reserved.</p>
+	</footer>
+
+    </div>
+    
+        <!-- SCROLL REVAEL -->
+ 
+	<!-- Including ScrollReveal.js from CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- External JavaScript file -->
+    <script src="js/script.js"></script>
+
+
+    <!-- Bootstrap Javascript -->          
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+    <script src="js/supplements.js"></script>
+    <script type="module" src="js/register.js" defer></script>
+
+</body>
+</html> 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="images/MBlogo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <script type="module" src="js/register.js" defer></script>
+    
+    <!-- Include intl-tel-input CSS in the head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+
+<!-- Include intl-tel-input JavaScript before closing </body> tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+</head>
+<body>
+
+<!--BACKGROUND-->
+<video autoplay muted loop playsinline id="background-video">
+    <source src="videos/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div id="custom-alert" class="alert hidden">
+    <span id="alert-message"></span>
+    <button id="alert-close" onclick="closeAlert()">X</button>
+  </div>
+  
+
+<!---------FORM--------->
+<div class="login-box" id="login-box">
+    <!-- Sign In Form -->
+    <div class="form-container" id="sign-in-form">
+        <p>SIGN IN</p>
+        <form id="signin-form">
+            <div class="user-box">
+                <input type="email" id="signin-email" required autocomplete="email">
+                <label for="signin-email">Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="signin-password" required autocomplete="current-password">
+                <label for="signin-password">Password</label>
+            </div>
+            <!-- Updated Sign In Button ID -->
+            <div class="center">
+                <button class="btn" id="user-signin-button" type="button">
+                    <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
+                        <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                        <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                    </svg>
+                    <span>SUBMIT</span>
+                </button>
+            </div>
+       </form>
+       <p><a href="#forgot-password-form" class="a2">Forgot your password?</a></p>       
+       <p>Don't have an account? <a href="#sign-up-form" class="a2">Sign up</a></p>    
+    </div>
+
+<!-- Sign Up Form -->
+<div class="form-container" id="sign-up-form" style="display:none;">
+    <p>SIGN UP</p>
+    <form id="signup-form">
+        <div class="user-box">
+            <input type="text" id="signup-name" required autocomplete="name">
+            <label for="signup-name">Name</label>
+        </div>
+        <div class="user-box">
+            <input type="email" id="signup-email" required autocomplete="email">
+            <label for="signup-email">Email</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="signup-password" required autocomplete="new-password">
+            <label for="signup-password">Password</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="signup-confirm-password" required autocomplete="new-password">
+            <label for="signup-confirm-password">Confirm Password</label>
+        </div>
+        <div class="user-box">
+            Date of Birth:
+            <input type="date" id="signup-dob" name="dob" required>
+        </div>
+        <!-- Updated Phone Number Input -->
+        <div class="user-box">
+            Phone Number (Optional)
+            <input type="tel" id="signup-phone" name="phone">
+        </div>
+        <div class="user-box">
+            <select id="signup-country" name="country" required>
+                <option value="" disabled selected>Choose your country</option>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="china">China</option>
+                <option value="brazil">Brazil</option>
+                <option value="france">France</option>
+                <option value="russia">Russia</option>
+            </select>
+            <label>Choose your country</label>
+        </div>
+
+        <!-- Gender Radio Buttons -->
+        <div class="radio-container">
+            <div class="radio-wrapper">
+                <label class="radio-button">
+                    <input id="male" name="gender" type="radio" value="male">
+                    <span class="radio-checkmark"></span>
+                    <span class="radio-label">Male</span>
+                </label>
+            </div>
+            <div class="radio-wrapper">
+                <label class="radio-button">
+                    <input id="female" name="gender" type="radio" value="female">
+                    <span class="radio-checkmark"></span>
+                    <span class="radio-label">Female</span>
+                </label>
+            </div>
+            <div class="radio-wrapper">
+                <label class="radio-button">
+                    <input id="other" name="gender" type="radio" value="other">
+                    <span class="radio-checkmark"></span>
+                    <span class="radio-label">Other</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Terms and Conditions Checkbox -->
+        <div class="terms-container">
+            <label class="container">
+                <input type="checkbox" id="terms" required>
+                <svg viewBox="0 0 64 64" height="1.3em" width="1.3em">
+                    <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+                </svg>
+            </label>
+            <p><a href="terms.htm" class="a2">I agree to the terms and conditions</a></p>
+        </div>            
+
+        <!-- Sign Up Button -->
+        <div class="center">
+            <button class="btn" id="signup-button" type="button">
+              <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
+                <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+              </svg>
+              <span>REGISTER</span>
+            </button>
+        </div>
+    </form>
+    <p>Already have an account? <a href="#sign-in-form" class="a2">Sign in</a></p>
+</div>
+
+    <!-- Forgot Password Form -->
+    <div class="form-container" id="forgot-password-form" style="display:none;">
+        <p>Forgot Password</p>
+        <form id="forgot-password-form">
+            <div class="user-box">
+                <input type="email" id="forgot-email" required autocomplete="email">
+                <label for="forgot-email">Enter your email</label>
+            </div>
+            <!-- Updated Forgot Password Submit Button -->
+            <div class="center">
+                <button class="btn" id="forgot-password-btn" type="button" onclick="forgotPassword()">
+                  <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
+                    <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                    <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                  </svg>
+                  <span>SUBMIT</span>
+                </button>
+              </div>
+        </form>
+        <p>Remembered your password? <a href="#sign-in-form" class="a2">Sign in</a></p>    
+    </div>
+</div>
+
+
+<script src="js/login.js"></script>
+</body>
+</html>
+
+

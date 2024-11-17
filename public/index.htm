@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Muscles & Balance</title>
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="shortcut icon" href="images/MBlogo.png">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="videos/welcome.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="auth-placeholder">
+        <div class="top-right-buttons">
+            <a href="login.htm#sign-in-form" class="auth-button sign-in" id="signin-link">Sign In</a>
+            <a href="login.htm#sign-up-form" class="auth-button sign-up" id="signup-link">Sign Up</a>
+        </div>
+        <!-- Welcome message (dynamically updated via JavaScript) -->
+        <p class="welcome-message hidden" id="welcome-message"></p>
+    </div>
+    
+    <!-- Welcome Content -->
+<div class="welcome-container">
+    <img src="images/MBlogo.png" alt="Muscles & Balance Logo" class="welcome-logo">
+    <h1 class="welcome-title">Welcome to Muscles & Balance</h1>
+    <p class="welcome-text">Your journey to a healthier, balanced life begins here.</p>
+    <a href="home.htm" class="button-link">
+        <button class="cssbuttons-io-button">
+            Get started
+            <div class="icon">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </button>
+    </a>
+    <blockquote class="welcome-quote">Make the world healthy again</blockquote>
+</div>
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>What is Muscles & Balance?</h2>
+        <p>Muscles & Balance is your ultimate companion for a healthier, more balanced lifestyle. Whether you're tackling workout challenges, tracking supplements, or exploring personalized fitness tools, our platform is designed to empower you at every step of your journey. Achieve your goals with confidence, backed by features tailored to enhance your progress and well-being.</p>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <h2>How It Works</h2>
+        <div class="feature">
+            <h3>Personalized Plans</h3>
+            <p>Get custom workout and meal plans tailored to your specific goals and preferences.</p>
+        </div>
+        <div class="feature">
+            <h3>Track Your Progress</h3>
+            <p>Log your exercises, supplements, and track performance to see your improvements over time.</p>
+        </div>
+        <div class="feature">
+            <h3>Community Support</h3>
+            <p>Join a community of like-minded individuals who are on the same journey toward a balanced life.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Muscles & Balance. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script src="js/welcome.js"></script>
+    <script type="module" src="js/register.js" defer></script>
+
+</body>
+</html>
