@@ -1,18 +1,39 @@
 //CALORIE AND MACROS CALCULATOR
 
 function calculateCaloriesAndMacros() {
-    // Get form values
     const age = parseInt(document.getElementById("age").value);
     const gender = document.getElementById("gender").value;
     const weight = parseFloat(document.getElementById("weight").value);
-    const height = parseFloat(document.getElementById("height").value);
+    const height = document.getElementById("height").value; // Will be in the format "5'6"
+    const weightUnit = document.getElementById("weightUnit").value;
+    const heightUnit = document.getElementById("heightUnit").value;
     const activityLevel = parseFloat(document.getElementById("activityLevel").value);
     const goal = document.getElementById("goal").value;
 
-    // Check if any field is empty
     if (!age || !gender || !weight || !height || !activityLevel || !goal) {
         document.getElementById("result").innerHTML = "Please fill out all fields 💪";
         return;
+    }
+
+    let weightInKg = weight;
+    if (weightUnit === "lbs") {
+        weightInKg = weight * 0.453592; // Convert lbs to kg
+    }
+
+    let heightInCm;
+    if (heightUnit === "ft") {
+        // Parse height in "X'Y" format
+        const heightParts = height.match(/^(\d+)'(\d+)?$/);
+        if (heightParts) {
+            const feet = parseInt(heightParts[1]);
+            const inches = parseInt(heightParts[2] || 0);
+            heightInCm = (feet * 30.48) + (inches * 2.54);
+        } else {
+            document.getElementById("result").innerHTML = "Please enter height in the format 5'6\" for ft.";
+            return;
+        }
+    } else {
+        heightInCm = parseFloat(height); // Assume cm directly
     }
 
     // Show loading spinner
@@ -23,8 +44,8 @@ function calculateCaloriesAndMacros() {
     setTimeout(() => {
         // CALORIE CALCULATION
         let bmr = gender === "male"
-            ? 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
-            : 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            ? 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age)
+            : 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
 
         let dailyCalories = bmr * activityLevel;
         dailyCalories += goal === "lose" ? -500 : goal === "gain" ? 500 : 0;
@@ -39,15 +60,15 @@ function calculateCaloriesAndMacros() {
         if (goal === "maintain") {
             carbPercentage = 0.45;
             fatPercentage = 0.25;
-            proteinGrams = weight * 0.8;
+            proteinGrams = weightInKg * 0.8;
         } else if (goal === "gain") {
             carbPercentage = 0.42;
             fatPercentage = 0.22;
-            proteinGrams = weight * 1.8;
+            proteinGrams = weightInKg * 1.8;
         } else {
             carbPercentage = 0.40;
             fatPercentage = 0.20;
-            proteinGrams = weight * 1.5;
+            proteinGrams = weightInKg * 1.5;
         }
 
         const carbGrams = (adjustedCalories * carbPercentage) / 4;
@@ -61,10 +82,9 @@ function calculateCaloriesAndMacros() {
             <p>Protein: ${proteinGrams.toFixed(2)} grams/day</p>
             <p>Fats: ${fatGrams.toFixed(2)} grams/day</p>
         `;
-
-        // Show the Export to PDF button
-        document.getElementById("exportBtn").style.display = "block";
-    }, 1000); // Delay to simulate loading
+    // Show the Export to PDF button
+    document.getElementById("exportBtn").style.display = "block";
+}, 1000); // Delay to simulate loading
 }
 
 // EXPORT PDF

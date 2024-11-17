@@ -2054,7 +2054,7 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   margin: 1em 0;
   width: 100%; /* Full width inputs */
   position: relative;
-  margin-bottom: 20px; /* Reduce space between questions */
+  color: white;
 }
 
 .form-group input,
@@ -2079,6 +2079,7 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   pointer-events: none;
   transition: all 0.3s ease;
   text-transform: uppercase;
+  display: block; 
 }
 
 .form-group input:focus,
@@ -2095,6 +2096,39 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   left: 0;
   font-size: 12px;
   color: #fff;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds space between input and select */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.input-container input,
+.input-container select {
+  font-size: 16px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background: transparent;
+  flex: 1; /* Make the input take up available space */
+}
+
+.input-container select {
+  width: auto; /* Adjust select to its content size */
+  min-width: 60px; /* Prevent it from becoming too small */
+  color: #696969;
+}
+
+.input-container input:focus,
+.input-container select:focus {
+  outline: none;
+  border: 1px solid #535353b4; /* Adds subtle focus state */
+  border-radius: 4px;
 }
 
 .submit-btn {
