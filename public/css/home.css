@@ -403,7 +403,6 @@ button:focus {
 
 
 /* SIGN IN AND SIGN UP POP UP */
-/* Fullscreen overlay for the popup */
 .popup {
   position: fixed;
   top: 0;
@@ -426,7 +425,7 @@ button:focus {
 
 /* Popup content container */
 .popup-content {
-  background: linear-gradient(135deg, #ffffff, #f8f9fa); /* Subtle gradient for modern style */
+  background: rgba(0, 0, 0, 0.849); /* Subtle gradient for modern style */
   padding: 25px 40px;
   border-radius: 12px; /* Softer corners */
   text-align: center;
@@ -441,7 +440,7 @@ button:focus {
 .popup-content h2 {
   margin-bottom: 15px;
   font-size: 1.8em;
-  color: #333;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif; /* Clean font style */
   font-weight: bold;
 }
@@ -449,7 +448,7 @@ button:focus {
 /* Description styling */
 .popup-content p {
   margin-bottom: 25px;
-  color: #555;
+  color: #c0c0c0;
   font-size: 1.1em;
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
@@ -465,7 +464,7 @@ button:focus {
 /* Primary button */
 .popup-buttons .btn {
   padding: 12px 25px;
-  background: #007bff;
+  background: #a30606;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -476,7 +475,7 @@ button:focus {
 }
 
 .popup-buttons .btn:hover {
-  background: #0056b3;
+  background: #4b0202;
   transform: scale(1.05); /* Slightly larger on hover */
 }
 
