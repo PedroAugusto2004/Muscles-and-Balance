@@ -224,3 +224,52 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('user-signin-button')?.addEventListener('click', handleSignIn);
   document.getElementById('logout-button')?.addEventListener('click', showLogoutPopup);
 });
+
+// WELCOME MESSAGE FOR INDEX.HTM
+
+// Function to display the welcome message and hide sign-in and sign-up buttons
+async function showWelcomeMessage(userId) {
+  const signInButton = document.getElementById("sign-in-button");
+  const signUpButton = document.getElementById("sign-up-button");
+  const welcomeMessage = document.getElementById("user-welcome-message");
+
+  try {
+    // Fetch user data from Firestore
+    const userDoc = await getDoc(doc(db, "users", userId));
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+
+      // Display welcome message
+      welcomeMessage.textContent = `Welcome, ${userData.name}!`;
+      welcomeMessage.classList.remove("hidden");
+
+      // Hide the auth buttons
+      signInButton?.classList.add("hidden");
+      signUpButton?.classList.add("hidden");
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+}
+
+// Track auth state and display the welcome message
+onAuthStateChanged(auth, (user) => {
+  const signInButton = document.getElementById("sign-in-button");
+  const signUpButton = document.getElementById("sign-up-button");
+  const welcomeMessage = document.getElementById("user-welcome-message");
+
+  if (user) {
+    // User is logged in
+    showWelcomeMessage(user.uid);
+
+    // Hide sign-in and sign-up buttons
+    signInButton?.classList.add("hidden");
+    signUpButton?.classList.add("hidden");
+  } else {
+    // User is logged out
+    signInButton?.classList.remove("hidden");
+    signUpButton?.classList.remove("hidden");
+    welcomeMessage?.classList.add("hidden");
+    welcomeMessage.textContent = ""; // Clear any previous message
+  }
+});
