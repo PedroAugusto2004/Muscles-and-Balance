@@ -273,3 +273,22 @@ onAuthStateChanged(auth, (user) => {
     welcomeMessage.textContent = ""; // Clear any previous message
   }
 });
+
+// Function to show the login/signup popup
+function showLoginPopup() {
+  const popup = document.getElementById('login-popup');
+  popup.classList.remove('hidden');
+  setTimeout(() => {
+    popup.style.opacity = '1';
+    popup.style.transform = 'translateY(0)';
+  }, 100); // Small delay to trigger CSS transition
+}
+
+
+// Check if the user is logged in
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // Show the popup if the user is not logged in
+    setTimeout(showLoginPopup, 2000); // Delay to make it less intrusive
+  }
+});
