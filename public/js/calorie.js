@@ -11,7 +11,7 @@ function calculateCaloriesAndMacros() {
     const goal = document.getElementById("goal").value;
 
     if (!age || !gender || !weight || !height || !activityLevel || !goal) {
-        document.getElementById("result").innerHTML = "Please fill out all fields 💪";
+        document.getElementById("result").innerHTML = "Please fill out all fields 💪";          
         return;
     }
 
