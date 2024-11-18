@@ -30,6 +30,22 @@ document.addEventListener('DOMContentLoaded', function () {
     featureTexts.forEach(feature => observer.observe(feature));
 });
 
+// Add event listener for all navigation links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
 
-// WELCOME MESSAGE FOR INDEX.HTM
+        // Scroll to the target section smoothly
+        const targetId = this.getAttribute('href').substring(1); // Remove the '#' from href
+        const targetElement = document.getElementById(targetId);
 
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+
+        // Update active class for links
+        document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
