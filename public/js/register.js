@@ -153,10 +153,19 @@ async function displayWelcomeMessageAndAuthButtons(userId) {
     if (userDoc.exists()) {
       const userData = userDoc.data();
 
+      // Set the user's name in localStorage
       localStorage.setItem("userName", userData.name);
+
+      // Update and display the welcome message
       welcomeMessage.textContent = `Welcome, ${userData.name}!`;
       welcomeMessage.classList.remove("hidden");
 
+      // Trigger animation by adding the visible class
+      setTimeout(() => {
+        welcomeMessage.classList.add("visible");
+      }, 100); // Slight delay for animation to take effect
+
+      // Toggle visibility of auth buttons
       signinButton?.classList.add("hidden");
       logoutButton?.classList.remove("hidden");
     }
@@ -243,6 +252,12 @@ async function showWelcomeMessage(userId) {
       welcomeMessage.textContent = `Welcome, ${userData.name}!`;
       welcomeMessage.classList.remove("hidden");
 
+      // Make the element visible with animation
+    welcomeMessage.classList.remove('hidden');
+    setTimeout(() => {
+        welcomeMessage.classList.add('visible');
+    }, 100); // Slight delay to trigger the animation
+    
       // Hide the auth buttons
       signInButton?.classList.add("hidden");
       signUpButton?.classList.add("hidden");

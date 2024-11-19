@@ -219,63 +219,6 @@ p.lead strong {
 }
 
 
-/* SIGN IN */
-header {
-  justify-content: space-between; /* Ensures sign-in button stays on the right */
-  align-items: center;
-  background-color: transparent; /* Black background for header */
-  position: relative;
-  z-index: 100; /* Ensures the header and button are visible */
-  width: 100%;
-}
-
-.top-right-buttons {
-  position: absolute;
-  right: 20px;
-  top: 48px;
-  display: flex;
-  gap: 10px;
-}
-
-.button {
-  padding: 1.3em 3em;
-  text-decoration: none;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.button:hover {
-  background-color: #3b3b3b;
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
-}
-
-.button:hover {
-  color: rgb(255, 255, 255, 1);
-  transform: scale(1.1) translateY(-3px);
-}
-
-.button:active {
-  transform: translateY(-1px);
-}
-
-header .button {
-  background-color: transparent;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(70, 70, 70);
-}
-
 /* Responsive styling for mobile */
 @media (max-width: 768px) {
   header {
@@ -312,6 +255,19 @@ header .button {
   color: #ffffff;
   font-weight: 100;
   margin: 10px 0;
+  opacity: 0; /* Start invisible */
+  transform: translateY(10px); /* Slightly offset for the slide effect */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
+}
+
+.welcome-message.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Slide into place */
+}
+
+/* Hidden state to prevent rendering */
+.hidden {
+  display: none;
 }
 
 .heading {
@@ -565,40 +521,37 @@ button:focus {
 
 /* Primary button */
 .popup-buttons .btn {
-  padding: 12px 25px;
-  background: #a30606;
-  color: #fff;
+  padding: 1.3em 3em;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #f7f7f7;
+  background-color: #920606;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
 
 .popup-buttons .btn:hover {
-  background: #4b0202;
-  transform: scale(1.05); /* Slightly larger on hover */
-}
-
-/* Secondary button */
-.popup-buttons .btn-secondary {
-  padding: 12px 25px;
-  background: #6c757d;
+  background-color: #460000;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transform: translateY(-7px);
 }
 
-.popup-buttons .btn-secondary:hover {
-  background: #5a6268;
-  transform: scale(1.05);
+.popup-buttons .btn:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
 }
 
+.popup-buttons .btn:active {
+  transform: translateY(-1px);
+}
 
 /* Animation for smooth appearance */
 @keyframes popupFadeIn {

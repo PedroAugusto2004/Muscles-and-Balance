@@ -211,38 +211,36 @@ background-color: #777; /* Color when clicked */
 
 /* Primary button */
 .popup-buttons .btn {
-  padding: 12px 25px;
-  background: #a30606;
-  color: #fff;
+  padding: 1.3em 3em;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #f7f7f7;
+  background-color: #920606;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
 
 .popup-buttons .btn:hover {
-  background: #4b0202;
-  transform: scale(1.05); /* Slightly larger on hover */
-}
-
-/* Secondary button */
-.popup-buttons .btn-secondary {
-  padding: 12px 25px;
-  background: #6c757d;
+  background-color: #460000;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transform: translateY(-7px);
 }
 
-.popup-buttons .btn-secondary:hover {
-  background: #5a6268;
-  transform: scale(1.05);
+.popup-buttons .btn:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
+}
+
+.popup-buttons .btn:active {
+  transform: translateY(-1px);
 }
 
 

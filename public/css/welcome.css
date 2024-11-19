@@ -257,9 +257,17 @@ nav a.active::after {
     align-items: center;
     justify-content: center;
     text-align: center;
-
+    opacity: 0; /* Start with invisible */
+    transform: translateY(10px); /* Slightly offset for effect */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
 }
 
+.user-welcome.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+/* Hide element when not visible */
 .hidden {
     display: none;
 }
