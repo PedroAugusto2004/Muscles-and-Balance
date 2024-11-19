@@ -232,6 +232,7 @@ header {
 .top-right-buttons {
   position: absolute;
   right: 20px;
+  top: 48px;
   display: flex;
   gap: 10px;
 }
