@@ -2063,35 +2063,32 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 /*-----------------CALORIE AND MACRO CALCULATOR--------------------*/
 
 
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Container Styling */
 .calorie-calculator {
   width: 90%;
-  display: flex;
   max-width: 400px;
-  padding: 20px;
-  justify-content: center;
-  position: relative;
-  border-radius: 10px;
+  padding: 16px;
   margin: 20px auto;
-  flex-direction: column;
+  border-radius: 10px;
   background: #000; /* Static background inside the form */
   box-shadow: rgb(0, 0, 0) 0px 3px 8px;
-
-  /* Adding the animated gradient line around the form */
   border: 3px solid transparent;
-  background-image: linear-gradient(#000, #000), /* Static background inside */
-    linear-gradient(145deg, #831010, transparent, #831010, transparent); /* Animated gradient */
+  background-image: linear-gradient(#000, #000),
+    linear-gradient(145deg, #831010, transparent, #831010, transparent);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  background-size: 100% 100%, 300% 300%; /* Make the gradient larger to animate */
-  animation: borderRun 2.5s linear infinite; /* Animate the gradient */
+  background-size: 100% 100%, 300% 300%;
+  animation: borderRun 2.5s linear infinite;
 }
 
+/* Animated Border Keyframes */
 @keyframes borderRun {
   0% {
     background-position: 0% 0%, 0% 0%;
@@ -2101,6 +2098,13 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   }
 }
 
+/* Responsive Adjustments for Mobile */
+@media screen and (max-width: 480px) {
+  .calorie-calculator {
+    padding: 12px;
+    border-radius: 8px;
+  }
+}
 /* Login overlay */
 .login-overlay {
   position: absolute;
@@ -2202,37 +2206,51 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   color: #fff;
 }
 
+/* Updated Input Container */
 .input-container {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adds space between input and select */
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.5em;
-  border-radius: 5px;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background-color: #181818; /* Better contrast for inputs */
+  border: 1px solid #7e7e7e; /* Add border for better visibility */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  transition: all 0.3s ease;
 }
 
-.input-container input,
+.input-container:hover,
+.input-container:focus-within {
+  border-color: #fff; /* Highlight border on hover or focus */
+  background-color: #333; /* Slightly lighter background */
+}
+
+/* Improved Select Dropdown */
 .input-container select {
-  font-size: 16px;
-  padding: 0.6em;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  background: transparent;
-  flex: 1; /* Make the input take up available space */
+  background-color: transparent; /* Keep transparent background */
+  color: #e8e8e8; /* Light text for contrast */
+  font-size: 16px; /* Ensure font is readable */
+  border: none; /* Remove border for dropdown */
+  outline: none; /* Remove default outline */
+  cursor: pointer; /* Show pointer to indicate interactivity */
+  padding: 5px; /* Adjust padding for better click area */
+  appearance: none; /* Hide default dropdown arrow */
 }
 
-.input-container select {
-  width: auto; /* Adjust select to its content size */
-  min-width: 60px; /* Prevent it from becoming too small */
-  color: #696969;
+/* Add custom arrow */
+.input-container::after {
+  content: "▼"; /* Unicode for down arrow */
+  color: #888888; /* Match the text color */
+  font-size: 12px; /* Slightly smaller than the text */
+  position: absolute;
+  right: 10px; /* Position it to the right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust centering */
+  pointer-events: none; /* Prevent interaction with the arrow */
 }
 
-.input-container input:focus,
-.input-container select:focus {
-  outline: none;
-  border: 1px solid #535353b4; /* Adds subtle focus state */
-  border-radius: 4px;
+/* Placeholder text */
+.input-container select option {
+  color: #666; /* Gray text for unselected options */
 }
 
 .submit-btn {
