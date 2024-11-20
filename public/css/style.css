@@ -1487,9 +1487,10 @@ margin: 0; /* Remove default margin */
 }
 
 .logo {
-width: 100px;
-height: auto;
-margin-top: -7px; /* Adjust this value to move it higher */
+  display: block;
+  width: 100px;
+  height: auto;
+  margin-top: -4px; /* Adjust this value to move it down */
 }
 
 /*SHARE BUTTON*/
