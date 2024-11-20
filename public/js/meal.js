@@ -164,8 +164,18 @@ function showLoadingSpinner() {
 }
 
 function hideLoadingSpinner() {
-    document.getElementById('loadingSpinnerNew').style.display = 'none';
-    document.getElementById('nutritionLabel').style.display = 'block';
+    const nutritionLabel = document.getElementById('nutritionLabel');
+    const loadingSpinner = document.getElementById('loadingSpinnerNew');
+
+    loadingSpinner.style.display = 'none'; // Hide the spinner
+
+    // Ensure the nutrition label is hidden initially
+    nutritionLabel.style.display = 'block'; 
+
+    // Add the 'show' class to trigger the animation
+    setTimeout(() => {
+        nutritionLabel.classList.add('show'); 
+    }, 100); // Delay to ensure visibility change takes effect
 }
 
 
