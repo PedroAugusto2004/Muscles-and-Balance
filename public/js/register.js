@@ -72,8 +72,14 @@ async function handleSignUp(event) {
   const phone = document.getElementById('signup-phone').value || "";
   const country = document.getElementById('signup-country').value;
   const gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : "";
+  const termsAgreed = document.getElementById('terms').checked;
 
   // Basic validation
+  if (!termsAgreed) {
+    showAlert("You must agree to the terms and conditions.", 'error');
+    return;
+  }
+
   if (password !== confirmPassword) {
     showAlert("Passwords do not match!", 'error');
     return;
