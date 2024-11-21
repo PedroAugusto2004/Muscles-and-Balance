@@ -184,15 +184,23 @@ async function displayWelcomeMessageAndAuthButtons(userId) {
 function showLogoutPopup() {
   const popupOverlay = document.createElement("div");
   popupOverlay.id = "popup-overlay";
-  popupOverlay.style.cssText = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;";
+  popupOverlay.style.cssText =
+    "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;";
 
   const popup = document.createElement("div");
   popup.id = "logout-popup";
-  popup.style.cssText = "background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: center;";
+  popup.style.cssText =
+    "position: relative; padding: 20px; border-radius: 12px; background-color: #000000cc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: center;";
+
   popup.innerHTML = `
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
     <p>Are you sure you want to log out?</p>
-    <button id="confirm-logout" style="margin-right: 10px;">Yes</button>
-    <button id="cancel-logout">No</button>
+    <div class="popup-buttons">
+      <button id="confirm-logout">Yes</button>
+      <button id="cancel-logout">No</button>
+    </div>
   `;
 
   popupOverlay.appendChild(popup);
