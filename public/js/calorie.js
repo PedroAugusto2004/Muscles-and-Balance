@@ -89,53 +89,65 @@ function calculateCaloriesAndMacros() {
 
 // EXPORT PDF
 function exportToPDF() {
-    // Retrieve the user's name from localStorage or set it to "User" if not found
     const userName = localStorage.getItem("userName") || "User";
-
-    // Load jsPDF from the global window object
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF();
 
-    // Add company logo (adjust the path if needed)
-    const logoUrl = "images/MBlogo.png"; // Replace with your actual logo URL or base64 string
-    pdf.addImage(logoUrl, 'PNG', 10, 10, 30, 30); // Adjusted size and position (top-left corner)
+    // Add logo
+    const logoUrl = "images/MBlogo.png";
+    pdf.addImage(logoUrl, 'PNG', 10, 10, 30, 30);
 
-    // Add "Muscles & Balance" title with a strong, bold font style
+    // Title
     pdf.setFontSize(24);
-    pdf.setFont("helvetica", "bold"); // Set font to bold for a strong look
-    pdf.text("Muscles & Balance", 60, 25); // Position it to the right of the logo
+    pdf.setFont("helvetica", "bold");
+    pdf.text("Muscles & Balance", 60, 25);
 
-    // Set PDF title with the user's name and handle long text wrapping
     const title = `Calorie and Macronutrient Breakdown for ${userName}`;
     pdf.setFontSize(16);
     pdf.setFont("helvetica", "normal");
-    const titleLines = pdf.splitTextToSize(title, 180); // Wrap text within width
-    pdf.text(titleLines, 10, 50); // Position below the logo and main title
+    const titleLines = pdf.splitTextToSize(title, 180);
+    pdf.text(titleLines, 10, 50);
 
-    // Add the current date and time to the PDF
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleString(); // Format date and time as a localized string
+    const formattedDate = currentDate.toLocaleString();
     pdf.setFontSize(12);
     pdf.text(`Date of Calculation: ${formattedDate}`, 10, 60);
 
-    // Retrieve and add Calorie Calculator Results
+    // Retrieve inputs
+    const age = document.getElementById("age").value || "N/A";
+    const gender = document.getElementById("gender").value || "N/A";
+    const weight = document.getElementById("weight").value || "N/A";
+    const height = document.getElementById("height").value || "N/A";
+    const weightUnit = document.getElementById("weightUnit").value || "N/A";
+    const heightUnit = document.getElementById("heightUnit").value || "N/A";
+    const activityLevel = document.getElementById("activityLevel").value || "N/A";
+    const goal = document.getElementById("goal").value || "N/A";
+
+    // Add user inputs
+    pdf.text("User Inputs:", 10, 70);
+    pdf.text(`Age: ${age}`, 10, 80);
+    pdf.text(`Gender: ${gender}`, 10, 90);
+    pdf.text(`Weight: ${weight} ${weightUnit}`, 10, 100);
+    pdf.text(`Height: ${height} ${heightUnit}`, 10, 110);
+    pdf.text(`Activity Level: ${activityLevel}`, 10, 120);
+    pdf.text(`Goal: ${goal}`, 10, 130);
+
+    // Add results
     const calorieResult = document.getElementById("result").innerText;
-    pdf.setFontSize(12);
-    pdf.text("Caloric Intake:", 10, 80);
-    pdf.text(calorieResult, 10, 90);
+    pdf.text("Caloric Intake:", 10, 140);
+    pdf.text(calorieResult, 10, 150);
 
-    // Retrieve and add Macronutrient Calculator Results with text wrapping
     const macroResult = document.getElementById("macroResult").innerText;
-    pdf.text("Macronutrient Breakdown:", 10, 110);
+    pdf.text("Macronutrient Breakdown:", 10, 160);
     const macroLines = pdf.splitTextToSize(macroResult, 180);
-    pdf.text(macroLines, 10, 120);
+    pdf.text(macroLines, 10, 170);
 
-    // Add footer with company name and contact information
+    // Footer
     pdf.setFontSize(10);
-    pdf.setFont("helvetica", "bold"); // Use bold font in the footer for consistency
+    pdf.setFont("helvetica", "bold");
     pdf.text("Powered by Muscles & Balance", 10, pdf.internal.pageSize.height - 20);
     pdf.text("Contact us at: musclesbalance@gmail.com", 10, pdf.internal.pageSize.height - 10);
 
-    // Save the PDF with the user's name in the filename
+    // Save PDF
     pdf.save(`Calorie_and_Macronutrient_Report_${userName}.pdf`);
 }
