@@ -66,6 +66,8 @@ navLinks.forEach(link => {
   });
 });
 
+//PROFILE PIC
+
 //REDIRECTION
 
 function redirectToSection(button) {
