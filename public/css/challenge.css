@@ -1,0 +1,368 @@
+/* General Styles */
+body {
+    font-family: 'Bebas Neue', sans-serif;    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  .muscle-group-selection {
+      flex-wrap: wrap; /* Allows buttons to wrap onto new lines */
+      gap: 5px; /* Reduce the gap between buttons */
+      justify-content: space-around;
+  }
+
+  .animated-button {
+      padding: 10px 20px;
+      font-size: 12px; /* Reduce font size for mobile */
+      margin: 5px; /* Reduce space between buttons */
+  }
+
+  #stop-button, #reset-button, .button-with-icon {
+      width: 90px; /* Adjust width to fit the screen */
+      height: 35px; /* Reduce height slightly */
+      font-size: 10px; /* Smaller text for better fit */
+      padding: 8px 15px; /* Adjust padding */
+  }
+
+  p {
+      font-size: 16px; /* Smaller font for better readability */
+  }
+
+  .timer {
+      font-size: 36px; /* Smaller font for the timer on mobile */
+  }
+
+}
+
+
+/* For specific elements, if needed */
+h1, h2, p {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+p{
+  font-size: 19.5px;
+  color: #969696;
+}
+/* Background Video */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100vw; /* Ensure full viewport width */
+  height: 100vh; /* Ensure full viewport height */
+  object-fit: cover; /* Ensure the video covers the entire container */
+  z-index: -1;
+  filter: brightness(50%); /* Optional: adjust brightness for better text visibility */
+}
+
+/* Mobile Optimizations */
+@media only screen and (max-width: 768px) {
+  #background-video {
+      height: 100vh; /* Full height for mobile */
+      width: 100vw;  /* Full width for mobile */
+      object-fit: cover; /* Ensures the video covers the whole screen */
+      filter: brightness(50%);
+  }
+}
+
+/* Exercise videos */
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust the height of the video container */
+    margin-top: 20px;
+}
+
+.exercise-video {
+    width: 100%;
+    max-width: 600px; /* Limit the max size of the video */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+header {
+    margin-bottom: 20px;
+}
+
+/* General Muscle Button Styling */
+.muscle-group-selection {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 20px 0;
+}
+/* Animated Button Styling */
+.animated-button {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    font-size: 15px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #ffffff9d;
+    box-shadow: 0 0 0 2px #ffffff9f;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    margin: 10px; /* Add some spacing between buttons */
+}
+
+.animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #9e1212;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 5px #9e1212;
+    color: #ffffff;
+}
+
+.animated-button:active {
+    scale: 0.95;
+}
+
+.animated-button:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
+
+/* Timer */
+.timer-box {
+    margin: 20px 0;
+}
+
+.timer {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Start Button with Icon */
+.button-with-icon {
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece73;
+  font-family: "Istok Web", sans-serif;
+  letter-spacing: 1px;
+  padding: 0 12px;
+  text-align: center;
+  width: 110px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-radius: 20px;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  transform: translateY(0px);
+  position: relative;
+  box-shadow:
+      inset 0 30px 30px -15px rgba(255, 255, 255, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 1px 20px rgba(0, 0, 0, 0),
+      0 3px 0 #980f0f00,
+      0 3px 2px rgba(0, 0, 0, 0.2),
+      0 5px 10px rgba(0, 0, 0, 0.1),
+      0 10px 20px rgba(0, 0, 0, 0.1);
+  background: #980f0f00;
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  transition: 150ms all ease-in-out;
+  margin-top: 10px; /* Adjust this value to move the button down */
+}
+.button-with-icon .icon {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-with-icon:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset 0 16px 2px -15px rgba(0, 0, 0, 0),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 #980f0f,
+    0 0 0 2px rgba(255, 255, 255, 0.5),
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 rgba(0, 0, 0, 0);
+}
+
+.button-with-icon:hover .text {
+  transform: translateX(80px);
+}
+.button-with-icon:hover{
+  background-color: #8a1111;
+}
+
+.button-with-icon:hover .icon {
+  transform: translate(23px);
+}
+
+.text {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Stop and Reset Button */
+
+#stop-button, #reset-button {
+  padding: 1.3em 3em;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  border: 1px solid #fffefe28;
+  color: #ffffff;
+  background-color: #97151500;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  transform: translateY(-7px);
+}
+
+#stop-button:hover, #reset-button:hover {
+  background-color: #8a1111;
+  box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.733);
+  color: #fff;
+  transform: translateY(-15px);
+}
+
+#stop-button:active, #reset-button:active {
+  transform: translateY(-1px);
+}
+
+/* Return Button */
+ 
+.button {
+  display: block;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+}
+
+.button:before,
+.button:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+}
+
+.button:before {
+  border: 4px solid #f0eeef;
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.button:after {
+  border: 4px solid #96daf0;
+  transform: scale(1.3);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.button:hover:before,
+.button:focus:before {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button:hover:after,
+.button:focus:after {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.button-box {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button-elem {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 17px 18px 0 18px;
+  transform: rotate(180deg);
+  fill: #f0eeef;
+}
+
+.button:hover .button-box,
+.button:focus .button-box {
+  transition: 0.4s;
+  transform: translateX(-56px);
+}
+
+/* Motivational Message */
+.motivational-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #33333300; /* Change this to your desired background color */
+  color: #fff; /* Change the text color */
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: #000000; /* Change this to your desired link color */
+  text-decoration: none; /* Removes the underline */
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #313131; /* Optional: Change link color on hover */
+}
