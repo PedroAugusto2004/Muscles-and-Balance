@@ -65,26 +65,24 @@ document.getElementById('reset-button').addEventListener('click', resetChallenge
 // Start the workout challenge
 function startChallenge() {
     if (isPaused) {
-        isPaused = false;  // Resume the countdown
-
-        // Resume the currently paused video
+        isPaused = false; // Resume the countdown
         const playingVideo = document.querySelector('.exercise-video:not([hidden])');
         if (playingVideo) {
             playingVideo.play();
         }
-
     } else {
-        timer = 60;  // Reset the timer to 60 seconds
+        resetAllVideos(); // Reset all videos before starting
+        timer = 60; // Reset the timer to 60 seconds
+        currentIndex = 0; // Reset the video index
         document.getElementById('countdown').innerText = timer;
-        currentIndex = 0;  // Reset the video index
-        updateWorkout();  // Display the first exercise
+        updateWorkout(); // Display the first exercise
     }
 
     document.getElementById('start-button').disabled = true;
     document.getElementById('stop-button').disabled = false;
     document.getElementById('reset-button').disabled = false;
 
-    interval = setInterval(updateTimer, 1000);  // Start the timer countdown
+    interval = setInterval(updateTimer, 1000); // Start the timer countdown
 }
 
 // Stop (pause) the workout
@@ -104,20 +102,27 @@ function stopChallenge() {
 
 // Reset the workout
 function resetChallenge() {
-    clearInterval(interval);  // Clear the countdown
-    timer = 60;  // Reset timer
+    clearInterval(interval); // Clear the countdown
+    timer = 60; // Reset timer
+    currentIndex = 0; // Reset exercise index
     document.getElementById('countdown').innerText = timer;
     document.getElementById('exercise').innerText = "Select a muscle group to begin and you will have 60 seconds to complete!";
 
-    // Hide all exercise videos and reset to placeholder
-    document.querySelectorAll('.exercise-video').forEach(video => {
-        video.hidden = true;
-        video.pause();
-    });
+    // Hide and reset all exercise videos
+    resetAllVideos();
 
     document.getElementById('start-button').disabled = false;
     document.getElementById('stop-button').disabled = true;
     document.getElementById('reset-button').disabled = true;
+}
+
+// Utility function to reset all videos
+function resetAllVideos() {
+    document.querySelectorAll('.exercise-video').forEach(video => {
+        video.hidden = true;
+        video.pause();
+        video.load(); // Reset the video to its initial state
+    });
 }
 
 // Timer countdown
@@ -143,24 +148,23 @@ function updateTimer() {
 
 // Display the workout exercise and corresponding video
 function updateWorkout() {
-    // Hide all videos
-    document.querySelectorAll('.exercise-video').forEach(video => {
-        video.hidden = true;
-        video.pause();
-    });
+    // Hide and reset all videos
+    resetAllVideos();
 
-    // Show the correct video for the current exercise
+ // Show the correct video for the current exercise
     const exercise = selectedExercises[currentIndex];
-    document.getElementById('exercise').innerText = `${exercise.reps || exercise.duration} ${exercise.name}`;
-    
-    const currentVideo = document.getElementById(exercise.videoId);
-    currentVideo.hidden = false;
-    currentVideo.play();
+    if (exercise) {
+        document.getElementById('exercise').innerText = `${exercise.reps || exercise.duration} ${exercise.name}`;
+        const currentVideo = document.getElementById(exercise.videoId);
+        if (currentVideo) {
+            currentVideo.hidden = false;
+            currentVideo.play();
+        }
+    }
 
     // Update index to the next exercise
     currentIndex = (currentIndex + 1) % selectedExercises.length;
 }
-
 // Show a motivational message when the timer ends
 function showMotivationalMessage() {
     const messages = ["Congratulations! You completed the challenge!", "Well done! Keep up the good work!"];
