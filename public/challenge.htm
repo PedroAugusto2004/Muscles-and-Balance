@@ -12,10 +12,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
+
             <h1>1-Minute Workout Challenge</h1>
+
+            <p>‎ </p>
+
             <p>Select a muscle group to get started!</p>
-        </header>
 
 <!-- Background Video -->
 <video autoplay muted loop playsinline id="background-video">
@@ -23,27 +25,36 @@
     Your browser does not support the video tag.
 </video>
 
-        <main>
-            <!-- Section to Select Muscle Group -->
-            <div class="muscle-group-selection">
-                <button class="muscle-btn animated-button" data-group="upper-body">
-                    <span>Upper Body</span>
-                    <span></span>
-                </button>
-                <button class="muscle-btn animated-button" data-group="lower-body">
-                    <span>Lower Body</span>
-                    <span></span>
-                </button>
-                <button class="muscle-btn animated-button" data-group="core">
-                    <span>Core</span>
-                    <span></span>
-                </button>
-                <button class="muscle-btn animated-button" data-group="full-body">
-                    <span>Full Body</span>
-                    <span></span>
-                </button>
-            </div>
-            
+<main>
+<!-- Section to Select Muscle Group -->
+<div class="muscle-group-selection">
+    <button class="muscle-btn animated-button" data-group="upper-body">
+        <span>Upper Body</span>
+        <span></span>
+    </button>
+    <button class="muscle-btn animated-button" data-group="lower-body">
+        <span>Lower Body</span>
+        <span></span>
+    </button>
+    <button class="muscle-btn animated-button" data-group="core">
+        <span>Core</span>
+        <span></span>
+    </button>
+    <button class="muscle-btn animated-button" data-group="full-body">
+        <span>Full Body</span>
+        <span></span>
+    </button>
+</div>
+
+<!-- COUNTDOWN -->            
+<div id="circular-timer" style="display: none;">
+    <svg class="countdown-circle" width="200" height="200">
+        <circle class="background-circle" cx="100" cy="100" r="90"></circle>
+        <circle class="progress-circle" cx="100" cy="100" r="90"></circle>
+    </svg>
+    <div id="pre-start-countdown" class="countdown-number">3</div>
+</div>
+
 <!-- Exercise Videos -->
 <div id="illustration">
     <video id="pushups-video" class="exercise-video" src="challenge videos/pushups.mp4" type="video/mp4" controls autoplay loop muted hidden playsinline></video>
@@ -101,6 +112,7 @@
                 <!-- Motivational Message -->
                 <div id="motivational-message" class="motivational-message"></div>
             </div>
+            
         </main>
 
             <button class="button"  data-target="workout.htm#challenge" onclick="redirectToSection(this)">
