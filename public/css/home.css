@@ -285,7 +285,6 @@ button:focus {
 }
 
 /* Style for the popup box */
-/* LOGOUT CONFIRMATION */
 #logout-popup {
   position: relative;
   background-color: #000000cc !important; /* Semi-transparent black */
