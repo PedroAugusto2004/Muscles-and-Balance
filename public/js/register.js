@@ -4,7 +4,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
 import { getMessaging } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-messaging.js";
-import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -149,34 +148,45 @@ async function handleSignIn(event) {
   }
 }
 
-// Forgot Password Function
-async function forgotPassword() {
-  const email = document.getElementById('forgot-email').value;
+// Function to handle password reset
+document.getElementById('forgot-password-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
 
-  if (!email) {
-    showAlert("Please enter your email address.", 'error');
+  const emailInput = document.getElementById('forgot-email');
+  const email = emailInput.value.trim();
+
+  // Validate the email input
+  if (!validateEmail(email)) {
+    showAlert("Please enter a valid email address.", "error");
     return;
   }
 
   try {
-    // Send password reset email
     await sendPasswordResetEmail(auth, email);
-    showAlert("Password reset email sent. Check your inbox!", 'success');
+    showAlert(
+      "If an account exists for this email, a password reset link has been sent.",
+      "success"
+    );
+
+    // Clear the email input field
+    emailInput.value = "";
+
+    // Optionally redirect to the login page after showing the success message
+    setTimeout(() => {
+      document.getElementById("forgot-password-form").style.display = "none";
+      document.getElementById("sign-in-form").style.display = "block";
+    }, 3000);
   } catch (error) {
     console.error("Error sending password reset email:", error);
-    if (error.code === 'auth/invalid-email') {
-      showAlert('Invalid email address.', 'error');
-    } else {
-      showAlert("Error: " + error.message, 'error');
-    }
+    showAlert("Error sending password reset email. Please try again later.", "error");
   }
-}
-
-// Add event listener to the forgot password form
-document.getElementById('forgot-password-form').addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent default form submission
-    forgotPassword();
 });
+
+// Utility function to validate email format
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
 
 // Display welcome message and toggle auth elements
 async function displayWelcomeMessageAndAuthButtons(userId) {
