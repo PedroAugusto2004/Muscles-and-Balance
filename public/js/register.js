@@ -1,9 +1,10 @@
 // Import the necessary functions from the Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
 import { getMessaging } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-messaging.js";
+import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -147,6 +148,35 @@ async function handleSignIn(event) {
     }
   }
 }
+
+// Forgot Password Function
+async function forgotPassword() {
+  const email = document.getElementById('forgot-email').value;
+
+  if (!email) {
+    showAlert("Please enter your email address.", 'error');
+    return;
+  }
+
+  try {
+    // Send password reset email
+    await sendPasswordResetEmail(auth, email);
+    showAlert("Password reset email sent. Check your inbox!", 'success');
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    if (error.code === 'auth/invalid-email') {
+      showAlert('Invalid email address.', 'error');
+    } else {
+      showAlert("Error: " + error.message, 'error');
+    }
+  }
+}
+
+// Add event listener to the forgot password form
+document.getElementById('forgot-password-form').addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+    forgotPassword();
+});
 
 // Display welcome message and toggle auth elements
 async function displayWelcomeMessageAndAuthButtons(userId) {
@@ -321,3 +351,5 @@ onAuthStateChanged(auth, (user) => {
     setTimeout(showLoginPopup, 2000); // Delay to make it less intrusive
   }
 });
+ 
+

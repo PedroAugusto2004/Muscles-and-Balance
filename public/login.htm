@@ -90,16 +90,30 @@
         <div class="user-box">
             <select id="signup-country" name="country" required>
                 <option value="" disabled selected></option>
-                <option value="usa">United States</option>
+                <option value="argentina">Argentina</option>
+                <option value="australia">Australia</option>
+                <option value="brazil">Brazil</option>
                 <option value="canada">Canada</option>
                 <option value="china">China</option>
-                <option value="brazil">Brazil</option>
+                <option value="egypt">Egypt</option>
                 <option value="france">France</option>
+                <option value="germany">Germany</option>
+                <option value="india">India</option>
+                <option value="italy">Italy</option>
+                <option value="japan">Japan</option>
+                <option value="mexico">Mexico</option>
+                <option value="new-zealand">New Zealand</option>
+                <option value="nigeria">Nigeria</option>
                 <option value="russia">Russia</option>
+                <option value="south-africa">South Africa</option>
+                <option value="south-korea">South Korea</option>
+                <option value="spain">Spain</option>
+                <option value="uk">United Kingdom</option>
+                <option value="usa">United States</option>
             </select>
             <label>Choose your country</label>
         </div>
-
+        
         <!-- Gender Radio Buttons -->
         <div class="radio-container">
             <div class="radio-wrapper">
@@ -155,9 +169,9 @@
     <p>Already have an account? <a href="#sign-in-form" class="a2">Sign in</a></p>
 </div>
 
-    <!-- Forgot Password Form -->
+<!-- Forgot Password Form -->
     <div class="form-container" id="forgot-password-form" style="display:none;">
-        <p>Forgot Password</p>
+        <p>FORGOT YOUR PASSWORD?</p>
         <form id="forgot-password-form">
             <div class="user-box">
                 <input type="email" id="forgot-email" required autocomplete="email">
@@ -165,7 +179,7 @@
             </div>
             <!-- Updated Forgot Password Submit Button -->
             <div class="center">
-                <button class="btn" id="forgot-password-btn" type="button" onclick="forgotPassword()">
+                <button  class="btn" id="forgot-password-btn" type="submit" onclick="forgotPassword()">
                   <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
                     <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
                     <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
@@ -176,8 +190,7 @@
         </form>
         <p>Remembered your password? <a href="#sign-in-form" class="a2">Sign in</a></p>    
     </div>
-</div>
-
+</div> 
 
 <script src="js/login.js"></script>
 </body>
