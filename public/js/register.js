@@ -149,13 +149,10 @@ async function handleSignIn(event) {
 }
 
 // Function to handle password reset
-document.getElementById('forgot-password-form').addEventListener('submit', async (event) => {
-  event.preventDefault(); // Prevent the default form submission behavior
+document.getElementById('forgot-password-form')?.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-  const emailInput = document.getElementById('forgot-email');
-  const email = emailInput.value.trim();
-
-  // Validate the email input
+  const email = document.getElementById("forgot-email").value.trim();
   if (!validateEmail(email)) {
     showAlert("Please enter a valid email address.", "error");
     return;
@@ -163,26 +160,14 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
 
   try {
     await sendPasswordResetEmail(auth, email);
-    showAlert(
-      "If an account exists for this email, a password reset link has been sent.",
-      "success"
-    );
-
-    // Clear the email input field
-    emailInput.value = "";
-
-    // Optionally redirect to the login page after showing the success message
-    setTimeout(() => {
-      document.getElementById("forgot-password-form").style.display = "none";
-      document.getElementById("sign-in-form").style.display = "block";
-    }, 3000);
+    showAlert("Password reset email sent if the account exists.", "success");
+    document.getElementById("forgot-email").value = "";
   } catch (error) {
     console.error("Error sending password reset email:", error);
-    showAlert("Error sending password reset email. Please try again later.", "error");
+    showAlert("Failed to send password reset email. Try again later.", "error");
   }
 });
 
-// Utility function to validate email format
 function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
