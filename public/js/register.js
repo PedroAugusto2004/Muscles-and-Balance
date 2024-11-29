@@ -162,6 +162,12 @@ document.getElementById('forgot-password-form')?.addEventListener('submit', asyn
     await sendPasswordResetEmail(auth, email);
     showAlert("Password reset email sent if the account exists.", "success");
     document.getElementById("forgot-email").value = "";
+
+    // Optionally redirect to the login page after showing the success message
+    setTimeout(() => {
+      document.getElementById("forgot-password-form").style.display = "none";
+      document.getElementById("sign-in-form").style.display = "block";
+    }, 3000);
   } catch (error) {
     console.error("Error sending password reset email:", error);
     showAlert("Failed to send password reset email. Try again later.", "error");
