@@ -108,7 +108,7 @@ async function handleSignUp(event) {
 
     // Send verification email
     await sendEmailVerification(user);
-    showAlert("Signed up successfully! Please verify your email before logging in.", 'success');
+    showAlert("Signed up successfully! Please verify your email.", 'success');
 
     // Optionally, redirect to a verification page
     setTimeout(() => {
@@ -180,7 +180,7 @@ document.getElementById('forgot-password-form')?.addEventListener('submit', asyn
 
   try {
     await sendPasswordResetEmail(auth, email);
-    showAlert("Password reset email sent if the account exists.", "success");
+    showAlert("Password reset email sent.", "success");
     document.getElementById("forgot-email").value = "";
 
     // Optionally redirect to the login page after showing the success message
