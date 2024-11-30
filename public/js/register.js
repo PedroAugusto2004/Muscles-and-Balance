@@ -1,6 +1,7 @@
 // Import the necessary functions from the Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
 import { getMessaging } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-messaging.js";
@@ -60,7 +61,7 @@ function closeAlert() {
   }
 }
 
-// Sign-up function
+// Sign-up function with email verification
 async function handleSignUp(event) {
   event.preventDefault();
 
@@ -94,12 +95,26 @@ async function handleSignUp(event) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
+    // Save user data to Firestore
     await setDoc(doc(db, "users", user.uid), {
-      name, email, dateOfBirth, phone, country, gender, createdAt: new Date()
+      name,
+      email,
+      dateOfBirth,
+      phone,
+      country,
+      gender,
+      createdAt: new Date(),
     });
 
-    showAlert("Signed up successfully!", 'success');
-    window.location.href = "home.htm";
+    // Send verification email
+    await sendEmailVerification(user);
+    showAlert("Signed up successfully! Please verify your email before logging in.", 'success');
+
+    // Optionally, redirect to a verification page
+    setTimeout(() => {
+      window.location.href = "email-verification.htm";
+    }, 3000);
+
   } catch (error) {
     console.error("Error during sign up:", error);
     if (error.code === 'auth/email-already-in-use') {
@@ -114,7 +129,7 @@ async function handleSignUp(event) {
   }
 }
 
-// Sign-in function
+// Sign-in function with email verification check
 async function handleSignIn(event) {
   event.preventDefault();
 
@@ -129,6 +144,12 @@ async function handleSignIn(event) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+
+    // Check if the email is verified
+    if (!user.emailVerified) {
+      showAlert("Please verify your email before logging in.", 'error');
+      return;
+    }
 
     showAlert("Successfully signed in!", 'success');
     await displayWelcomeMessageAndAuthButtons(user.uid);
@@ -147,7 +168,6 @@ async function handleSignIn(event) {
     }
   }
 }
-
 // Function to handle password reset
 document.getElementById('forgot-password-form')?.addEventListener('submit', async (event) => {
   event.preventDefault();

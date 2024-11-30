@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/MBlogo.png">
+
+  <title>Email Verification</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: black;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 16px;
+      text-align: center;
+    }
+
+/* Background Video Styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(60%);
+}
+
+    .container {
+      background: rgba(17, 17, 17, 0.8);
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #b9b9b9;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #d30000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    a:hover {
+      color: #660000;
+      transform: scale(1.05);
+    }
+      
+    /* Responsive Design */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .container {
+        padding: 16px 24px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+        <!-- Background Video -->
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="videos/welcome.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+  <div class="container">
+    <h1>Email Verification</h1>
+    <p>We have sent a verification email to your registered email address. Please check your inbox (and spam folder) to verify your account.</p>
+    <p>Once verified, you can log in <a href="login.htm">here</a>.</p>
+  </div>
+
+</body>
+</html>
