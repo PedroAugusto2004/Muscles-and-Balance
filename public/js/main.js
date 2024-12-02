@@ -27,6 +27,16 @@ document.querySelector('.navbar-toggler').addEventListener('click', function () 
     menu.classList.toggle('open'); // Toggle the open class
   });
   
+  // WELCOME MESSAGE ANIMATION
+
+ // Add the 'typed' class after the typing animation completes
+ const message = document.getElementById('welcome-message');
+ const typingDuration = 8000; // Typing animation duration
+ const delay = 1000; // Delay before typing starts
+ setTimeout(() => {
+     message.classList.add('typed');
+ }, typingDuration + delay); // Total time = animation duration + delay
+
   //NAV LINK ACTIVE
   
   document.addEventListener("DOMContentLoaded", () => {
@@ -65,8 +75,6 @@ navLinks.forEach(link => {
     this.classList.add('active'); // Add active state to the clicked link
   });
 });
-
-//PROFILE PIC
 
 //REDIRECTION
 

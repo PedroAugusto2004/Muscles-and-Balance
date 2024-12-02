@@ -724,12 +724,39 @@ h6 {
   background: var(--black);
   color: #fff
 }
+
 .header .site-title {
   color:var(--white);
-  font-size:1.2em;
   display:block;
-  font-weight: lighter;
   text-decoration: none;
+}
+
+.fitness-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0; /* Initial state for animation */
+  animation: fadeZoomIn 1s ease-in-out forwards; /* Apply animation */
+  text-align: center;
+  display: block; /* Ensure block-level layout for alignment */
+}
+
+@keyframes fadeZoomIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.8);
+  }
+  50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 
 .header {
@@ -1506,14 +1533,12 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   }
 
   .header .site-title {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 1.2rem;
-      color:var(--white);
-      font-size:1.5em;
-      display:block;
-  }
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    display:block;
+}
 
   .header .btn-primary {
       width: 100%

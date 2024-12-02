@@ -127,15 +127,47 @@ p.lead strong {
   margin-bottom: 20px; /* Space between welcome message and heading */
 }
 
-/* Welcome message styling */
+/*WELCOME MESSAGE*/
+
+/* Typewriter Keyframes */
+@keyframes typewriter {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+/* Cursor Blink Keyframes */
+@keyframes blink {
+  0%, 50% {
+      border-right-color: #ffffff;
+  }
+  51%, 100% {
+      border-right-color: transparent;
+  }
+}
+
+/* Welcome Message Styling */
 .welcome-message {
   font-size: 18px;
   color: #ffffff;
   font-weight: 100;
   margin: 10px 0;
-  opacity: 0; /* Start invisible */
-  transform: translateY(10px); /* Slightly offset for the slide effect */
-  transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  border-right: 2px solid #ffffff; /* Simulate cursor */
+  width: 0; /* Start with no width for typewriter effect */
+  animation: typewriter 3s steps(30, end) 1s 1 normal both, /* Typing effect */
+             blink 0.5s step-end infinite 1s; /* Cursor blink during typing */
+}
+
+/* After Typing Ends */
+.welcome-message.typed {
+  animation: none; /* Stop all animations */
+  border-right: none; /* Remove the cursor */
+  width: 100%; /* Ensure full width of the text */
 }
 
 .welcome-message.visible {
@@ -747,12 +779,39 @@ h6 {
   background: var(--black);
   color: #fff
 }
+
 .header .site-title {
   color:var(--white);
-  font-size:1.2em;
   display:block;
-  font-weight: lighter;
   text-decoration: none;
+}
+
+.fitness-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0; /* Initial state for animation */
+  animation: fadeZoomIn 1s ease-in-out forwards; /* Apply animation */
+  text-align: center;
+  display: block; /* Ensure block-level layout for alignment */
+}
+
+@keyframes fadeZoomIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.8);
+  }
+  50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 
 .header {
@@ -1527,14 +1586,12 @@ h3 {
   }
 
   .header .site-title {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 1.2rem;
-      color:var(--white);
-      font-size:1.5em;
-      display:block;
-  }
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    display:block;
+}
 
   .header .btn-primary {
       width: 100%
