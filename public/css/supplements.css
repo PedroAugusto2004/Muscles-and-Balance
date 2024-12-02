@@ -238,6 +238,11 @@ transform: translateX(-50px);
 opacity: 0;
 }
 
+header {
+  position: relative;
+  z-index: 10;  /* Ensure the header is always on top */
+  }
+  
 /* Responsive styling for mobile */
 @media (max-width: 768px) {
 header {
@@ -698,12 +703,6 @@ max-width: 100%;
 margin-bottom: 10px;
 box-sizing: border-box;
 }
-
-header {
-position: relative;
-z-index: 10;  /* Ensure the header is always on top */
-}
-
 
 .menu {
 z-index: 11;  /* Ensure the menu has a higher z-index */

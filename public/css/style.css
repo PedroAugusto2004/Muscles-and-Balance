@@ -159,8 +159,7 @@ p.lead strong {
   }
 }
 
-/*HAMBURGER*/
-
+/* HAMBURGER MENU */
 .hamburger-menu {
   display: block;
   position: absolute; /* Ensure it stays at the top-left */
@@ -172,74 +171,78 @@ p.lead strong {
   z-index: 1000; /* Ensure it stays above other elements */
   width: 40px;  /* Makes the entire hamburger area clickable */
   height: 40px; /* Adjust height to match */
-}
-
-.checkmark {
+  }
+  
+  .checkmark {
   position: relative;
   top: 0;
   left: 0;
   height: 1.3em;
   width: 1.3em;
-}
-
-.checkmark span {
+  }
+  
+  .checkmark span {
   width: 32px;
   height: 2px;
   background-color: white;
   position: absolute;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.checkmark span:nth-child(1) {
+  }
+  
+  .checkmark span:nth-child(1) {
   top: 10%;
-}
-
-.checkmark span:nth-child(2) {
+  }
+  
+  .checkmark span:nth-child(2) {
   top: 50%;
-}
-
-.checkmark span:nth-child(3) {
+  }
+  
+  .checkmark span:nth-child(3) {
   top: 90%;
-}
-
-/* ACTIVE STATE */
-.hamburger-menu.active .checkmark span:nth-child(1) {
+  }
+  
+  /* ACTIVE STATE */
+  .hamburger-menu.active .checkmark span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-}
-
-.hamburger-menu.active .checkmark span:nth-child(2) {
+  }
+  
+  .hamburger-menu.active .checkmark span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
-}
-
-.hamburger-menu.active .checkmark span:nth-child(3) {
+  }
+  
+  .hamburger-menu.active .checkmark span:nth-child(3) {
   transform: translateX(-50px);
   opacity: 0;
-}
-
-
-/* Responsive styling for mobile */
-@media (max-width: 768px) {
+  }
+  
   header {
-    padding: 10px; /* Reduce padding for smaller screens */
+    position: relative;
+    z-index: 10;  /* Ensure the header is always on top */
   }
-
-  .container-1 {
-    display: flex; /* Flex to allow the button to remain visible */
-    justify-content: flex-end; /* Align to the right */
-    width: 100%; /* Full width to ensure button visibility */
-  }
-
-  header .button {
-    font-size: 14px; /* Slightly smaller text */
-    padding: 8px 12px; /* Adjust button padding */
-    position: relative; /* Change position to relative for better visibility */
-    right: 0; /* Align button to the right */
-    margin: 10px 0; /* Add margin for spacing */
-  }
-}
-
+  
+  /* Responsive styling for mobile */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+    
+    .container-1 {
+      display: flex; /* Flex to allow the button to remain visible */
+      justify-content: flex-end; /* Align to the right */
+      width: 100%; /* Full width to ensure button visibility */
+    }
+    
+    header .button {
+      font-size: 14px; /* Slightly smaller text */
+      padding: 8px 12px; /* Adjust button padding */
+      position: relative; /* Change position to relative for better visibility */
+      right: 0; /* Align button to the right */
+      margin: 10px 0; /* Add margin for spacing */
+    }
+    }
+  
 
 /* Centering styles for container-1 */
 .container-1 {
@@ -682,12 +685,6 @@ input, select, textarea {
   box-sizing: border-box;
 }
 
-header {
-  position: relative;
-  z-index: 10;  /* Ensure the header is always on top */
-}
-
-
 .menu {
   z-index: 11;  /* Ensure the menu has a higher z-index */
 }
@@ -733,16 +730,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 body::-webkit-scrollbar-thumb:active {
   background-color: #777; /* Color when clicked */
-}
-
-/*NAVBAR*/
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #000000; /* Example background color */
 }
 
 .menu-icon {
@@ -810,11 +797,6 @@ input[type="checkbox"] {
   transform: translateY(-50%);
   width: 50px;
   z-index: 1000;
-}
-
-/* Show the menu when checkbox is checked */
-#toggle-menu:checked ~ nav {
-  right: 0;
 }
 
 /* Burger Icon Container */
@@ -2088,32 +2070,32 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
       position:static;
   }
   .header {
-      position: sticky;
-      width: inherit;
-      height: auto
-  }
+    position: sticky;
+    width: inherit;
+    height: auto
+}
 
-  .header .site-title {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 1.2rem;
-      color:var(--white);
-      font-size:1.5em;
-      display:block;
-  }
+.header .site-title {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    color:var(--white);
+    font-size:1.5em;
+    display:block;
+}
 
-  .header .btn-primary {
-      width: 100%
-  }
+.header .btn-primary {
+    width: 100%
+}
 
-  .header .navbar {
-      padding: 1rem
-  }
+.header .navbar {
+    padding: 1rem
+}
 
-  .main-wrapper {
-      margin-left: 0
-  }
+.main-wrapper {
+    margin-left: 0
+}
 }
 
 @media (max-width: 767.98px) {

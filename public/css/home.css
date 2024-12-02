@@ -73,52 +73,52 @@ p.lead strong {
   z-index: 1000; /* Ensure it stays above other elements */
   width: 40px;  /* Makes the entire hamburger area clickable */
   height: 40px; /* Adjust height to match */
-}
-
-.checkmark {
+  }
+  
+  .checkmark {
   position: relative;
   top: 0;
   left: 0;
   height: 1.3em;
   width: 1.3em;
-}
-
-.checkmark span {
+  }
+  
+  .checkmark span {
   width: 32px;
   height: 2px;
   background-color: white;
   position: absolute;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.checkmark span:nth-child(1) {
+  }
+  
+  .checkmark span:nth-child(1) {
   top: 10%;
-}
-
-.checkmark span:nth-child(2) {
+  }
+  
+  .checkmark span:nth-child(2) {
   top: 50%;
-}
-
-.checkmark span:nth-child(3) {
+  }
+  
+  .checkmark span:nth-child(3) {
   top: 90%;
-}
-
-/* ACTIVE STATE */
-.hamburger-menu.active .checkmark span:nth-child(1) {
+  }
+  
+  /* ACTIVE STATE */
+  .hamburger-menu.active .checkmark span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-}
-
-.hamburger-menu.active .checkmark span:nth-child(2) {
+  }
+  
+  .hamburger-menu.active .checkmark span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
-}
-
-.hamburger-menu.active .checkmark span:nth-child(3) {
+  }
+  
+  .hamburger-menu.active .checkmark span:nth-child(3) {
   transform: translateX(-50px);
   opacity: 0;
-}
-
+  }
+  
 /* Centering styles for container-1 */
 .container-1 {
   display: flex;
@@ -566,7 +566,27 @@ header {
   z-index: 10;  /* Ensure the header is always on top */
 }
 
-
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+  header {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+  
+  .container-1 {
+    display: flex; /* Flex to allow the button to remain visible */
+    justify-content: flex-end; /* Align to the right */
+    width: 100%; /* Full width to ensure button visibility */
+  }
+  
+  header .button {
+    font-size: 14px; /* Slightly smaller text */
+    padding: 8px 12px; /* Adjust button padding */
+    position: relative; /* Change position to relative for better visibility */
+    right: 0; /* Align button to the right */
+    margin: 10px 0; /* Add margin for spacing */
+  }
+  }
+  
 .menu {
   z-index: 11;  /* Ensure the menu has a higher z-index */
 }
@@ -719,32 +739,32 @@ h6 {
 /*HEADER*/
 
 .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: var(--sidebar-width);
-    background: var(--black);
-    color: #fff
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background: var(--black);
+  color: #fff
 }
 .header .site-title {
-    color:var(--white);
-    font-size:1.2em;
-    display:block;
-    font-weight: lighter;
-    text-decoration: none;
+  color:var(--white);
+  font-size:1.2em;
+  display:block;
+  font-weight: lighter;
+  text-decoration: none;
 }
 
 .header {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: transparent;
-    font-size: 1rem;
-    padding-top: 0.5rem
+  background: rgba(255, 255, 255, 0.3);
+  border-color: transparent;
+  font-size: 1rem;
+  padding-top: 0.5rem
 }
 
 .header{
-    background: rgb(0, 0, 0);
-    border-color: transparent
+  background: rgb(0, 0, 0);
+  border-color: transparent
 }
 
 /* NAVBAR TOGGLER */
@@ -757,12 +777,12 @@ h6 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-
-.navbar-toggler:focus {
+  }
+  
+  .navbar-toggler:focus {
   outline: none;
-}
-
+  }
+  
 /* NAV ITEMS */
 .nav-item {
   list-style: none;
@@ -911,59 +931,59 @@ h6 {
   background-color: #000000;
   width: 100%;
   gap: 20px; /* Space between elements */
-}
-
-.navbar-nav {
+  }
+  
+  .navbar-nav {
   display: flex;
   flex-direction: column; /* Arrange items in a column */
   align-items: center; /* Center items horizontally */
   list-style-type: none; /* Remove default list styling */
   padding: 0; /* Remove default padding */
   margin: 0; /* Remove default margin */
-}
-
-.header .navbar {
+  }
+  
+  .header .navbar {
     padding: 2rem 1rem
-}
-
-.header .navbar-dark .navbar-toggler {
+  }
+  
+  .header .navbar-dark .navbar-toggler {
     border: none;
     padding: 0.25rem 0.6rem;
-}
-
-.header .navbar-dark {
+  }
+  
+  .header .navbar-dark {
     -webkit-opacity: 1;
     -moz-opacity: 1;
     opacity: 1
-}
-
-.header .navbar-dark-icon {
+  }
+  
+  .header .navbar-dark-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(256,256,256, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.header{
+  }
+  
+  .header{
     font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     color: rgb(255, 255, 255);
-
-}
-
-.header .active {
+  
+  }
+  
+  .header .active {
     color: rgba(255, 255, 255, 0.5)
-}
-
-.header .active {
+  }
+  
+  .header .active {
     text-decoration: none
-}
-
-.logo {
-  display: block;
-  width: 100px;
-  height: auto;
-  margin-top: -4px; /* Adjust this value to move it down */
-}
-
+  }
+    
+  .logo {
+    display: block;
+    width: 100px;
+    height: auto;
+    margin-top: -4px; /* Adjust this value to move it down */
+  }
+  
 /*SHARE BUTTON*/
 
 .share-button {
@@ -1501,28 +1521,28 @@ h3 {
         position:static;
     }
     .header {
-        position: sticky;
-        width: inherit;
-        height: auto
-    }
+      position: sticky;
+      width: inherit;
+      height: auto
+  }
 
-    .header .site-title {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 1.2rem;
-        color:var(--white);
-        font-size:1.5em;
-        display:block;
-    }
+  .header .site-title {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 1.2rem;
+      color:var(--white);
+      font-size:1.5em;
+      display:block;
+  }
 
-    .header .btn-primary {
-        width: 100%
-    }
+  .header .btn-primary {
+      width: 100%
+  }
 
-    .header .navbar {
-        padding: 1rem
-    }
+  .header .navbar {
+      padding: 1rem
+  }
 
     .main-wrapper {
         margin-left: 0
