@@ -245,8 +245,18 @@ nav a.active::after {
     }
 }
 
-/* Welcome message styling */
-.user-welcome {
+/* Continuous Shine Keyframes */
+@keyframes continuousShine {
+    0% {
+      background-position: -200%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+  
+  /* Welcome Message Styling */
+  .user-welcome {
     font-size: 22px; /* Larger font for improved readability */
     color: #ffffff; /* Keep text white for contrast */
     font-weight: 300; /* Light font weight for elegance */
@@ -260,27 +270,36 @@ nav a.active::after {
     opacity: 0; /* Start with invisible */
     transform: translateY(10px); /* Slightly offset for effect */
     transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
-}
-
-.user-welcome.visible {
+  
+    /* Shine Effect */
+    position: relative;
+    background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Text will use the gradient */
+    animation: continuousShine 4s linear infinite; /* Continuous shine */
+  }
+  
+  .user-welcome.visible {
     opacity: 1; /* Fade in */
     transform: translateY(0); /* Slide into place */
-}
-
-/* Hide element when not visible */
-.hidden {
+  }
+  
+  /* Hide element when not visible */
+  .hidden {
     display: none;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
     .user-welcome {
-        font-size: 18px;
+      font-size: 18px;
     }
     .heading {
-        font-size: 32px;
+      font-size: 32px;
     }
-}
+  }
+  
 /* Welcome Container */
 .welcome-container {
     text-align: center;
