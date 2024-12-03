@@ -261,8 +261,129 @@ body {
     margin-right: 5px;
 }
 
-/*PROFILE PIC UPLOAD STYLE*/
+/* PASSWORD TIP */
+#password-tip {
+  background: rgba(0, 0, 0, 0.548);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
 
+#password-tip p.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+#password-tip .requirement {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* PASSWORD TIP */
+.requirement {
+  font-size: 1rem;
+  color: #fdfdfd; /* Unmet requirement color */
+  margin: 0.5em 0;
+  position: relative;
+  transition: color 0.3s, text-decoration 0.3s ease-in-out;
+}
+
+.requirement::before {
+  content: "• "; /* Bullet point for unmet requirements */
+  margin-right: 0.5em;
+  color: #fdfdfd; /* Same color as unmet text */
+  transition: color 0.3s;
+}
+
+.requirement.met {
+  color: #6bcf6e; /* Met requirement color */
+  text-decoration: none; /* Start with no line-through */
+}
+
+.requirement.met::before {
+  content: "✔️ "; /* Replace bullet point with a checkmark */
+  color: #6bcf6e; /* Match met color */
+  animation: fadeIn 0.3s forwards;
+}
+
+.requirement.met::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #6bcf6e;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: drawLine 0.3s ease-out forwards;
+}
+
+#special {
+  font-size: 1rem;
+  color: #fdfdfd; /* Unmet requirement color */
+  margin: 0.5em 0;
+  position: relative;
+  transition: color 0.3s, text-decoration 0.3s ease-in-out;
+}
+
+#special::before {
+  content: "• "; /* Default bullet point for unmet requirement */
+  margin-right: 0.5em;
+  color: #fdfdfd; /* Match text color for unmet state */
+  transition: color 0.3s;
+}
+
+#special.met {
+  color: #6bcf6e; /* Met requirement color */
+  text-decoration: none; /* Start with no line-through */
+}
+
+#special.met::before {
+  content: "✔️ "; /* Replace bullet point with checkmark for met state */
+  color: #6bcf6e; /* Match text color for met state */
+  animation: fadeIn 0.3s forwards;
+}
+
+#special.met::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #6bcf6e;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: drawLine 0.3s ease-out forwards;
+}
+
+/* Animations */
+@keyframes drawLine {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*PROFILE PIC UPLOAD STYLE*/
 
 
 /* CUSTOM ALERTS */

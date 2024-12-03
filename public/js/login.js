@@ -20,6 +20,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('forgot-password-form').style.display = 'block';
     }
 
+// Validate Password
+function updatePasswordRequirements(password) {
+    const requirements = [
+        { id: "length", test: (pwd) => pwd.length >= 8 },
+        { id: "uppercase", test: (pwd) => /[A-Z]/.test(pwd) },
+        { id: "lowercase", test: (pwd) => /[a-z]/.test(pwd) },
+        { id: "number", test: (pwd) => /[0-9]/.test(pwd) },
+        { id: "special", test: (pwd) => /[!@#$%^&*(),.?":{}|<>]/.test(pwd) },
+    ];
+  
+    requirements.forEach((req) => {
+        const element = document.getElementById(req.id);
+        if (req.test(password)) {
+            element.classList.add("met");
+        } else {
+            element.classList.remove("met");
+        }
+    });
+  }
+  
+  // Attach the function to the password input event
+  document.getElementById("signup-password").addEventListener("input", (event) => {
+    updatePasswordRequirements(event.target.value);
+  });
+  
     // Initialize intl-tel-input for the phone number input
     const phoneInput = document.querySelector("#signup-phone");
     const ipInfoToken = '526cbc626b7e19';

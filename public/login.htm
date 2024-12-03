@@ -71,9 +71,25 @@
             <label for="signup-email">Email</label>
         </div>
         <div class="user-box">
-            <input type="password" id="signup-password" required autocomplete="new-password">
+            <input 
+                type="password" 
+                id="signup-password" 
+                required 
+                autocomplete="new-password" 
+                oninput="validatePassword()"
+            >
             <label for="signup-password">Password</label>
         </div>
+        <div id="password-tip">
+            <p id="title" class="title">PASSWORD</p>
+            <p id="length" class="requirement">At least 8 characters</p>
+            <p id="uppercase" class="requirement">At least one uppercase letter</p>
+            <p id="lowercase" class="requirement">At least one lowercase letter</p>
+            <p id="number" class="requirement">At least one number</p>
+            <p id="special" class="requirement">At least one special character</p>
+        </div>
+                <p>‎ </p>
+
         <div class="user-box">
             <input type="password" id="signup-confirm-password" required autocomplete="new-password">
             <label for="signup-confirm-password">Confirm Password</label>

@@ -61,7 +61,34 @@ function closeAlert() {
   }
 }
 
-// Sign-up function with email verification
+// Function to validate password strength based on Firebase requirements
+function validatePassword(password) {
+  const errors = [];
+  
+  if (password.length < 8) {
+    errors.push("Password must be at least 8 characters long.");
+  }
+  
+  if (!/[A-Z]/.test(password)) {
+    errors.push("Password must include at least one uppercase letter.");
+  }
+  
+  if (!/[a-z]/.test(password)) {
+    errors.push("Password must include at least one lowercase letter.");
+  }
+  
+  if (!/[0-9]/.test(password)) {
+    errors.push("Password must include at least one numeric character.");
+  }
+  
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    errors.push("Password must include at least one special character.");
+  }
+  
+  return errors;
+}
+
+// Sign-up function with enhanced password validation
 async function handleSignUp(event) {
   event.preventDefault();
 
@@ -75,19 +102,28 @@ async function handleSignUp(event) {
   const gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : "";
   const termsAgreed = document.getElementById('terms').checked;
 
-  // Basic validation
+  // Check if terms and conditions are agreed upon
   if (!termsAgreed) {
     showAlert("You must agree to the terms and conditions.", 'error');
     return;
   }
 
+  // Check if passwords match
   if (password !== confirmPassword) {
     showAlert("Passwords do not match!", 'error');
     return;
   }
 
+  // Validate all fields
   if (!email || !password || !name || !dateOfBirth || !country || !gender) {
     showAlert("Please fill in all fields.", 'error');
+    return;
+  }
+
+  // Validate password strength
+  const passwordErrors = validatePassword(password);
+  if (passwordErrors.length > 0) {
+    showAlert(passwordErrors.join(" "), 'error');
     return;
   }
 
@@ -110,7 +146,7 @@ async function handleSignUp(event) {
     await sendEmailVerification(user);
     showAlert("Signed up successfully! Please verify your email.", 'success');
 
-    // Optionally, redirect to a verification page
+    // Redirect to a verification page
     setTimeout(() => {
       window.location.href = "email-verification.htm";
     }, 3000);
@@ -122,12 +158,13 @@ async function handleSignUp(event) {
     } else if (error.code === 'auth/invalid-email') {
       showAlert('Invalid email.', 'error');
     } else if (error.code === 'auth/weak-password') {
-      showAlert('Password should be at least 6 characters long.', 'error');
+      showAlert('Password does not meet the requirements.', 'error');
     } else {
       showAlert("Error: " + error.message, 'error');
     }
   }
 }
+
 
 // Sign-in function with email verification check
 async function handleSignIn(event) {
