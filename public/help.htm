@@ -189,14 +189,15 @@
 	
 		  
 <!-- Main Content -->
-<div class="container">
-<!-- Pointers for Easy Navigation -->
-<div class="pointer">
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-  </div>
+<div class="container" data-aos="fade-up">
+	<!-- Pointers for Easy Navigation -->
+	<div class="pointer" data-aos="fade-down">
+		<a href="#about">About</a>
+		<a href="#features">Features</a>
+	  </div>
+				
 <!-- Section 0: Introduction -->
-<div class="introduction-section" id="about">
+<div class="introduction-section" id="about" data-aos="fade-up">
 	<img src="images/MBlogo.png" alt="Platform Overview" class="intro-logo" />
 	
 	<div class="intro-content">
@@ -211,7 +212,7 @@
   </div>
 	
 <!-- Section 1: Platform Navigation -->
-<div class="navigation-section" id="platform-guide">
+<div class="navigation-section" id="platform-guide" data-aos="fade-up">
 	<video src="guide videos/shortcut.mp4" class="guide-video" controls preload="metadata" playsinline style="max-width: 100%; height: auto;"></video>
 	
 	<div class="guide-content">
@@ -223,7 +224,7 @@
   </div>
 	
 <!-- Section 2: Nutrition Features -->
-<div class="section" id="features">
+<div class="section" id="features" data-aos="fade-up">
 	<h1 class="section-title">Nutrition Features</h1>
 	
 	<div class="feature-item">
@@ -248,7 +249,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 		<video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 			<source src="guide videos/nutrition calculator.mp4" type="video/mp4">
 			Your browser does not support the video tag.
@@ -270,7 +271,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 	  <video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 		<source src="guide videos/Diets.mp4" type="video/mp4">
 		Your browser does not support the video tag.
@@ -294,7 +295,7 @@
 </div>
 
 	<!-- Section 3: Workout Features -->
-<div class="section" id="workout-features">
+<div class="section" id="workout-features" data-aos="fade-up">
 	<h1 class="section-title">Workout Features</h1>
 	
 	<div class="feature-item">
@@ -319,7 +320,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 	  <video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 		<source src="guide videos/workout challenge.mp4" type="video/mp4">
 		Your browser does not support the video tag.
@@ -341,7 +342,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 	  <video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 		<source src="guide videos/exercises.mp4" type="video/mp4">
 		Your browser does not support the video tag.
@@ -365,7 +366,7 @@
   </div>
   
   <!-- Section 4: Supplementation Features -->
-<div class="supplementation-section" id="supplementation-features">
+<div class="supplementation-section" id="supplementation-features" data-aos="fade-up">
 	<h1 class="section-title">Supplementation Features</h1>
   
 	<div class="feature-item">
@@ -390,7 +391,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 	  <video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 		<source src="guide videos/supplement tracker.mp4" type="video/mp4">
 		Your browser does not support the video tag.
@@ -412,7 +413,7 @@
 	  </div>
 	</div>
   
-	<div class="feature-item">
+	<div class="feature-item" data-aos="fade-up">
 	  <video controls preload="metadata" playsinline style="max-width: 100%; height: auto;">
 		<source src="guide videos/types of supplement.mp4" type="video/mp4">
 		Your browser does not support the video tag.
@@ -447,8 +448,19 @@
         <!-- SCROLL REVAEL -->
  
 	<!-- Including ScrollReveal.js from CDN -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- External JavaScript file -->
+<!-- AOS Library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  AOS.init({
+		duration: 800, // Animation duration in milliseconds
+		once: true,    // Whether animation should happen only once
+		offset: 100,   // Offset for triggering animations
+	  });
+	});
+  </script>
+<!-- External JavaScript file -->
     <script src="js/script.js"></script>
 
     <!-- Bootstrap Javascript -->          

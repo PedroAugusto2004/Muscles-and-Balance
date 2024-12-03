@@ -383,12 +383,28 @@ h6 {
   color: #fff
 }
 
+/*SITE TITLE */
+
 .header .site-title {
   color:var(--white);
   display:block;
   text-decoration: none;
 }
 
+/* Shine Keyframes */
+@keyframes shine {
+  0% {
+      background-position: 0;
+  }
+  60% {
+      background-position: 200px;
+  }
+  100% {
+      background-position: 240px;
+  }
+}
+
+/* Fitness Title Styling */
 .fitness-title {
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
@@ -396,20 +412,24 @@ h6 {
   color: #222;
   letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: 0; /* Initial state for animation */
-  animation: fadeZoomIn 1s ease-in-out forwards; /* Apply animation */
   text-align: center;
-  display: block; /* Ensure block-level layout for alignment */
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Text gradient effect */
+  
+  animation: fadeZoomIn 2s ease-in-out forwards, shine 3s linear infinite; /* Combine animations */
+  animation-fill-mode: forwards;
 }
 
+/* Fade-in and Zoom Keyframes */
 @keyframes fadeZoomIn {
   0% {
       opacity: 0;
       transform: scale(0.8);
-  }
-  50% {
-      opacity: 0.5;
-      transform: scale(1.05);
   }
   100% {
       opacity: 1;
