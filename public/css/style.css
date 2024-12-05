@@ -1052,6 +1052,11 @@ h1.mt-5 {
   background: #8192db;
 }
 
+strong, b {
+  font-weight: bold;
+  color: #242424;
+}
+
 /*================== 1 minute Workout video ==================*/
 
 .workout_video {
@@ -2557,11 +2562,17 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 
 /* CHOOSE YOUR DIET BUTTON */
 
-a {
-  text-decoration: none;
+/* Center alignment for buttons */
+.diet-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adds space between buttons */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  margin-top: 20px;
 }
 
-button-diets {
+/* Updated button styles */
+.button-diets {
   position: relative;
   padding: 10px 20px;
   border-radius: 7px;
@@ -2574,36 +2585,24 @@ button-diets {
   color: #000000;
   overflow: hidden;
   box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  text-decoration: none; 
 }
 
-a:hover {
-  text-decoration: none; /* Also remove underline on hover */
-}
-
-a button-diets {
-  display: inline-block; /* Ensures the button-diets behaves like a button */
-  text-decoration: none; /* Ensure there's no underline in buttons */
-}
-
-button-diets:hover {
+/* Hover effects */
+.button-diets:hover {
   background: rgb(165, 16, 16);
   box-shadow: 0 0 30px 5px rgba(165, 16, 16);
   color: white;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  text-decoration: none; 
 }
 
-button-diets:hover::before {
-  -webkit-animation: sh02 0.5s 0s linear;
-  -moz-animation: sh02 0.5s 0s linear;
+.button-diets:hover::before {
   animation: sh02 0.5s 0s linear;
 }
 
-button-diets::before {
+.button-diets::before {
   content: '';
   display: block;
   width: 0px;
@@ -2612,36 +2611,29 @@ button-diets::before {
   top: 7%;
   left: 0%;
   opacity: 0;
-  -webkit-transform: skewX(-20deg);
-  -moz-transform: skewX(-20deg);
-  -ms-transform: skewX(-20deg);
-  -o-transform: skewX(-20deg);
   transform: skewX(-20deg);
 }
 
+/* Active state */
+.button-diets:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}
+
+/* Keyframe animation */
 @keyframes sh02 {
   from {
     opacity: 0;
     left: 0%;
   }
-
   50% {
     opacity: 1;
   }
-
   to {
     opacity: 0;
     left: 100%;
   }
 }
-
-button-diets:active {
-  box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: box-shadow 0.2s ease-in;
-  -moz-transition: box-shadow 0.2s ease-in;
-  transition: box-shadow 0.2s ease-in;
-}
-
 
 /*DELETE BUTTON*/
 .deleteFoodItem { 
