@@ -389,7 +389,7 @@ width: 0%;
 opacity: 0;
 color: var(--af-white);
 font-size: 1.2em;
-font-weight: 600;
+font-weight: lighter;
 transition-duration: .3s;
 }
 
@@ -482,34 +482,45 @@ display: none;
   color: #dddddd;
   margin-bottom: 16px;
   font-family: Arial, sans-serif;
+  text-align: center; /* Optional: Align text to the center */
 }
 
-/* Style for the popup buttons */
+/* Base style for the popup buttons */
 #logout-popup button {
-  background-color: #990505; /* Primary red color */
+  background-color: #990505af; /* Primary red color */
   color: #fff;
-  padding: 8px 16px;
+  padding: 12px 20px; /* Increased padding for a better feel */
   border: none;
-  border-radius: 8px;
+  border-radius: 12px; /* More rounded for a modern look */
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  font-size: 1rem;
+  font-weight: lighter;
+  transition: all 0.3s ease; /* Smoother and comprehensive transitions */
   z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
 }
 
+/* Hover effect for the buttons */
 #logout-popup button:hover {
   background-color: #610606; /* Darker red on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  transform: translateY(-2px); /* Add a lift effect */
 }
 
+/* Style for the cancel button */
 #logout-popup button#cancel-logout {
-  background-color: #202020;
+  background-color: #202020cb;
   color: #c4c4c4;
   margin-left: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Consistent shadow with other buttons */
 }
 
+/* Hover effect for the cancel button */
 #logout-popup button#cancel-logout:hover {
   background-color: #000000;
+  color: #f2f2f2; /* Slightly brighter text on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Waves styling */
@@ -562,14 +573,13 @@ display: none;
 }
 
 /* SIGN IN AND SIGN UP POP UP */
-/* Popup container styling */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -585,9 +595,8 @@ display: none;
 
 .popup-content {
   position: relative;
-  width: 320px;
-  padding: 40px 30px;
-  border-radius: 16px;
+  padding: 25px 40px;
+  border-radius: 12px; /* Softer corners */
   background: rgba(0, 0, 0, 0.8); /* Semi-transparent for visibility */
   box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
   overflow: hidden; /* Ensures waves stay inside */
@@ -599,7 +608,7 @@ display: none;
   position: absolute;
   width: 420px; /* Reduced width */
   height: 550px; /* Reduced height */
-  background: linear-gradient(744deg, #921818, #f34242 60%, #eb0000);
+  background: linear-gradient(744deg, #3f3f3f, #7c7c7c 60%, #2c2c2c);
   opacity: 0.4;
   border-radius: 40%;
   animation: wave 15s infinite linear; /* Faster animation */
@@ -638,13 +647,14 @@ display: none;
 .popup-content h2,
 .popup-content p {
   position: relative;
+  font-weight: lighter;
   color: #ffffff;
   z-index: 10; /* Keeps text above waves */
 }
 
 .popup-content h2 {
   margin-bottom: 15px;
-  font-size: 1.8em;
+  font-size: 2.0em;
 }
 
 .popup-content p {
@@ -677,7 +687,7 @@ display: none;
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #f7f7f7;
-  background-color: #000000;
+  background-color: #000000c5;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -686,10 +696,8 @@ display: none;
 }
 
 .popup-buttons .btn:hover {
-  background-color: #460000;
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  background-color: #460000cb;
   color: #fff;
-  transform: translateY(-7px);
 }
 
 .popup-buttons .btn:active {
