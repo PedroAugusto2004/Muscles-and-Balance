@@ -1,4 +1,3 @@
-/*--------------------LOGIN-------------------*/
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -20,20 +19,23 @@ body {
     z-index: -1;
 }
 
+/*--------------------LOGIN FORM-------------------*/
+
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    margin: 20px auto;
-    transform: translate(-50%, -50%);
-    background: rgba(29, 29, 29, 0.9);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
-    border-radius: 10px;
-    max-height: 90vh; /* Ensure the login box doesn't exceed the viewport height */
-    overflow-y: auto; /* Add vertical scroll bar */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%; /* Adjusted for smaller screens */
+  max-width: 400px;
+  padding: 20px; /* Reduced padding for smaller screens */
+  margin: 20px auto;
+  transform: translate(-50%, -50%);
+  background: rgba(29, 29, 29, 0.9);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  max-height: 90vh;
+  overflow-y: auto; /* Enable vertical scrolling for small screens */
 }
 
 /* Style the scroll bar */
@@ -57,7 +59,7 @@ body {
     padding: 0;
     color: #fff;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Slightly smaller font size */    
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -71,7 +73,7 @@ body {
 .login-box .user-box select {
     width: 100%;
     padding: 10px 0;
-    font-size: 16px;
+    font-size: 14px; /* Slightly smaller font size for better spacing */    
     color: #757575;
     margin-bottom: 30px;
     border: none;
@@ -115,7 +117,7 @@ body {
 .login-box form a {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px; /* Adjust padding for better alignment */    
     font-weight: bold;
     color: #fff;
     font-size: 16px;
@@ -123,9 +125,9 @@ body {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 3px;
-}
+    margin-top: 20px; /* Reduced top margin for compact design */    
+    letter-spacing: 2px; /* Adjusted for mobile */
+  }
 
 .login-box a:hover {
     background: #fff;
@@ -136,85 +138,6 @@ body {
 .login-box a span {
     position: absolute;
     display: block;
-}
-
-.login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #fff);
-    animation: btn-anim1 1.5s linear infinite;
-}
-
-@keyframes btn-anim1 {
-    0% {
-        left: -100%;
-    }
-
-    50%, 100% {
-        left: 100%;
-    }
-}
-
-.login-box a span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #fff);
-    animation: btn-anim2 1.5s linear infinite;
-    animation-delay: .375s;
-}
-
-@keyframes btn-anim2 {
-    0% {
-        top: -100%;
-    }
-
-    50%, 100% {
-        top: 100%;
-    }
-}
-
-.login-box a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #fff);
-    animation: btn-anim3 1.5s linear infinite;
-    animation-delay: .75s;
-}
-
-@keyframes btn-anim3 {
-    0% {
-        right: -100%;
-    }
-
-    50%, 100% {
-        right: 100%;
-    }
-}
-
-.login-box a span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #fff);
-    animation: btn-anim4 1.5s linear infinite;
-    animation-delay: 1.125s;
-}
-
-@keyframes btn-anim4 {
-    0% {
-        bottom: -100%;
-    }
-
-    50%, 100% {
-        bottom: 100%;
-    }
 }
 
 .login-box p:last-child {
@@ -261,6 +184,14 @@ body {
     margin-right: 5px;
 }
 
+/* Media query for ultra-small screens */
+@media (max-width: 375px) {
+  .login-box {
+      width: 95%; /* Maximize available space */
+      padding: 15px; /* Further reduce padding */
+  }
+
+}
 /* PASSWORD TIP */
 #password-tip {
   background: rgba(0, 0, 0, 0.445);
@@ -375,47 +306,60 @@ body {
 /*--------------------LOGIN BUTTON-------------------*/
 
 .center {
-    width: 150px;
-    height: 50px;
-    position: relative;
+  width: 150px;
+  height: 50px;
+  position: relative;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+}
+
+.bg-line {
+  stroke: #ffffff5b;
+  stroke-width: 1;
+}
+
+.hl-line {
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-dasharray: 398; /* Total perimeter of the button */
+  stroke-dashoffset: 398; /* Start position of the dash */
+  animation: draw-line 2s linear infinite;
+}
+
+.btn span {
+  color: white;
+  font-size: 17px;
+  font-weight: 100;
+  position: relative;
+  z-index: 2;
+}
+
+/* Keyframes for seamless animation */
+@keyframes draw-line {
+  0% {
+      stroke-dashoffset: 398; /* Fully offset (line not visible) */
   }
+  100% {
+      stroke-dashoffset: 0; /* Line fully drawn */
+  }
+}
   
-  .btn {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid #ffffff5b;
-    outline: none;
-    transition: 1s ease-in-out;
-  }
-  
-  .svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    fill: none;
-    stroke: #fff;
-    stroke-dasharray: 150 480;
-    stroke-dashoffset: 150;
-    transition: 1s ease-in-out;
-  }
-  
-  .btn:hover {
-    transition: 1s ease-in-out;
-    background: #4f94da00;
-  }
-  
-  .btn:hover .svg {
-    stroke-dashoffset: -480;
-  }
-  
-  .btn span {
-    color: white;
-    font-size: 17px;
-    font-weight: 100;
-  }
-      
   
 /*--------------------GENDER CONTAINER-------------------*/
 
