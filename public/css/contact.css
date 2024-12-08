@@ -133,6 +133,19 @@ img {
 
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+img:hover {
+  transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
 /*SCROLLBAR*/
 
 html {
@@ -314,28 +327,6 @@ background-color: #777; /* Color when clicked */
   }
 }
 
-/*SLIDESHOW*/
-
-.slideshow-container {
-  max-width: 800px;
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  pointer-events: none; /* Prevent click events during swipe */
-}
-
 /*THEME*/
 
 .theme-switch__checkbox:checked + .theme-switch__container {
@@ -405,7 +396,7 @@ h4,
 h5,
 h6 {
   color: var(--black);
-  font-weight: bold;
+  font-weight: lighter;
   text-align: center;
 }
 

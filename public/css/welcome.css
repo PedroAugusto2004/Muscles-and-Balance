@@ -40,7 +40,7 @@ nav {
 nav a {
     text-decoration: none;
     font-size: 14px; /* Smaller font size for better fit */
-    font-weight: bold;
+    font-weight: lighter;
     color: #868686;
     position: relative;
 }

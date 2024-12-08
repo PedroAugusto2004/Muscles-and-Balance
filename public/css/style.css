@@ -36,7 +36,7 @@ body {
 /* Main Title Styling */
 h1 {
   font-size: 2.2em;
-  font-weight: 600;
+  font-weight: lighter;
   margin-bottom: 15px;
   letter-spacing: 0.05em;
   transition: color 0.3s ease;
@@ -730,6 +730,19 @@ input, select, textarea {
 
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+img:hover {
+  transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
 /*SCROLLBAR*/
 
 html {
@@ -1320,7 +1333,7 @@ h2,
 h4,
 h6 {
     color: var(--black);
-    font-weight: bold;
+    font-weight: lighter;
     text-align: center;
 }
 

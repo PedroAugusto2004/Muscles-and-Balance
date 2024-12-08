@@ -36,7 +36,7 @@ body {
 /* Main Title Styling */
 h1 {
   font-size: 2.2em;
-  font-weight: 600;
+  font-weight: lighter;
   margin-bottom: 15px;
   letter-spacing: 0.05em;
   transition: color 0.3s ease;
@@ -72,22 +72,18 @@ body {
 .section-title {
   font-size: 1.8em;
   font-weight: 600;
-  color: #a00000;
+  color: #000000;
   margin-bottom: 20px;
-  border-bottom: 2px solid #940707;
+  border-bottom: 2px solid #000000;
   padding-bottom: 8px;
   letter-spacing: 0.05em;
   transition: color 0.3s ease;
 }
 
-.section-title:hover {
-  color: #410707; /* Slight color change on hover */
-}
-
 /* Section Intro Paragraph */
 .section-intro {
   font-size: 1.1em;
-  color: #666;
+  color: #000000;
   margin-bottom: 20px;
   line-height: 1.6;
 }
@@ -96,7 +92,7 @@ body {
 .subsection-title {
   font-size: 1.4em;
   font-weight: 500;
-  color: #a00000;
+  color: #000000;
   margin: 25px 0 15px;
   letter-spacing: 0.03em;
   transition: color 0.3s ease;
@@ -115,9 +111,9 @@ body {
 
 .item-list li {
   padding: 12px;
-  border-left: 4px solid #a00000;
+  border-left: 4px solid #000000;
   margin-bottom: 10px;
-  background-color: #bebebe;
+  background-color: #cecece;
   border-radius: 5px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -129,7 +125,7 @@ body {
 }
 
 .item-list li strong {
-  color: #a00000;
+  color: #000000;
 }
 
 
@@ -854,7 +850,7 @@ h4,
 h5,
 h6 {
   color: var(--black);
-  font-weight: bold;
+  font-weight: lighter;
   text-align: left;
 }
 
