@@ -1,6 +1,6 @@
 // Import the necessary functions from the Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
@@ -235,6 +235,45 @@ function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
+
+// Set up the Google provider
+const googleProvider = new GoogleAuthProvider();
+
+// Function to handle Google sign-in
+async function handleGoogleSignIn() {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    const user = result.user;
+
+    // Check if user already exists in Firestore
+    const userDocRef = doc(db, "users", user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (!userDoc.exists()) {
+      // Save new user data to Firestore
+      await setDoc(userDocRef, {
+        name: user.displayName,
+        email: user.email,
+        createdAt: new Date(),
+        profilePicture: user.photoURL,
+        provider: "Google"
+      });
+    }
+
+    showAlert("Signed in with Google successfully!", "success");
+    setTimeout(() => {
+      window.location.href = "home.htm";
+    }, 1000);
+  } catch (error) {
+    console.error("Google Sign-In Error:", error);
+    showAlert("Google Sign-In failed: " + error.message, "error");
+  }
+}
+
+// Attach the Google sign-in button event listener
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("google-signin-button")?.addEventListener("click", handleGoogleSignIn);
+});
 
 // Display welcome message and toggle auth elements
 async function displayWelcomeMessageAndAuthButtons(userId) {
