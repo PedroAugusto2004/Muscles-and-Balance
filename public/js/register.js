@@ -1,6 +1,6 @@
 // Import the necessary functions from the Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
@@ -260,7 +260,7 @@ async function handleGoogleSignIn() {
       });
     }
 
-    showAlert("Signed in with Google successfully!", "success");
+    showAlert("Successfully signed in with Google!", "success");
     setTimeout(() => {
       window.location.href = "home.htm";
     }, 1000);
@@ -350,7 +350,7 @@ function closeLogoutPopup() {
 // Logout function
 function handleLogout() {
   signOut(auth).then(() => {
-    window.location.href = "login.htm";
+    window.location.href = "home.htm";
   }).catch((error) => {
     console.error("Error signing out:", error);
   });

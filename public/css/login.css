@@ -129,12 +129,6 @@ body {
     letter-spacing: 2px; /* Adjusted for mobile */
   }
 
-.login-box a:hover {
-    background: #fff;
-    color: #272727;
-    border-radius: 5px;
-}
-
 .login-box a span {
     position: absolute;
     display: block;
@@ -252,8 +246,36 @@ body {
   }
 }
 
-/*GOOGLE BUTTON */
+/* or SEPARATOR */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 16px 0;
+}
 
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  margin: 0 8px;
+}
+
+.separator span {
+  font-size: 14px;
+  color: #7e7e7e;
+}
+
+/* Center Container */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Google Button */
 .button {
   max-width: 320px;
   display: flex;
@@ -271,7 +293,7 @@ body {
   color: rgb(65, 63, 63);
   background-color: #fff;
   cursor: pointer;
-  transition: all .6s ease;
+  transition: all 0.6s ease;
 }
 
 .button svg {
@@ -281,6 +303,30 @@ body {
 .button:hover {
   transform: scale(1.02);
 }
+
+/* agreement text */
+.agreement-text {
+  font-size: 14px; /* Smaller text size */
+  color: #666; /* Lighter grey for a subtle look */
+  margin-top: 10px; /* Space above the text */
+  text-align: center; /* Center the text */
+}
+
+.agreement-text a {
+  color: #4285F4; /* Google blue for the links */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Slightly bold for emphasis */
+}
+
+.agreement-text a:hover {
+  text-decoration: underline; /* Underline on hover for interaction */
+}
+
+.center-container {
+  text-align: center;
+  margin-top: 20px; /* Space between the Google button and text */
+}
+
 /*PROFILE PIC UPLOAD STYLE*/
 
 
