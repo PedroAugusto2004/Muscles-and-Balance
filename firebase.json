@@ -13,8 +13,5 @@
         "destination": "/index.htm"
       }
     ]
-  },
-  "functions": {
-    "source": "functions"
   }
 }
