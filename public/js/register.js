@@ -390,7 +390,7 @@ async function showWelcomeMessage(userId) {
       const userData = userDoc.data();
 
       // Display welcome message
-      welcomeMessage.textContent = `Welcome, ${userData.name}!`;
+      welcomeMessage.textContent = `Welcome Back, ${userData.name}!`;
       welcomeMessage.classList.remove("hidden");
 
       // Make the element visible with animation
@@ -437,7 +437,7 @@ function showLoginPopup() {
   setTimeout(() => {
     popup.style.opacity = '1';
     popup.style.transform = 'translateY(0)';
-  }, 100); // Small delay to trigger CSS transition
+  }, 50); // Small delay to trigger CSS transition
 }
 
 
@@ -445,7 +445,7 @@ function showLoginPopup() {
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     // Show the popup if the user is not logged in
-    setTimeout(showLoginPopup, 2000); // Delay to make it less intrusive
+    setTimeout(showLoginPopup, 200); // Delay to make it less intrusive
   }
 });
  

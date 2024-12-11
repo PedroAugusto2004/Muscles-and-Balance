@@ -255,34 +255,36 @@ nav a.active::after {
     }
   }
   
-  /* Welcome Message Styling */
-  .user-welcome {
-    font-size: 22px; /* Larger font for improved readability */
-    color: #ffffff; /* Keep text white for contrast */
-    font-weight: 300; /* Light font weight for elegance */
+/* Welcome Message Styling */
+.user-welcome {
+    font-size: 24px; /* Slightly larger for better readability */
+    color: #ffffff; /* White text for contrast */
+    font-family: 'Montserrat', sans-serif; /* Modern and minimalistic font */
+    font-weight: 400; /* Balanced font weight for a clean look */
     margin: 20px 0;
-    line-height: 1.5; /* Add spacing between lines for better readability */
+    line-height: 1.6; /* Increased line-height for better spacing */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     opacity: 0; /* Start with invisible */
-    transform: translateY(10px); /* Slightly offset for effect */
+    transform: translateY(15px); /* Slightly more offset for a smooth slide */
     transition: opacity 1s ease, transform 1s ease; /* Smooth fade-in and slide */
-  
+    
     /* Shine Effect */
     position: relative;
     background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Text will use the gradient */
-    animation: continuousShine 4s linear infinite; /* Continuous shine */
+    animation: continuousShine 4s linear infinite; /* Continuous shine effect */
   }
   
+  /* Fade in and slide into place */
   .user-welcome.visible {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Slide into place */
+    opacity: 1;
+    transform: translateY(0);
   }
   
   /* Hide element when not visible */
@@ -290,16 +292,23 @@ nav a.active::after {
     display: none;
   }
   
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 600px) {
-    .user-welcome {
-      font-size: 18px;
+  /* Shine animation */
+  @keyframes continuousShine {
+    0% {
+      background-position: 200% 0;
     }
-    .heading {
-      font-size: 32px;
+    100% {
+      background-position: -200% 0;
     }
   }
   
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .user-welcome {
+      font-size: 20px; /* Slightly smaller font on small screens */
+    }
+  }
+    
 /* Welcome Container */
 .welcome-container {
     text-align: center;
@@ -602,14 +611,6 @@ h2.visible {
     transform: translateY(0); /* Bring into place */
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #000000a8;
-    color: #fff;
-}
-
 section,
 h2,
 .feature h3,
@@ -633,4 +634,31 @@ h2.fade-out,
 .feature p.fade-out {
     opacity: 0; /* Fade out */
     transform: translateY(50px); /* Move back below */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+}
+
+.social-media {
+    margin-bottom: 10px; /* Space between icons and text */
+    display: flex; /* Use flexbox to align the icons without space */
+    justify-content: center; /* Center the icons horizontally */
+}
+
+.social-icon {
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+    margin: 0; /* Remove any margin between the icons */
+    padding: 0 10px; /* Add some space between icons */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Hover effect */
+    color: #007bff; /* Change color on hover */
 }
