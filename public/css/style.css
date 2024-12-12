@@ -3435,8 +3435,9 @@ h5{
 }
 
 .barcode-feature strong {
-  color: #007bff;
+  color: #000000;
   font-weight: 600;
+  font-family: "Georgia", "Times New Roman", serif; /* Formal font stack */
 }
 
 .barcode-feature:hover {
@@ -3481,6 +3482,62 @@ h5{
   font-size: 18px;
   color: #4CAF50;
 }
+
+/*ERROR MESSAGE*/
+
+.popup-unique {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay fixed on the screen */
+  z-index: 1000; /* On top of other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling within the popup */
+}
+
+.popup-content-unique {
+  position: fixed; /* Centered on the screen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: #1d1d1d;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+.close-btn-unique {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-btn-unique:hover {
+  color: #000;
+}
+
+/* Optional: Fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+  }
+}
+
 /*----------------NUTRITON FACTS----------------*/
 
 .nutritionlabel {

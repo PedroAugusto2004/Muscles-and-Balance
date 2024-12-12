@@ -92,13 +92,26 @@ function showLoadingMessage(show) {
 }
 
 function showErrorMessage(message) {
-    const errorDiv = document.getElementById('error-message');
-    errorDiv.style.display = 'block';
-    errorDiv.innerHTML = `
-        <p>${message}</p>
-        <p>You can <a href="#nutrition" style="color: #4CAF50; text-decoration: underline;">manually input the food here</a>.</p>
-    `;
-    showLoadingMessage(false);
+    const popup = document.getElementById('error-popup-unique');
+    const popupMessage = document.getElementById('popup-message-unique');
+
+    // Set the message in the popup
+    popupMessage.innerText = message;
+
+    // Show the popup
+    popup.style.display = 'block';
+
+    // Close the popup when the close button is clicked
+    document.querySelector('.close-btn-unique').addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close the popup when clicking outside the popup content
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
 }
 
 function showSuccessMessage(message) {
