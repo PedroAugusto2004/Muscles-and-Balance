@@ -77,7 +77,7 @@ body {
     color: #757575;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #575757;
     outline: none;
     background: transparent;
     appearance: none;
@@ -186,6 +186,57 @@ body {
   }
 
 }
+
+/* Style for the input container */
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+}
+
+.user-box input:focus {
+  border-bottom-color: #ffffff;
+}
+
+.user-box input:focus + label,
+.user-box input:not(:placeholder-shown) + label {
+  transform: translateY(-20px);
+}
+
+.user-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s;
+}
+
+.user-box input:focus ~ .user-box::after {
+  width: 100%;
+}
+
 /* PASSWORD TIP */
 #password-tip {
   background: rgba(0, 0, 0, 0.445);
