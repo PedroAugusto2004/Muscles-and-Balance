@@ -1,4 +1,55 @@
-//CALORIE AND MACROS CALCULATOR
+// CALORIE AND MACROS CALCULATOR
+document.addEventListener("DOMContentLoaded", () => {
+    const steps = document.querySelectorAll(".question-step");
+    let currentStep = 0;
+
+    const showStep = (step) => {
+        steps.forEach((s, index) => {
+            if (index === step) {
+                s.classList.add("active");
+                s.style.display = "block";
+            } else {
+                s.classList.remove("active");
+                s.style.display = "none";
+            }
+        });
+    };
+
+    const validateStep = (step) => {
+        const inputs = steps[step].querySelectorAll("input, select");
+        for (const input of inputs) {
+            if (!input.value) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    document.querySelectorAll(".next-btn").forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            if (!validateStep(currentStep)) {
+                alert("Please fill all the fields ⚡");
+                return;
+            }
+            if (index < steps.length - 1) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+    });
+
+    document.querySelectorAll(".back-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            if (currentStep > 0) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+    });
+
+    // Initialize first step
+    showStep(currentStep);
+});
 
 function calculateCaloriesAndMacros() {
     const age = parseInt(document.getElementById("age").value);
@@ -11,7 +62,7 @@ function calculateCaloriesAndMacros() {
     const goal = document.getElementById("goal").value;
 
     if (!age || !gender || !weight || !height || !activityLevel || !goal) {
-        document.getElementById("result").innerHTML = "Please fill out all fields 💪";          
+        document.getElementById("result").innerHTML = "Please fill out all fields 💪";
         return;
     }
 
@@ -22,7 +73,6 @@ function calculateCaloriesAndMacros() {
 
     let heightInCm;
     if (heightUnit === "ft") {
-        // Parse height in "X'Y" format
         const heightParts = height.match(/^(\d+)'(\d+)?$/);
         if (heightParts) {
             const feet = parseInt(heightParts[1]);
@@ -36,13 +86,11 @@ function calculateCaloriesAndMacros() {
         heightInCm = parseFloat(height); // Assume cm directly
     }
 
-    // Show loading spinner
     document.getElementById("loadingSpinner").style.display = "flex";
-    document.getElementById("result").innerHTML = ""; 
-    document.getElementById("macroResult").innerHTML = ""; 
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("macroResult").innerHTML = "";
 
     setTimeout(() => {
-        // CALORIE CALCULATION
         let bmr = gender === "male"
             ? 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age)
             : 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
@@ -53,7 +101,6 @@ function calculateCaloriesAndMacros() {
         const roundedCalories = Math.round(dailyCalories);
         document.getElementById("result").innerHTML = `Your daily caloric needs are approximately ${roundedCalories} calories.`;
 
-        // MACRO CALCULATION
         let adjustedCalories = goal === "lose" ? roundedCalories * 0.85 : goal === "gain" ? roundedCalories * 1.15 : roundedCalories;
 
         let carbPercentage, fatPercentage, proteinGrams;
@@ -74,17 +121,21 @@ function calculateCaloriesAndMacros() {
         const carbGrams = (adjustedCalories * carbPercentage) / 4;
         const fatGrams = (adjustedCalories * fatPercentage) / 9;
 
-        // Hide loading spinner and display the macro result
         document.getElementById("loadingSpinner").style.display = "none";
+        
         document.getElementById('macroResult').innerHTML = ` 
             <p>Based on your goal: <strong>${goal.charAt(0).toUpperCase() + goal.slice(1)}</strong></p>
             <p>Carbohydrates: ${carbGrams.toFixed(2)} grams/day</p>
             <p>Protein: ${proteinGrams.toFixed(2)} grams/day</p>
             <p>Fats: ${fatGrams.toFixed(2)} grams/day</p>
         `;
-    // Show the Export to PDF button
-    document.getElementById("exportBtn").style.display = "block";
-}, 1000); // Delay to simulate loading
+        
+        // Show the results with animation
+        document.getElementById("result").classList.add("show");
+        document.getElementById("macroResult").classList.add("show");
+
+        document.getElementById("exportBtn").style.display = "block";
+    }, 1000); // Delay to simulate loading
 }
 
 // EXPORT PDF

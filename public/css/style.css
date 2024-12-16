@@ -2202,7 +2202,6 @@ h3 {
  
 /*-----------------CALORIE AND MACRO CALCULATOR--------------------*/
 
-
 /* General Reset */
 * {
   margin: 0;
@@ -2210,280 +2209,218 @@ h3 {
   box-sizing: border-box;
 }
 
+/* Macro Description Styling */
+.macro-description {
+  font-size: 22px;
+  font-weight: lighter;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+}
+
 /* Container Styling */
 .calorie-calculator {
-  width: 90%;
   max-width: 400px;
-  padding: 16px;
   margin: 20px auto;
-  border-radius: 10px;
-  background: #000; /* Static background inside the form */
-  box-shadow: rgb(0, 0, 0) 0px 3px 8px;
-  border: 3px solid transparent;
-  background-image: linear-gradient(#000, #000),
-    linear-gradient(145deg, #831010, transparent, #831010, transparent);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  background-size: 100% 100%, 300% 300%;
-  animation: borderRun 2.5s linear infinite;
-}
-
-/* Animated Border Keyframes */
-@keyframes borderRun {
-  0% {
-    background-position: 0% 0%, 0% 0%;
-  }
-  100% {
-    background-position: 0% 0%, 100% 100%;
-  }
-}
-
-/* Responsive Adjustments for Mobile */
-@media screen and (max-width: 480px) {
-  .calorie-calculator {
-    padding: 12px;
-    border-radius: 8px;
-  }
-}
-
-/* Login overlay */
-.login-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.856);
-  color: #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 10;
-  font-size: 18px;
-  border-radius: 10px;
-}
-
-.login-overlay p {
-  margin-bottom: 1em;
-}
-
-.login-overlay button {
-  background-color: #831010;
-  color: #ffffff;
-  padding: 0.8em 1.5em;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.login-overlay button:hover {
-  background-color: #4d0101;
-}
-
-.descr {
-  font-size: 20px;
-  font-weight: 500;
-  color: #e8e8e8;
-  margin-bottom: 25px;
+  padding: 20px;
+  background: #ffffff;
   text-align: center;
 }
 
+/* Form Styling */
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%; /* Full width form */
+  gap: 16px;
 }
 
 .form-group {
-  margin: 1em 0;
-  width: 100%; /* Full width inputs */
-  position: relative;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
 }
 
-.form-group input,
-.form-group select {
-  font-size: 16px;
-  padding: 0.7em;
-  outline: none; /* Removes default outline */
-  color: #797979;
-  border: none;
-  border-bottom: 2px solid #e8e8e85d;
-  background: transparent;
-  width: 100%;
-}
-
-.form-group label {
-  font-size: 14px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  color: #e8e8e8;
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: all 0.3s ease;
+/* Question Step Specific Styles */
+.question-step-label {
+  font-size: 15px;
+  color: #444;
   text-transform: uppercase;
-  display: block; 
 }
 
-.form-group input:focus,
-.form-group select:focus {
-  border-bottom: 2px solid #fff; /* Adds a custom focus state */
-  outline: none; /* Removes the outline */
+.question-step-input, 
+.question-step-select {
+  padding: 12px;
+  font-size: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-.form-group input:focus ~ label,
-.form-group input:valid ~ label,
-.form-group select:focus ~ label,
-.form-group select:valid ~ label {
-  top: -10px;
-  left: 0;
-  font-size: 12px;
-  color: #fff;
+.question-step-input:focus, 
+.question-step-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  background: #ffffff;
 }
 
-/* Updated Input Container */
 .input-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 12px;
-  background-color: #000000; /* Better contrast for inputs */
-  border: 1px solid #7e7e7e; /* Add border for better visibility */
-  border-radius: 8px; /* Rounded corners for a modern look */
-  transition: all 0.3s ease;
+  gap: 10px;
 }
 
-.input-container:hover,
-.input-container:focus-within {
-  border-color: #fff; /* Highlight border on hover or focus */
-  background-color: #333; /* Slightly lighter background */
-}
-
-/* Improved Select Dropdown */
-.input-container select {
-  background-color: transparent; /* Keep transparent background */
-  color: #e8e8e8; /* Light text for contrast */
-  font-size: 16px; /* Ensure font is readable */
-  border: none; /* Remove border for dropdown */
-  outline: none; /* Remove default outline */
-  cursor: pointer; /* Show pointer to indicate interactivity */
-  padding: 5px; /* Adjust padding for better click area */
-  appearance: none; /* Hide default dropdown arrow */
-}
-
-/* Add custom arrow */
-.input-container::after {
-  content: "▼"; /* Unicode for down arrow */
-  color: #888888; /* Match the text color */
-  font-size: 12px; /* Slightly smaller than the text */
-  position: absolute;
-  right: 10px; /* Position it to the right */
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Adjust centering */
-  pointer-events: none; /* Prevent interaction with the arrow */
-}
-
-/* Placeholder text */
-.input-container select option {
-  color: #666; /* Gray text for unselected options */
-}
-
-.submit-btn {
-  color: #ffffff;
-  background-color: #00000000;
-  font-size: 18px;
-  padding: 0.6em;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
-.submit-btn:before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.submit-btn:hover:before {
-  opacity: 0.2;
-}
-
-.submit-btn:hover {
-  transform: translateY(-3px);
-}
-
-.macro-result {
-  margin-top: 20px;
-  color: #e8e8e8;
-  font-size: 16px;
-  text-align: center;
-  padding-top: 15px;
-}
-
-.macro-description {
-  font-size: 20px;
+/*NEXT BUTTON*/
+.next-btn, .submit-btn {
+  padding: 1.3em 3em;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
   font-weight: 500;
-  color: #e8e8e8;
-  margin-bottom: 25px;
-  text-align: center;
+  color: #ffffff;
+  background-color: #0050a5;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.329);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
 
-/*EXPORT PDF*/
+.next-btn:hover, .submit-btn:hover {
+  background-color: #002b58;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.next-btn:hover, .submit-btn:active {
+  transform: translateY(-1px);
+}
+
+/*BACK BUTTON*/
+
+.back-btn {
+  padding: 1.3em 3em;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.329);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.back-btn:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+.back-btn:active {
+  transform: translateY(-1px);
+}
+
+#result, #macroResult {
+  display: none; /* Keep results hidden initially */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #202020;
+  color: rgb(182, 182, 182);
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.514);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Show the results when triggered */
+#result.show, #macroResult.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect for dynamic interaction */
+#result:hover, #macroResult:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Macro Results Formatting */
+.macro-result p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.macro-result strong {
+  color: #ffffff;
+}
+
+/* EXPORT PDF */
 #exportBtn {
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 25px; /* Adjusted padding for better balance */
   border: none;
-  border-radius: 5px;
-  background-color: #9b0b0b;
+  border-radius: 8px; /* Slightly more rounded corners */
+  background: linear-gradient(145deg, #0b219b, #1a3d8c); /* Gradient background */
   color: white;
-  font-size: 16px;
+  font-size: 18px; /* Slightly larger font size for better readability */
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  letter-spacing: 1px; /* Slightly increased letter spacing */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Icon styling inside the button */
 #exportBtn i {
-  margin-right: 8px;
-  transition: transform 0.3s ease;
+  margin-right: 10px;
+  font-size: 18px; /* Ensure the icon size matches the text */
+  transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
 }
 
 /* Hover effect */
 #exportBtn:hover {
-  background-color: #4d0101;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #01064d, #040c3d); /* Darker gradient on hover */
+  transform: translateY(-2px); /* Slightly raise the button on hover */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
 /* Hover effect for icon */
 #exportBtn:hover i {
-  transform: translateX(-2px);
+  transform: translateX(-5px); /* Slightly more movement for the icon */
+  margin-right: 15px; /* Add a little space between the icon and text */
+}
+
+/* Focus effect for accessibility */
+#exportBtn:focus {
+  outline: none;
+  border: 2px solid #1a3d8c; /* Border on focus for better visibility */
+  box-shadow: 0 0 0 4px rgba(26, 61, 140, 0.4); /* Soft glow on focus */
 }
 
 /* LOADING ANIMATION */
 
 .spinner-overlay {
   display: none; /* Hide loader by default */
+  align-items: center;
+  justify-content: center;
   z-index: 9999; /* Ensure it's above other content */
 }
 
 .dot-spinner {
   --uib-size: 2.8rem;
   --uib-speed: .9s;
-  --uib-color: #960f0f;
+  --uib-color: #110f96;
   position: relative;
   display: flex;
   align-items: center;
@@ -2512,7 +2449,7 @@ h3 {
   transform: scale(0);
   opacity: 0.5;
   animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(128, 4, 4, 0.3);
+  box-shadow: 0 0 20px rgba(4, 6, 128, 0.3);
 }
 
 .dot-spinner__dot:nth-child(2) {
@@ -3411,14 +3348,6 @@ h5{
   fill: #b9bbbe; /* Light gray for the icon */
 }
 
-/* Text styling */
-.scan-button .text_button {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
 /*----------------SCAN BARCODE TEXT----------------*/
 
 .barcode-feature {
@@ -3483,8 +3412,6 @@ h5{
   color: #4CAF50;
 }
 
-/*ERROR MESSAGE*/
-
 .popup-unique {
   display: none; /* Hidden by default */
   position: fixed; /* Stay fixed on the screen */
@@ -3509,7 +3436,7 @@ h5{
   max-width: 400px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+  animation: popupSlideIn 0.3s ease-in-out; /* Smooth slide-in animation */
 }
 
 .close-btn-unique {
@@ -3526,8 +3453,8 @@ h5{
   color: #000;
 }
 
-/* Optional: Fade-in animation */
-@keyframes fadeIn {
+/* New Slide-In Animation */
+@keyframes popupSlideIn {
   from {
       opacity: 0;
       transform: translate(-50%, -60%);
