@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".next-btn").forEach((btn, index) => {
         btn.addEventListener("click", () => {
+            const age = parseInt(document.getElementById("age").value);
+            if (age < 14) {
+                alert("You must be at least 14 years old to proceed.");
+                return; // Prevent moving to the next step
+            }
+
             if (!validateStep(currentStep)) {
                 alert("Please fill all the fields ⚡");
                 return;
@@ -57,8 +63,8 @@ const heightUnit = document.getElementById('heightUnit');
 // Input validation for height field
 heightInput.addEventListener('input', () => {
     if (heightUnit.value === 'ft') {
-        // Allow only numbers, apostrophe ('), and optional double quotes (")
-        heightInput.value = heightInput.value.replace(/[^0-9'"]/g, '');
+        // Allow numbers and common characters for feet ('`, `, ´, ., ")
+        heightInput.value = heightInput.value.replace(/[^0-9'",´.`]/g, '');
     } else {
         // Allow only numbers for cm
         heightInput.value = heightInput.value.replace(/\D/g, '');
@@ -98,7 +104,9 @@ function calculateCaloriesAndMacros() {
 
     let heightInCm;
     if (heightUnit === "ft") {
-        const heightParts = height.match(/^(\d+)'(\d+)?$/);
+        // Normalize input to handle various characters ('`, `, ´, ., ")
+        const normalizedHeight = height.replace(/[`,´.`]/g, "'");
+        const heightParts = normalizedHeight.match(/^(\d+)'(\d+)?$/);
         if (heightParts) {
             const feet = parseInt(heightParts[1]);
             const inches = parseInt(heightParts[2] || 0);
@@ -110,7 +118,7 @@ function calculateCaloriesAndMacros() {
     } else {
         heightInCm = parseFloat(height); // Assume cm directly
     }
-    
+
     document.getElementById("loadingSpinner").style.display = "flex";
     document.getElementById("result").innerHTML = "";
     document.getElementById("macroResult").innerHTML = "";
