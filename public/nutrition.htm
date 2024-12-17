@@ -307,13 +307,14 @@
 										</section>
 									</div>
 								</div>
-	
+								<p>‎ </p>
+
 <!----------CALORIE AND MACRO CALCULATOR---------->
 							
 <div class="section">
     <div class="content">
         <section class="quiz bg-grid" id="calculator">
-            <h5 class="my-3">Fill out this form to calculate your Calorie intake and Macronutrient breakdown:</h5>
+			<h5 class="my-3 minimalist-text">Complete the form to calculate your calorie needs and macronutrient breakdown.</h5>
             <div class="calorie-calculator">
                 <h2 class="macro-description">CALORIE & MACRONUTRIENT CALCULATOR</h2>
                 <div class="form">
@@ -321,26 +322,28 @@
                         
 <!-- Step 1 -->
 <div class="form-group question-step" data-step="1">
-    <label class="question-step-label" for="age">Age</label>
+    <label class="question-step-label" for="age">What is your age?</label>
     <input class="question-step-input" type="number" id="age" name="age" required>
+	<p>‎ </p>
     <button type="button" class="next-btn">Next</button>
 </div>
 
 <!-- Step 2 -->
 <div class="form-group question-step" data-step="2" style="display: none;">
-    <label class="question-step-label" for="gender">Gender</label>
+    <label class="question-step-label" for="gender">What is your gender?</label> 
     <select class="question-step-select" id="gender" name="gender" required>
         <option value="" disabled selected>Select Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select>
+	<p>‎ </p>
     <button type="button" class="back-btn">Back</button>
     <button type="button" class="next-btn">Next</button>
 </div>
 
 <!-- Step 3 -->
 <div class="form-group question-step" data-step="3" style="display: none;">
-    <label class="question-step-label" for="weight">Weight</label>
+    <label class="question-step-label" for="weight">What is your Weight?</label>
     <div class="input-container">
         <input class="question-step-input" type="number" id="weight" name="weight" required placeholder="Weight">
         <select class="question-step-select" id="weightUnit">
@@ -348,27 +351,30 @@
             <option value="lbs">lbs</option>
         </select>
     </div>
+	<p>‎ </p>
     <button type="button" class="back-btn">Back</button>
     <button type="button" class="next-btn">Next</button>
 </div>
 
 <!-- Step 4 -->
 <div class="form-group question-step" data-step="4" style="display: none;">
-    <label class="question-step-label" for="height">Height</label>
-    <div class="input-container">
-        <input class="question-step-input" type="number" id="height" name="height" required placeholder="Height">
-        <select class="question-step-select" id="heightUnit">
-            <option value="cm" selected>cm</option>
-            <option value="ft">ft</option>
-        </select>
-    </div>
-    <button type="button" class="back-btn">Back</button>
+	<label class="question-step-label" for="height">What is your Height?</label>
+	<div class="input-container">
+		<input 
+			class="question-step-input" type="text" id="height" name="height" required placeholder="Height (e.g., 5'11 or 180)">
+		<select class="question-step-select" id="heightUnit">
+			<option value="cm" selected>cm</option>
+			<option value="ft">ft</option>
+		</select>
+	</div>    
+	<p>‎ </p>
+	<button type="button" class="back-btn">Back</button>
     <button type="button" class="next-btn">Next</button>
 </div>
 
 <!-- Step 5 -->
 <div class="form-group question-step" data-step="5" style="display: none;">
-    <label class="question-step-label" for="activityLevel">Activity Level</label>
+    <label class="question-step-label" for="activityLevel">What is your Activity Level?</label>
     <select class="question-step-select" id="activityLevel" name="activityLevel" required>
         <option value="" disabled selected>Select Activity Level</option>
         <option value="1.2">Sedentary</option>
@@ -377,19 +383,21 @@
         <option value="1.725">Very active</option>
         <option value="1.9">Super active</option>
     </select>
+	<p>‎ </p>
     <button type="button" class="back-btn">Back</button>
     <button type="button" class="next-btn">Next</button>
 </div>
 
 <!-- Final Step -->
 <div class="form-group question-step" data-step="6" style="display: none;">
-    <label class="question-step-label" for="goal">Goal</label>
+    <label class="question-step-label" for="goal">What is your Goal?</label>
     <select class="question-step-select" id="goal" name="goal" required>
         <option value="" disabled selected>Select Goal</option>
         <option value="lose">Lose Weight</option>
         <option value="maintain">Maintain Weight</option>
         <option value="gain">Gain Weight</option>
     </select>
+	<p>‎ </p>
     <button type="button" class="submit-btn" onclick="calculateCaloriesAndMacros()">Calculate</button>
 </div>
 </form>

@@ -163,7 +163,7 @@ p.lead strong {
 .hamburger-menu {
   display: block;
   position: absolute; /* Ensure it stays at the top-left */
-  top: 10px; /* Adjust vertical alignment */
+  top: 1px; /* Adjust vertical alignment */
   left: 10px; /* Adjust horizontal alignment */
   cursor: pointer;
   font-size: 20px;
@@ -293,18 +293,38 @@ p.lead strong {
   display: none;
 }
 
-.heading {
-  font-size: 36px;
-  color: #ffffff;
-  font-weight: bold;
-}
-
 @media (max-width: 600px) {
   .welcome-message {
     font-size: 16px;
   }
-  .heading {
-    font-size: 28px;
+}
+
+/* PAGE TITLE */
+.heading {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean sans-serif font */
+  font-size: 2.5rem; /* Large, prominent text */
+  font-weight: lighter; /* Light weight for elegance */
+  text-transform: uppercase; /* All caps for a strong look */
+  text-align: center; /* Center align the text */
+  color: #b4b4b4; /* Neutral dark gray */
+  margin: 20px 0; /* Add space around the heading */
+  padding-bottom: 10px; /* Space between text and underline */
+
+  /* Animation setup */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeInUp 1s ease-out forwards; /* Fade and slide in */
+}
+
+/* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
@@ -837,7 +857,7 @@ input[type="checkbox"] {
   right: 0px;
   transform: translateY(-50%);
   width: 50px;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 /* Show the menu when checkbox is checked */
@@ -2051,11 +2071,6 @@ h3 {
 .sticky{
     padding:1em 0 !important;
 }
-.page-title .heading {
-    font-size: 2rem;
-    font-weight: bold;
-    color:rgb(80, 80, 80);
-}
 
 .footer {
     text-align: center ;
@@ -2200,6 +2215,21 @@ h3 {
     
 }
  
+/*-----------------CALORIE AND MACRO TEXT--------------------*/
+
+.minimalist-text {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern and simple font */
+  font-size: 1.25rem; /* Clean and readable size */
+  font-weight: 500; /* Medium weight for emphasis */
+  color: #222222; /* Neutral dark color for text */
+  text-align: center; /* Center-align for focus */
+  margin: 20px auto; /* Adds spacing around the text */
+  line-height: 1.6; /* Comfortable line spacing */
+  border-bottom: 2px solid #001986; /* Subtle underline for separation */
+  padding-bottom: 0.5rem; /* Adds slight padding for balance */
+  max-width: 600px; /* Restricts width for better readability */
+}
+
 /*-----------------CALORIE AND MACRO CALCULATOR--------------------*/
 
 /* General Reset */
@@ -2257,27 +2287,47 @@ h3 {
   border-radius: 8px;
   background: #fafafa;
   color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.507);
   transition: all 0.3s ease;
   outline: none;
 }
 
+.question-step-input[type="text"], 
+.question-step-select[type="text"] {
+  padding: 12px;
+  font-size: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.507);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.question-step-input[type="text"]:focus, 
+.question-step-select[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.555);
+  background: #ffffff;
+}
 .question-step-input:focus, 
 .question-step-select:focus {
   border-color: #007bff;
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.555);
   background: #ffffff;
 }
 
-.input-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.question-step-input::placeholder {
+  color: #aaa; /* Subtle placeholder color for consistency */
+  font-style: italic;
 }
+
 
 /*NEXT BUTTON*/
 .next-btn, .submit-btn {
   padding: 1.3em 3em;
-  font-size: 8px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -2305,7 +2355,7 @@ h3 {
 
 .back-btn {
   padding: 1.3em 3em;
-  font-size: 8px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;

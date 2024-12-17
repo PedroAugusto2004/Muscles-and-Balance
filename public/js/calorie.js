@@ -51,7 +51,32 @@ document.addEventListener("DOMContentLoaded", () => {
     showStep(currentStep);
 });
 
-function calculateCaloriesAndMacros() {
+const heightInput = document.getElementById('height');
+const heightUnit = document.getElementById('heightUnit');
+
+// Input validation for height field
+heightInput.addEventListener('input', () => {
+    if (heightUnit.value === 'ft') {
+        // Allow only numbers, apostrophe ('), and optional double quotes (")
+        heightInput.value = heightInput.value.replace(/[^0-9'"]/g, '');
+    } else {
+        // Allow only numbers for cm
+        heightInput.value = heightInput.value.replace(/\D/g, '');
+    }
+});
+
+heightUnit.addEventListener('change', () => {
+    // Clear the input when switching units to avoid invalid formats
+    heightInput.value = '';
+    if (heightUnit.value === 'cm') {
+        heightInput.placeholder = "Height (e.g., 180)";
+    } else if (heightUnit.value === 'ft') {
+        heightInput.placeholder = "Height (e.g., 5'11)";
+    }
+});
+
+// Function to calculate calories and macros
+function calculateCaloriesAndMacros() { 
     const age = parseInt(document.getElementById("age").value);
     const gender = document.getElementById("gender").value;
     const weight = parseFloat(document.getElementById("weight").value);
@@ -85,7 +110,7 @@ function calculateCaloriesAndMacros() {
     } else {
         heightInCm = parseFloat(height); // Assume cm directly
     }
-
+    
     document.getElementById("loadingSpinner").style.display = "flex";
     document.getElementById("result").innerHTML = "";
     document.getElementById("macroResult").innerHTML = "";

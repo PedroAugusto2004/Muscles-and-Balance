@@ -73,6 +73,35 @@
   transform: translateX(-50px);
   opacity: 0;
   }
+
+/* PAGE TITLE */
+.heading {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean sans-serif font */
+  font-size: 2.5rem; /* Large, prominent text */
+  font-weight: lighter; /* Light weight for elegance */
+  text-transform: uppercase; /* All caps for a strong look */
+  text-align: center; /* Center align the text */
+  color: #b4b4b4; /* Neutral dark gray */
+  margin: 20px 0; /* Add space around the heading */
+  padding-bottom: 10px; /* Space between text and underline */
+
+  /* Animation setup */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeInUp 1s ease-out forwards; /* Fade and slide in */
+}
+
+/* Keyframes for the animation */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
   
 /*OPTIMIZING FOR MOBILE*/
 
@@ -1120,11 +1149,6 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 .sticky{
   padding:1em 0 !important;
-}
-.page-title .heading {
-  font-size: 2rem;
-  font-weight: bold;
-  color:rgb(80, 80, 80);
 }
 
 .footer {
