@@ -111,7 +111,7 @@ body {
 
 .item-list li {
   padding: 12px;
-  border-left: 4px solid #000000;
+  border-left: 4px solid #a00000;
   margin-bottom: 10px;
   background-color: #cecece;
   border-radius: 5px;
@@ -2016,6 +2016,20 @@ img:hover {
 }
 
 /*--------------------SUPPLEMENT QUIZ-------------------*/
+
+.minimalist-text {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern and simple font */
+  font-size: 1.25rem; /* Clean and readable size */
+  font-weight: 500; /* Medium weight for emphasis */
+  color: #222222; /* Neutral dark color for text */
+  text-align: center; /* Center-align for focus */
+  margin: 20px auto; /* Adds spacing around the text */
+  line-height: 1.6; /* Comfortable line spacing */
+  border-bottom: 2px solid #001986; /* Subtle underline for separation */
+  padding-bottom: 0.5rem; /* Adds slight padding for balance */
+  max-width: 600px; /* Restricts width for better readability */
+}
+
 
 .login-box {
   position: relative; /* Changed from absolute to relative */

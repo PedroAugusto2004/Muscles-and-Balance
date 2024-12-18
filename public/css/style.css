@@ -72,12 +72,11 @@ p.lead strong {
   padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.514);
 }
 
 /* Headings */
 .section-container h3{
-  font-weight: 700;
+  font-weight: lighter;
   color: #000000;
   margin-bottom: 16px;
   border-left: 3px solid #910808;
@@ -86,16 +85,11 @@ p.lead strong {
 }
 
 .section-container h5 {
-  font-weight: 400;
+  font-weight: lighter;
   color: #000000;
   margin-bottom: 16px;
   padding-left: 10px;
   transition: color 0.3s;
-}
-
-.section-container h3:hover,
-.section-container h5:hover {
-  color: #410303;
 }
 
 /* List-like Items with Enhanced Style */
@@ -107,13 +101,13 @@ p.lead strong {
   padding: 12px 15px;
   margin: 12px 0;
   border-left: 4px solid #b80b0b;
-  background-color: #353535;
+  background-color: #5e5e5e;
   border-radius: 5px;
   transition: background-color 0.3s ease, border-left 0.3s ease;
 }
 
 .list-item:hover {
-  background-color: #000000;
+  background-color: #242424;
   border-left: 4px solid #910808;
 }
 
