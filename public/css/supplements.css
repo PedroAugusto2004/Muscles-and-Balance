@@ -2165,12 +2165,45 @@ img:hover {
   color: #575757;
 }
 
+/* Shine effect for h5 */
+.shining-effect {
+  display: inline-block; /* Ensure the element is treated as a block for better effect */
+  background: linear-gradient(90deg, #ffffff, #424242, #ffffff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the text color transparent to show the gradient */
+  animation: shine 3s linear infinite;
+}
+
+/* Keyframes for the shine animation */
+@keyframes shine {
+  0% {
+      background-position: 200% 0;
+  }
+  100% {
+      background-position: -200% 0;
+  }
+}
+
 #result p {
   font-weight: 400;
   font-size: 1em;
   line-height: 1.6;
   margin: 4px 0;
   color: #dddddd;
+}
+
+/* Style for the recommendation links */
+.result a {
+  color: #025992; /* Blue color for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: lighter; /* Make the text bold */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.result a:hover {
+  color: #002f4e; /* Change color to green on hover */
+  text-decoration: underline; /* Add underline on hover */
 }
 
 /* LOADING */

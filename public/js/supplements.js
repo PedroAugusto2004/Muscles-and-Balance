@@ -1,12 +1,14 @@
+//----------SUPPLEMENT QUIZ----------//
+
 function calculateRecommendation() {
     const goal = document.getElementById('goal').value;
     const activityLevel = document.getElementById('activityLevel').value;
     const dietType = document.getElementById('dietType').value;
     let recommendation = '';
 
-    // Check if all fields are filled
+    // Validate form fields
     if (!goal || !activityLevel || !dietType) {
-        alert("Please fill in all the fields💪");
+        alert("Please fill in all the fields 💪");
         return;
     }
 
@@ -14,43 +16,84 @@ function calculateRecommendation() {
     document.getElementById('loader').style.display = 'flex';
     document.getElementById('result').style.display = 'none';
 
-    // Simulate loading time with a timeout
+    // Simulate loading time
     setTimeout(() => {
-        // Generate recommendation based on goal and activity level
+        // Generate recommendations based on user inputs
         if (goal === 'muscleGain') {
-            recommendation = 'For muscle gain, consider whey protein, BCAAs, and creatine.';
+            recommendation = `
+                For muscle gain, consider 
+                <a href="https://example.com/whey-protein" target="_blank">whey protein</a>, 
+                <a href="https://example.com/bcaas" target="_blank">BCAAs</a>, and 
+                <a href="https://example.com/creatine" target="_blank">creatine</a>.
+            `;
             if (activityLevel === 'high') {
-                recommendation += ' Since your activity level is high, adding electrolytes and a post-workout recovery formula can help with muscle repair.';
+                recommendation += `
+                    Since your activity level is high, adding 
+                    <a href="https://example.com/electrolytes" target="_blank">electrolytes</a> and a 
+                    <a href="https://example.com/post-workout" target="_blank">post-workout recovery formula</a> 
+                    can help with muscle repair.
+                `;
             }
         } else if (goal === 'weightLoss') {
-            recommendation = 'To support weight loss, consider thermogenic fat burners, fiber supplements like glucomannan, and green tea extract.';
+            recommendation = `
+                To support weight loss, consider 
+                <a href="https://example.com/fat-burners" target="_blank">thermogenic fat burners</a>, 
+                <a href="https://example.com/fiber-supplements" target="_blank">fiber supplements</a> like glucomannan, and 
+                <a href="https://example.com/green-tea" target="_blank">green tea extract</a>.
+            `;
             if (activityLevel === 'moderate' || activityLevel === 'high') {
-                recommendation += ' A high-activity level benefits from BCAAs and a low-calorie protein powder to preserve lean muscle.';
+                recommendation += `
+                    A high-activity level benefits from 
+                    <a href="https://example.com/bcaas" target="_blank">BCAAs</a> and a 
+                    <a href="https://example.com/low-cal-protein" target="_blank">low-calorie protein powder</a> 
+                    to preserve lean muscle.
+                `;
             }
         } else if (goal === 'energyBoost') {
-            recommendation = 'For an energy boost, try caffeine, B vitamins, and pre-workout supplements with adaptogens.';
+            recommendation = `
+                For an energy boost, try 
+                <a href="https://example.com/caffeine" target="_blank">caffeine</a>, 
+                <a href="https://example.com/b-vitamins" target="_blank">B vitamins</a>, and 
+                <a href="https://example.com/pre-workout" target="_blank">pre-workout supplements</a> with adaptogens.
+            `;
             if (activityLevel === 'low') {
-                recommendation += ' Since you have a low activity level, consider starting with lighter doses to assess tolerance.';
+                recommendation += `
+                    Since you have a low activity level, consider starting with lighter doses to assess tolerance.
+                `;
             }
         } else if (goal === 'generalHealth') {
-            recommendation = 'For general health, consider a multivitamin, omega-3 fatty acids, and probiotics for digestive health.';
+            recommendation = `
+                For general health, consider a 
+                <a href="https://example.com/multivitamin" target="_blank">multivitamin</a>, 
+                <a href="https://example.com/omega-3" target="_blank">omega-3 fatty acids</a>, and 
+                <a href="https://example.com/probiotics" target="_blank">probiotics</a> for digestive health.
+            `;
             if (activityLevel === 'high') {
-                recommendation += ' With a high activity level, adding joint-support supplements like glucosamine could be beneficial.';
+                recommendation += `
+                    With a high activity level, adding 
+                    <a href="https://example.com/joint-support" target="_blank">joint-support supplements</a> like glucosamine 
+                    could be beneficial.
+                `;
             }
         }
 
-        // Additional recommendations based on diet type
+        // Add diet-specific recommendations
         if (dietType === 'vegetarian' || dietType === 'vegan') {
-            recommendation += ' As a ' + dietType + ', plant-based protein powder, B12, and iron are beneficial.';
+            recommendation += `
+                As a ${dietType}, 
+                <a href="https://example.com/plant-protein" target="_blank">plant-based protein powder</a>, 
+                <a href="https://example.com/b12" target="_blank">B12</a>, and 
+                <a href="https://example.com/iron" target="_blank">iron</a> are beneficial.
+            `;
         }
 
         // Display the recommendation
-        document.getElementById('recommendationText').innerText = recommendation;
+        document.getElementById('recommendationText').innerHTML = recommendation.trim();
         document.getElementById('result').style.display = 'block';
 
-        // Hide the loader after recommendation is displayed
+        // Hide the loader
         document.getElementById('loader').style.display = 'none';
-    }, 2000); // Simulate a 2-second loading time
+    }, 2000); // Simulate 2-second loading time
 }
 
 //----------SUPPLEMENT TRACKER----------//
