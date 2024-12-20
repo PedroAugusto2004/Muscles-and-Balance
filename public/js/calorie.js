@@ -171,6 +171,7 @@ function calculateCaloriesAndMacros() {
     }, 1000); // Delay to simulate loading
 }
 
+
 // EXPORT PDF
 function exportToPDF() {
     const userName = localStorage.getItem("userName") || "User";

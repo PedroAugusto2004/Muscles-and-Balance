@@ -941,7 +941,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   transition: color 0.3s;
 }
 
