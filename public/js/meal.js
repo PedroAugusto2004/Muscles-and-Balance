@@ -1,5 +1,4 @@
 // NUTRITION CALCULATOR
-
 document.getElementById('addFoodItem').addEventListener('click', function () {
     const foodItemCount = document.querySelectorAll('.food-item').length + 1;
 
@@ -94,8 +93,6 @@ document.getElementById('mealForm').addEventListener('submit', function (e) {
 });
 
 async function getNutritionData(foodItems) {
-    const apiKey = 'dc176e1bce2d7f71f403b8716d4edd5c';
-    const appId = '92b2b0f1';
     let totalCalories = 0;
     let totalProteins = 0;
     let totalFats = 0;
@@ -110,17 +107,14 @@ async function getNutritionData(foodItems) {
     for (let item of foodItems) {
         if (item.name && item.portion > 0) {
             try {
-                const response = await fetch(`https://trackapi.nutritionix.com/v2/natural/nutrients`, {
+                const response = await fetch('http://127.0.0.1:5000/api/nutrition', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'x-app-id': appId,
-                        'x-app-key': apiKey
                     },
                     body: JSON.stringify({
-                        query: `${item.portion} grams of ${item.name}`,
-                        num_servings: 1
-                    })
+                        barcode: `${item.portion} grams of ${item.name}`
+                    }),
                 });
 
                 if (!response.ok) {
@@ -129,6 +123,7 @@ async function getNutritionData(foodItems) {
                 }
 
                 const data = await response.json();
+                console.log('Fetched nutrition data:', data); // Add this line for debugging
                 const food = data.foods ? data.foods[0] : null;
                 if (!food) continue;
 

@@ -1,6 +1,3 @@
-// USDA FoodData Central API Key
-const apiKey = 'sdKpkt4Jgtr0PPZBwVhfccMIV1TptLgkh5gx0xKq';
-
 document.getElementById('start-scan').addEventListener('click', () => {
     showLoadingMessage(true);  // Show loading message
     clearMessages();  // Clear any previous messages
@@ -44,21 +41,25 @@ document.getElementById('start-scan').addEventListener('click', () => {
 
 // Fetch nutrition data and display
 function fetchNutritionData(barcode) {
-    const apiUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${barcode}&api_key=${apiKey}`;
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.foods && data.foods.length > 0) {
-                displayNutritionFacts(data.foods[0]);
-            } else {
-                showErrorMessage("Product not found. Try another barcode.");
-            }
-        })
-        .catch(err => {
-            console.error("Error fetching data:", err);
-            showErrorMessage("There was an issue fetching the product data.");
-        });
+    fetch('/api/nutrition', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ barcode })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.foods && data.foods.length > 0) {
+            displayNutritionFacts(data.foods[0]);
+        } else {
+            showErrorMessage("Product not found. Try another barcode.");
+        }
+    })
+    .catch(err => {
+        console.error("Error fetching data:", err);
+        showErrorMessage("There was an issue fetching the product data.");
+    });
 }
 
 function displayNutritionFacts(product) {
