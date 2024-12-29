@@ -65,21 +65,6 @@ def handle_registration():
         "email": email
     })
 
-# @app.route('/api/firebase-config', methods=['GET'])
-# def get_firebase_config():
-    """
-    Endpoint to provide Firebase configuration to the frontend.
-    """
-    #config = {
-       # "apiKey": FIREBASE_API_KEY,
-       # "authDomain": FIREBASE_AUTH_DOMAIN,
-       # "projectId": FIREBASE_PROJECT_ID,
-       # "storageBucket": FIREBASE_STORAGE_BUCKET,
-       # "messagingSenderId": FIREBASE_MESSAGING_SENDER_ID,
-       # "appId": FIREBASE_APP_ID
-   # }
-   # return jsonify(config)
-
 @app.route('/api/nutritionix-config', methods=['GET'])
 def get_nutritionix_config():
     """
@@ -92,5 +77,5 @@ def get_nutritionix_config():
     return jsonify(config)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 5000))  # Changed port to 5000
     app.run(host='0.0.0.0', port=port)

@@ -107,7 +107,7 @@ async function getNutritionData(foodItems) {
     for (let item of foodItems) {
         if (item.name && item.portion > 0) {
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/nutrition', {
+                const response = await fetch('https://python-backend-679194909576.us-central1.run.app/api/nutrition', {  // Updated to use deployed backend URL
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

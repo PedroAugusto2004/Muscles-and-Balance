@@ -41,7 +41,7 @@ document.getElementById('start-scan').addEventListener('click', () => {
 
 // Fetch nutrition data and display
 function fetchNutritionData(barcode) {
-    fetch('/api/nutrition', {
+    fetch('https://python-backend-679194909576.us-central1.run.app/api/nutrition', {  
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
