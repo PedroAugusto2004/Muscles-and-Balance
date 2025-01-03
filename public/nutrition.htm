@@ -225,11 +225,9 @@
 
 		<article class="content px-3 py-5 p-md-5">
 			<div class="container">
-				<div class="section">
-				<div class="content">
-		
-				<p class="mt-3 lead"> <h1>Why a good Nutrition is so important?</h1>
 
+				<h1 class="reveal">Why a good Nutrition is so important?</h1>
+               <p class="mt-3 lead reveal"> 
 					Good nutrition is crucial because it provides your body with the 
 					essential nutrients it needs for energy, growth, and repair. 
 					It supports immune function, mental clarity, and overall health, 
@@ -238,26 +236,23 @@
 					
 					 </p>
 	
-					 <div class="custom-text">
+					 <div class="custom-text reveal">
 						In this section on nutrition, you'll find helpful tools and resources to support your health goals. One of the key features is the calorie calculator, which lets you fill out a form to determine your daily calorie needs based on your personal objectives. Additionally, our nutrition calculator provides detailed information on the essential nutrients in any type of food.
 
 						You'll also have access to a wide range of articles covering all the important topics related to nutrition. Feel free to explore and make the most of these resources!					
 					</div>			  
 
-					 <div class="video-container">
+					 <div class="video-container reveal">
 						<video autoplay muted loop playsinline id="background-video">
 							<source src="videos/nutrition.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
 					</div>
 											
-					</div>
-				</div>
-				<div class="section">
-					<div class="content">
 					<section class="quiz bg-grid" id="macros">
 				
-				
+					<!-- Always visible content -->
+					<div class="visible-content">
 					<h2 class="mt-5 mb-3">Fist of all, lets talk about macronutrients</h2>
 					
 					<blockquote class="blockquote m-lg-5 py-3 pl-4 px-lg-5">
@@ -267,7 +262,11 @@
 					</blockquote>					
 					<div class="section-container">
 						<h3 class="mt-5 mb-3">Let's break down each macronutrient and its importance:</h3>
-					
+					</div>
+
+					 <!-- Hidden content -->
+					 <div id="hidden-content" class="hidden-content">
+						<div class="section-container">
 						<h5 class="my-3">Carbohydrates:</h5>
 						<div class="list-item mb-2">Functions: Carbohydrates are the body's main source of energy. They are broken down into glucose, which fuels cells and tissues, including the brain and muscles.</div>
 						<div class="list-item mb-2">Sources: Foods rich in carbohydrates include grains, fruits, vegetables, legumes, and dairy products.</div>
@@ -303,16 +302,90 @@
 						<div class="list-item mb-2">Trans Fats: Minimize trans fats as much as possible as they are linked to an increased risk of heart disease and other health issues.</div>
 						<div class="list-item mb-2">Unsaturated Fats: Aim to consume more unsaturated fats, such as monounsaturated and polyunsaturated fats, as they can have positive health benefits. Sources include nuts, seeds, avocados, and fatty fish.</div>
 					</div>
-															
-										</section>
-									</div>
-								</div>
-								<p>‎ </p>
+				</div>
+			
+
+  <!-- Read More Button -->
+  <div class="read-more-container">
+	<button class="readmore-btn" id="read-more-button">
+		<span class="book-wrapper">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="rgb(86, 69, 117)"
+				viewBox="0 0 126 75"
+				class="book"
+			>
+				<rect
+					stroke-width="3"
+					stroke="#fff"
+					rx="7.5"
+					height="70"
+					width="121"
+					y="2.5"
+					x="2.5"
+				></rect>
+				<line stroke-width="3" stroke="#fff" y2="75" x2="63.5" x1="63.5"></line>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M25 20H50"
+				></path>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M101 20H76"
+				></path>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M16 30L50 30"
+				></path>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M110 30L76 30"
+				></path>
+			</svg>
+
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 65 75"
+				class="book-page"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M40 20H15"
+				></path>
+				<path
+					stroke-linecap="round"
+					stroke-width="4"
+					stroke="#fff"
+					d="M49 30L15 30"
+				></path>
+				<path
+					stroke-width="3"
+					stroke="#fff"
+					d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"
+				></path>
+			</svg>
+		</span>
+		<span class="read-text"> Read more </span>
+	</button>
+</div>
+
+</section>
+
+	<p>‎ </p>
 
 <!----------CALORIE AND MACRO CALCULATOR---------->
 							
-<div class="section">
-    <div class="content">
         <section class="quiz bg-grid" id="calculator">
 			<h5 class="my-3 minimalist-text">Complete the form to calculate your calorie needs and macronutrient breakdown.</h5>
             <div class="calorie-calculator">
@@ -434,8 +507,6 @@
   </div>
 
 </section>
-</div>
-</div>
 
 		<div class="section">
 			<div class="content">
@@ -451,8 +522,6 @@
 							Overall, a meal planner streamlines meal preparation and consumption, leading to a more organized, healthy, and economical lifestyle. </p>
 					</blockquote>					
 					
-					<div class="section">
-						<div class="content">
 						<section class="quiz bg-grid" id="diets">
 
 <!-- DIET -->
@@ -558,8 +627,6 @@
         </section>
     </main>
    </section>
-  </div>
- </div>
 
  <div class="section">
 	<div class="content">
@@ -757,6 +824,7 @@
 	<script src="js/meal.js"></script>
 	<script src="js/calorie.js" defer></script>
 	<script src="js/scan.js"></script>
+	<script src="js/reveal.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>

@@ -1,4 +1,3 @@
-
 //----------WORKOUT PLAN----------//
 
 function getWorkoutPlan() {
@@ -14,7 +13,7 @@ function getWorkoutPlan() {
 
     // Show loading animation and hide result section initially
     document.getElementById('loading').style.display = 'flex';
-    document.getElementById('result').style.display = 'none';
+    document.getElementById('workout-result').style.display = 'none';
 
     // Simulate delay for loading animation
     setTimeout(() => {
@@ -93,6 +92,11 @@ function getWorkoutPlan() {
         }
 
         // Display the workout plan details in the result section
+        console.log('Workout Plan Name:', workoutPlanName);
+        console.log('Duration:', duration);
+        console.log('Frequency:', frequency);
+        console.log('Description:', description);
+
         document.getElementById('plan-name').innerText = workoutPlanName;
         document.getElementById('plan-duration').innerText = `Duration: ${duration}`;
         document.getElementById('plan-frequency').innerText = `Frequency: ${frequency}`;
@@ -100,31 +104,9 @@ function getWorkoutPlan() {
 
         // Hide loading animation and show result section
         document.getElementById('loading').style.display = 'none';
-        document.getElementById('result').style.display = 'block';
-
+        document.getElementById('workout-result').style.display = 'block';
     }, 1500); // 1.5-second delay to simulate loading
 }
-
-/*===== SCROLL REVEAL ANIMATION =====*/
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded and parsed');
-
-    // Check if ScrollReveal is loaded
-    if (typeof ScrollReveal !== 'undefined') {
-        console.log('ScrollReveal is loaded');
-
-        // Initialize ScrollReveal and reveal elements within the .section class
-        ScrollReveal().reveal('.section .content', {
-            duration: 1000, // Animation duration in milliseconds
-            origin: 'bottom', // Animation starting point
-            distance: '20px', // Distance to travel
-            easing: 'ease-in-out', // Easing function
-            reset: true // Whether to reset the animation on scroll back up
-        });
-    } else {
-        console.error('ScrollReveal is not loaded');
-    }
-});
 
 /*===== SHORTCTUT =====*/
 
@@ -143,6 +125,7 @@ window.addEventListener('click', (event) => {
   document.querySelector('.close-button').addEventListener('click', () => {
     document.getElementById('toggle-menu').checked = false;
   });
+
 
   /*===== SHARE BUTTON =====*/
 
@@ -211,3 +194,68 @@ mybutton.onclick = function() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+/*===== SCROLL REVEAL ANIMATION =====*/
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+
+    // Check if ScrollReveal is loaded
+    if (typeof ScrollReveal !== 'undefined') {
+        console.log('ScrollReveal is loaded');
+
+        // Initialize ScrollReveal and reveal elements within the .section class
+        ScrollReveal().reveal('.section .content', {
+            duration: 1000, // Animation duration in milliseconds
+            origin: 'bottom', // Animation starting point
+            distance: '20px', // Distance to travel
+            easing: 'ease-in-out', // Easing function
+            reset: true // Whether to reset the animation on scroll back up
+        });
+    } else {
+        console.error('ScrollReveal is not loaded');
+    }
+});
+
+// Initialize ScrollReveal
+ScrollReveal().reveal('.reveal', {
+    distance: '50px',
+    origin: 'bottom',
+    duration: 800,
+    easing: 'ease-in-out',
+    opacity: 0,
+    reset: true // Resets animation when scrolled back into view (optional)
+});
+
+// HIDDING ARTICLE
+const button = document.getElementById('read-more-button');
+const hiddenContent = document.getElementById('hidden-content');
+
+// Initialize ScrollReveal
+document.addEventListener('DOMContentLoaded', () => {
+    ScrollReveal().reveal('.visible-content, .hidden-content', {
+        distance: '50px',
+        duration: 1000,
+        origin: 'bottom',
+        interval: 200,
+    });
+});
+
+button.addEventListener('click', () => {
+    hiddenContent.classList.toggle('show');
+    const textElement = button.querySelector('.read-text');
+    textElement.textContent = hiddenContent.classList.contains('show') ? 'Read less' : 'Read more';
+
+    // Trigger ScrollReveal on dynamically revealed content
+    if (hiddenContent.classList.contains('show')) {
+        ScrollReveal().reveal('.hidden-content.show', { reset: true });
+    }
+
+    // Scroll to the button only when the text changes to "Read more"
+    if (!hiddenContent.classList.contains('show')) {
+        const buttonPosition = button.getBoundingClientRect().top + window.scrollY; // Get button's position
+        const offset = 550; // Adjust this value for how much higher you want to scroll
+        window.scrollTo({
+            top: buttonPosition - offset,
+            behavior: 'smooth',
+        });
+    }
+});

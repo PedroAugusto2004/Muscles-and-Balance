@@ -85,11 +85,121 @@ p.lead strong {
 }
 
 .section-container h5 {
-  font-weight: lighter;
+  font-weight: bold;
   color: #000000;
   margin-bottom: 16px;
   padding-left: 10px;
   transition: color 0.3s;
+}
+
+/* Hidding Article */
+.visible-content {
+  margin-bottom: 20px;
+}
+
+.hidden-content {
+  overflow: hidden;
+  max-height: 320px; /* Limit height for blur effect */
+  position: relative;
+  color: #666;
+  filter: blur(4px); /* Apply blur effect */
+  opacity: 0.8; /* Slight transparency for a soft look */
+  transition: max-height 0.5s ease, filter 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.hidden-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Height of the fade-out gradient */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  pointer-events: none; /* Ensure it doesn't block clicks */
+}
+
+.hidden-content.show {
+  max-height: none;
+  filter: none; /* Remove blur on reveal */
+  opacity: 1; /* Fully visible */
+}
+
+.hidden-content.show::after {
+  display: none; /* Hide the gradient when fully revealed */
+}
+
+.read-more-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Centers the button vertically */
+  text-align: center; /* Center the button */
+  margin-top: 20px;
+}
+
+.readmore-btn {
+  width: fit-content;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgba(14, 13, 13, 0.918);
+  border: none;
+  border-radius: 10px;
+  padding: 0px 15px;
+  gap: 0px;
+  transition: all 0.4s;
+}
+
+.book {
+  fill: rgb(112, 2, 2); /* Dark blue */
+}
+
+.book-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 45px;
+  height: 100%;
+}
+
+.book-wrapper .book-page {
+  width: 50%;
+  height: auto;
+  position: absolute;
+}
+
+.readmore-btn:hover .book-page {
+  animation: paging 0.4s linear infinite;
+  transform-origin: left;
+}
+
+.readmore-btn:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+@keyframes paging {
+  0% {
+    transform: rotateY(0deg) skewY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg) skewY(-20deg);
+  }
+  100% {
+    transform: rotateY(180deg) skewY(0deg);
+  }
+}
+
+.read-text {
+  width: 105px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+  font-size: 18px;
+  color: rgb(139, 139, 139);
 }
 
 /* List-like Items with Enhanced Style */
@@ -3212,7 +3322,7 @@ h5{
   }
 }
 
-.result {
+.workout-result {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   text-align: left;
@@ -3221,16 +3331,17 @@ h5{
   border-radius: 8px;
   background-color: #000000;
   margin-top: 16px;
+  display: none; /* Initially hidden */
 }
 
-.result h5 {
+.workout-result h5 {
   font-weight: 500;
   font-size: 1.5em;
   margin-bottom: 12px;
   color: #575757;
 }
 
-.result p {
+.workout-result p {
   font-weight: 400;
   font-size: 1em;
   line-height: 1.6;

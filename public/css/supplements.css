@@ -43,18 +43,28 @@ h1 {
 }
 
 /* Lead Paragraph Styling */
-p.lead {
-  font-size: 1.15em;
-  font-weight: 400;
-  color: #555;
+.styled-paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
   line-height: 1.8;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  color: #2c3e50;
+  background: #ffffff;
+  padding: 24px 28px;
+  border-left: 6px solid #3498db;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-p.lead strong {
-  color: #b30000;
+.styled-paragraph:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.493);
+}
+
+.styled-paragraph::first-line {
+  font-weight: 600;
+  color: #3498db;
 }
 
 /* Responsive Design */
@@ -102,6 +112,116 @@ body {
   color: #610a0a;
 }
 
+/* Hidding Article */
+.visible-content {
+  margin-bottom: 20px;
+}
+
+.hidden-content {
+  overflow: hidden;
+  max-height: 200px; /* Limit height for blur effect */
+  position: relative;
+  color: #666;
+  filter: blur(4px); /* Apply blur effect */
+  opacity: 0.8; /* Slight transparency for a soft look */
+  transition: max-height 0.5s ease, filter 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.hidden-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Height of the fade-out gradient */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  pointer-events: none; /* Ensure it doesn't block clicks */
+}
+
+.hidden-content.show {
+  max-height: none;
+  filter: none; /* Remove blur on reveal */
+  opacity: 1; /* Fully visible */
+}
+
+.hidden-content.show::after {
+  display: none; /* Hide the gradient when fully revealed */
+}
+
+.read-more-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Centers the button vertically */
+  text-align: center; /* Center the button */
+  margin-top: 20px;
+}
+
+.readmore-btn {
+  width: fit-content;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgba(14, 13, 13, 0.918);
+  border: none;
+  border-radius: 10px;
+  padding: 0px 15px;
+  gap: 0px;
+  transition: all 0.4s;
+}
+
+.book {
+  fill: rgb(112, 2, 2); /* Dark blue */
+}
+
+.book-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 45px;
+  height: 100%;
+}
+
+.book-wrapper .book-page {
+  width: 50%;
+  height: auto;
+  position: absolute;
+}
+
+.readmore-btn:hover .book-page {
+  animation: paging 0.4s linear infinite;
+  transform-origin: left;
+}
+
+.readmore-btn:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+@keyframes paging {
+  0% {
+    transform: rotateY(0deg) skewY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg) skewY(-20deg);
+  }
+  100% {
+    transform: rotateY(180deg) skewY(0deg);
+  }
+}
+
+.read-text {
+  width: 105px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+  font-size: 18px;
+  color: rgb(139, 139, 139);
+}
+
 /* List Styling */
 .item-list {
   list-style: none;
@@ -127,7 +247,6 @@ body {
 .item-list li strong {
   color: #000000;
 }
-
 
 /*CONSIDERATIONS STYLE*/
 
@@ -795,13 +914,6 @@ body::-webkit-scrollbar-thumb:active {
 background-color: #777; /* Color when clicked */
 }
 
-/* Scroll reveal animation */
-.section {
-  opacity: 1; /* Initial state for the reveal effect */
-  transform: translateY(20px); /* Initial position */
-  scroll-behavior: smooth;
-}  
-
 /*THEME*/
 
 .theme-switch__checkbox:checked + .theme-switch__container {
@@ -897,24 +1009,23 @@ h1, h2 {
   color: #fff
 }
 
-/*SITE TITLE */
-
+/* SITE TITLE */
 .header .site-title {
-  color:var(--white);
-  display:block;
+  color: var(--white);
+  display: block;
   text-decoration: none;
 }
 
-/* Shine Keyframes */
-@keyframes shine {
+/* Shine Keyframes (renamed to "shineEffect") */
+@keyframes shineEffect {
   0% {
-      background-position: 0;
+    background-position: 0;
   }
   60% {
-      background-position: 200px;
+    background-position: 200px;
   }
   100% {
-      background-position: 240px;
+    background-position: 240px;
   }
 }
 
@@ -935,19 +1046,19 @@ h1, h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /* Text gradient effect */
   
-  animation: fadeZoomIn 2s ease-in-out forwards, shine 3s linear infinite; /* Combine animations */
+  animation: fadeZoomIn 2s ease-in-out forwards, shineEffect 3s linear infinite; /* Use renamed animation */
   animation-fill-mode: forwards;
 }
 
 /* Fade-in and Zoom Keyframes */
 @keyframes fadeZoomIn {
   0% {
-      opacity: 0;
-      transform: scale(0.8);
+    opacity: 0;
+    transform: scale(0.8);
   }
   100% {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -1958,13 +2069,6 @@ img:hover {
         }
       }
       
-/* Scroll reveal animation */
-.section {
-    opacity: 1; /* Initial state for the reveal effect */
-    transform: translateY(20px); /* Initial position */
-    scroll-behavior: smooth;
-}  
-
 /*SUPPLEMENT VIDEO*/
 
 .video-container {
