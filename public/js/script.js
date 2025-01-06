@@ -244,15 +244,20 @@ button.addEventListener('click', () => {
     const textElement = button.querySelector('.read-text');
     textElement.textContent = hiddenContent.classList.contains('show') ? 'Read less' : 'Read more';
 
-    // Trigger ScrollReveal on dynamically revealed content
-    if (hiddenContent.classList.contains('show')) {
-        ScrollReveal().reveal('.hidden-content.show', { reset: true });
-    }
+    // Dynamically reinitialize ScrollReveal for visible content
+    ScrollReveal().clean('.hidden-content, .visible-content'); // Remove existing animations
+    ScrollReveal().reveal('.visible-content, .hidden-content.show', {
+        distance: '50px',
+        duration: 1000,
+        origin: 'bottom',
+        interval: 200,
+        reset: true, // Ensure animations reset when scrolling
+    });
 
-    // Scroll to the button only when the text changes to "Read more"
+    // Scroll to the button when collapsing content
     if (!hiddenContent.classList.contains('show')) {
-        const buttonPosition = button.getBoundingClientRect().top + window.scrollY; // Get button's position
-        const offset = 550; // Adjust this value for how much higher you want to scroll
+        const buttonPosition = button.getBoundingClientRect().top + window.scrollY;
+        const offset = 550; // Adjust as needed
         window.scrollTo({
             top: buttonPosition - offset,
             behavior: 'smooth',

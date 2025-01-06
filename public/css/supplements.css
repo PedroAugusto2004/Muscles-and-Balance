@@ -234,6 +234,7 @@ body {
   border-left: 4px solid #a00000;
   margin-bottom: 10px;
   background-color: #cecece;
+  color: #000000;
   border-radius: 5px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -1331,55 +1332,56 @@ margin: auto;
 transform: translate(-35%, 10%);
 }
 
-/* Modal Container */ 
+
+/* Modal Container */
 .modal {
-display: none; /* Hidden by default */
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-justify-content: center;
-align-items: center;
-z-index: 1000; /* Ensure modal is above everything */
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 12%; /* Move modal down by 20% of the viewport height */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure modal stays above everything */
 }
 
 /* Heading Styles */
 h3 {
-color: #ffffff;
-font-weight: 450;
-text-align: center;
+  color: #fff;
+  font-weight: 450;
 }
 
 /* Modal Content */
 .modal-content {
-background: #000000b6; /* Semi-transparent black */
-color: #000000; /* Text color inside the modal */
-padding: 20px;
-border-radius: 8px;
-width: 100%; /* Make it responsive */
-max-width: 400px; /* Limit the maximum width */
-text-align: center;
-position: relative; /* Position relative for the close button */
-margin-top: 125px; /* Adjust margin as needed */
+  background: #000000b6; /* Semi-transparent black */
+  color: #000; /* Text color inside the modal */
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%; /* Make it responsive */
+  max-width: 400px; /* Limit the maximum width */
+  text-align: center;
+  position: relative; /* Position relative for the close button */
+  margin-top: 0; /* Remove the previous margin-top */
+  z-index: 11000; /* Ensure content stays above modal background */
 }
 
 /* Close Button */
 .close {
-position: absolute;
-top: 10px;
-right: 15px;
-color: white;
-font-size: 30px;
-cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 /* Additional Styles for Responsiveness */
 @media (max-width: 500px) {
-.modal-content {
+  .modal-content {
     width: 90%; /* Make modal responsive on smaller screens */
-}
+  }
 }
 
 /* social */ 
@@ -2619,6 +2621,108 @@ input[type="date"], input[type="time"] {
 .loading-animation .bar10 { transform: rotate(270deg) translate(0, -130%); animation-delay: -0.3s; }
 .loading-animation .bar11 { transform: rotate(300deg) translate(0, -130%); animation-delay: -0.2s; }
 .loading-animation .bar12 { transform: rotate(330deg) translate(0, -130%); animation-delay: -0.1s; }
+
+/* MY SUPPLEMENTATION CHOICES */
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #34495e;
+  line-height: 1.6;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+
+/* Section Container */
+.supplement-section {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Styling */
+.supplement-post {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.supplement-post:last-child {
+  border-bottom: none;
+}
+
+/* Media Layout */
+.supplement-media {
+  display: flex;
+  gap: 1.5rem; /* Adds spacing between image and text */
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-md-row {
+  flex-direction: row;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+/* Images */
+.supplement-image {
+  max-width: 150px; /* Resized for better spacing */
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Prevents image from shrinking */
+}
+
+.supplement-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles */
+.supplement-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Descriptions */
+.supplement-description {
+  font-size: 1.125rem;
+  color: #6c757d;
+  line-height: 1.75;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .supplement-media {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .supplement-image {
+      margin: 0 auto 1rem auto; /* Center image on mobile */
+      max-width: 100%; /* Full width on small screens */
+  }
+
+  .supplement-content {
+      text-align: center;
+  }
+}
 
 /*-----WARNING-----*/
 .warning {
