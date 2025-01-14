@@ -162,7 +162,7 @@ body {
   width: auto;
   height: 55px;
   padding: 0 20px;
-  background: linear-gradient(90deg, #c7c7c7, #e0e0e0);
+  background-color: #002649;
   border: none;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -171,36 +171,11 @@ body {
   gap: 10px;
 }
 
-.book {
-  fill: #020470;
-}
-
-.book-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  width: 45px;
-  height: 100%;
-}
-
-.book-wrapper .book-page {
-  width: 50%;
-  height: auto;
-  position: absolute;
-  transform-origin: left;
-  transition: transform 0.4s;
-}
-
-.readmore-btn:hover .book-page {
-  animation: paging 0.4s linear infinite;
-}
-
 .read-text {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
-  color: #000;
+  color: #ffffff;
   text-align: center;
   text-transform: capitalize;
   transition: color 0.4s;
