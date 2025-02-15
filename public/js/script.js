@@ -241,8 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 button.addEventListener('click', () => {
     hiddenContent.classList.toggle('show');
+    button.classList.toggle('active');
     const textElement = button.querySelector('.read-text');
-    textElement.textContent = hiddenContent.classList.contains('show') ? 'Show less👆' : 'Show more👇';
+    textElement.textContent = hiddenContent.classList.contains('show') ? 'Show less' : 'Show more';
 
     // Dynamically reinitialize ScrollReveal for visible content
     ScrollReveal().clean('.hidden-content, .visible-content'); // Remove existing animations
