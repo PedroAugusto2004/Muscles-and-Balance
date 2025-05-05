@@ -34,7 +34,7 @@
     <!-- Sign In Form -->
     <div class="form-container" id="sign-in-form">
         <p>SIGN IN</p>
-        <form id="signin-form">
+        <form id="signin-form" onsubmit="return false;">
             <div class="user-box">
                 <input type="email" id="signin-email" required autocomplete="email">
                 <label for="signin-email">Email</label>
@@ -45,7 +45,7 @@
             </div>
             <!-- Sign In Button ID -->
             <div class="center">
-                <button class="btn" id="user-signin-button" type="button">
+                <button class="btn" id="user-signin-button" type="submit">
                     <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
                         <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
                         <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
@@ -189,7 +189,7 @@
             <label class="container">
                 <input type="checkbox" id="terms" required>
                 <svg viewBox="0 0 64 64" height="1.3em" width="1.3em">
-                    <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+                    <path d="M 0 16 V 56 A 8 8 90 0 0 0 8 64 H 56 A 8 8 90 0 0 0 64 56 V 8 A 8 8 90 0 0 0 56 0 H 8 A 8 8 90 0 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 0 56 0 H 8 A 8 8 90 0 0 0 0 8 V 56 A 8 8 90 0 0 0 8 64 H 56 A 8 8 90 0 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
                 </svg>
             </label>
             <p><a href="terms.htm" class="a2">I agree to the terms and conditions</a></p>
@@ -238,7 +238,11 @@
     <p>Remembered your password? <a href="#sign-in-form" class="a2">Sign in</a></p>
 </div>
 
-<script src="js/login.js"></script>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script type="module" src="js/login.js"></script>
+<script type="module" src="js/register.js"></script>
+
 </body>
 </html>
 
