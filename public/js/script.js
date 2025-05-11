@@ -92,10 +92,6 @@ function getWorkoutPlan() {
         }
 
         // Display the workout plan details in the result section
-        console.log('Workout Plan Name:', workoutPlanName);
-        console.log('Duration:', duration);
-        console.log('Frequency:', frequency);
-        console.log('Description:', description);
 
         document.getElementById('plan-name').innerText = workoutPlanName;
         document.getElementById('plan-duration').innerText = `Duration: ${duration}`;
@@ -196,11 +192,9 @@ mybutton.onclick = function() {
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded and parsed');
 
     // Check if ScrollReveal is loaded
     if (typeof ScrollReveal !== 'undefined') {
-        console.log('ScrollReveal is loaded');
 
         // Initialize ScrollReveal and reveal elements within the .section class
         ScrollReveal().reveal('.section .content', {

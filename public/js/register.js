@@ -28,10 +28,6 @@ async function initializeFirebase() {
                 'prompt': 'select_account'
             });
 
-            console.log("Firebase app initialized:", app);
-            console.log("Firebase Auth initialized:", auth);
-            console.log("Firebase Firestore initialized:", db);
-
             // Set up event listeners after Firebase is initialized
             setupEventListeners();
             setupAuthStateListener();
@@ -49,7 +45,6 @@ await initializeFirebase();
 // Function to set up auth state listener
 function setupAuthStateListener() {
     onAuthStateChanged(auth, (user) => {
-        console.log("Auth state changed:", user);
         if (user) {
             displayWelcomeMessageAndAuthButtons(user.uid);
         } else {

@@ -33,7 +33,6 @@ document.getElementById('start-scan').addEventListener('click', () => {
 
     Quagga.onDetected((data) => {
         const barcode = data.codeResult.code;
-        console.log("Barcode detected:", barcode);
         fetchNutritionData(barcode);
         Quagga.stop();  // Stop scanning after a barcode is detected
     });
