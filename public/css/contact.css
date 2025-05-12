@@ -469,6 +469,7 @@ h6 {
   background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
   background-position: 0;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent; /* Text gradient effect */
   
   animation: fadeZoomIn 2s ease-in-out forwards, shine 3s linear infinite; /* Combine animations */
