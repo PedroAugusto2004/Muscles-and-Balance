@@ -28,6 +28,39 @@ function getWorkoutPlan() {
             return { name, video };
         }
 
+        // Map of exercise names to public video URLs (YouTube or other free sources)
+        const exerciseVideos = {
+            'Brisk Walking': 'https://www.youtube.com/embed/3Ka7B3hCg08',
+            'Jumping Jacks': 'https://www.youtube.com/embed/c4DAnQ6DtF8',
+            'Bodyweight Squats': 'https://www.youtube.com/embed/aclHkVaku9U',
+            'Mountain Climbers': 'https://www.youtube.com/embed/nmwgirgXLYM',
+            'Planks': 'https://www.youtube.com/embed/pSHjTRCQxIw',
+            'Push-Ups': 'https://www.youtube.com/embed/_l3ySVKYVJ8',
+            'Lunges': 'https://www.youtube.com/embed/QOVaHwm-Q6U',
+            'Step-Ups': 'https://www.youtube.com/embed/dQqApCGd5Ss',
+            'Dumbbell Rows': 'https://www.youtube.com/embed/pYcpY20QaE8',
+            'Jogging': 'https://www.youtube.com/embed/5r7w6Zjwcp8',
+            'Jump Rope': 'https://www.youtube.com/embed/1BZMwQ6yC6o',
+            'Sun Salutation': 'https://www.youtube.com/embed/6IUyY9Dyr5w',
+            "Child's Pose": 'https://www.youtube.com/embed/7kgZnJqzNaU',
+            'Cat-Cow Stretch': 'https://www.youtube.com/embed/wBjj5F1yQ1E',
+            'Seated Forward Bend': 'https://www.youtube.com/embed/8pQ9b4hQyN4',
+            'Burpees': 'https://www.youtube.com/embed/dZgVxmf6jkA',
+            'Deadlifts': 'https://www.youtube.com/embed/op9kVnSso6Q',
+            'Bench Press': 'https://www.youtube.com/embed/gRVjAtPip0Y',
+            'Pull-Ups': 'https://www.youtube.com/embed/eGo4IYlbE5g',
+            'Warrior II': 'https://www.youtube.com/embed/2pLT-olgUJs',
+            'Triangle Pose': 'https://www.youtube.com/embed/8pQ9b4hQyN4',
+            'Bridge Pose': 'https://www.youtube.com/embed/wPM8icPu6H8',
+            'HIIT Sprints': 'https://www.youtube.com/embed/ml6cT4AZdqI',
+            'Squats': 'https://www.youtube.com/embed/aclHkVaku9U',
+            'Long-Distance Running': 'https://www.youtube.com/embed/5r7w6Zjwcp8',
+            'Crow Pose': 'https://www.youtube.com/embed/8v45WSuAeYI',
+            'Wheel Pose': 'https://www.youtube.com/embed/2qZ517Rw7ME',
+            'King Pigeon': 'https://www.youtube.com/embed/8pQ9b4hQyN4',
+            'Standing Splits': 'https://www.youtube.com/embed/8pQ9b4hQyN4',
+        };
+
         // Workout plan logic (now with detailed exercises and video links)
         if (fitnessLevel === 'beginner') {
             if (goal === 'weight-loss') {
@@ -37,11 +70,11 @@ function getWorkoutPlan() {
                     frequency = '3-4 times per week';
                     description = 'Low-impact cardio and bodyweight exercises for weight loss.';
                     exercises = [
-                        ex('Brisk Walking', 'videos/cardio.mp4'),
-                        ex('Jumping Jacks', 'challenge videos/jumping jacks.mp4'),
-                        ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
-                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                        ex('Planks', 'challenge videos/planks.mp4')
+                        ex('Brisk Walking', exerciseVideos['Brisk Walking']),
+                        ex('Jumping Jacks', exerciseVideos['Jumping Jacks']),
+                        ex('Bodyweight Squats', exerciseVideos['Bodyweight Squats']),
+                        ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                        ex('Planks', exerciseVideos['Planks'])
                     ];
                 } else {
                     workoutPlanName = 'Beginner Full Body Plan';
@@ -49,11 +82,11 @@ function getWorkoutPlan() {
                     frequency = '3-4 times per week';
                     description = 'Introductory full-body routine for weight loss and general fitness.';
                     exercises = [
-                        ex('Push-Ups', 'challenge videos/pushups.mp4'),
-                        ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
-                        ex('Lunges', 'challenge videos/lunges.mp4'),
-                        ex('Planks', 'challenge videos/planks.mp4'),
-                        ex('Step-Ups', 'challenge videos/step ups.mp4')
+                        ex('Push-Ups', exerciseVideos['Push-Ups']),
+                        ex('Bodyweight Squats', exerciseVideos['Bodyweight Squats']),
+                        ex('Lunges', exerciseVideos['Lunges']),
+                        ex('Planks', exerciseVideos['Planks']),
+                        ex('Step-Ups', exerciseVideos['Step-Ups'])
                     ];
                 }
             } else if (goal === 'muscle-gain') {
@@ -62,11 +95,11 @@ function getWorkoutPlan() {
                 frequency = '3 times per week';
                 description = 'Basic strength exercises for muscle toning and initial gains.';
                 exercises = [
-                    ex('Push-Ups', 'challenge videos/pushups.mp4'),
-                    ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
-                    ex('Dumbbell Rows', 'videos/strenght training.mp4'),
-                    ex('Lunges', 'challenge videos/lunges.mp4'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Push-Ups', exerciseVideos['Push-Ups']),
+                    ex('Bodyweight Squats', exerciseVideos['Bodyweight Squats']),
+                    ex('Dumbbell Rows', exerciseVideos['Dumbbell Rows']),
+                    ex('Lunges', exerciseVideos['Lunges']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Beginner Endurance Plan';
@@ -74,10 +107,10 @@ function getWorkoutPlan() {
                 frequency = '3-4 times per week';
                 description = 'Steady, moderate-intensity exercises to improve cardiovascular endurance.';
                 exercises = [
-                    ex('Jogging', 'videos/cardio.mp4'),
-                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
-                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Jogging', exerciseVideos['Jogging']),
+                    ex('Jump Rope', exerciseVideos['Jump Rope']),
+                    ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else {
                 workoutPlanName = 'Beginner Yoga & Flexibility Plan';
@@ -85,10 +118,10 @@ function getWorkoutPlan() {
                 frequency = '3 times per week';
                 description = 'Gentle yoga and stretching routines.';
                 exercises = [
-                    ex('Sun Salutation', 'videos/workout-video.mp4'),
-                    ex('Child\'s Pose', 'videos/workout-video.mp4'),
-                    ex('Cat-Cow Stretch', 'videos/workout-video.mp4'),
-                    ex('Seated Forward Bend', 'videos/workout-video.mp4')
+                    ex('Sun Salutation', exerciseVideos['Sun Salutation']),
+                    ex("Child's Pose", exerciseVideos["Child's Pose"]),
+                    ex('Cat-Cow Stretch', exerciseVideos['Cat-Cow Stretch']),
+                    ex('Seated Forward Bend', exerciseVideos['Seated Forward Bend'])
                 ];
             }
         } else if (fitnessLevel === 'intermediate') {
@@ -99,11 +132,11 @@ function getWorkoutPlan() {
                     frequency = '4 times per week';
                     description = 'Moderate cardio and strength for weight loss.';
                     exercises = [
-                        ex('Running', 'videos/cardio.mp4'),
-                        ex('Burpees', 'challenge videos/burpees.mp4'),
-                        ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
-                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                        ex('Planks', 'challenge videos/planks.mp4')
+                        ex('Running', exerciseVideos['Jogging']),
+                        ex('Burpees', exerciseVideos['Burpees']),
+                        ex('Jump Rope', exerciseVideos['Jump Rope']),
+                        ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                        ex('Planks', exerciseVideos['Planks'])
                     ];
                 } else {
                     workoutPlanName = 'Intermediate Full Body Plan';
@@ -111,11 +144,11 @@ function getWorkoutPlan() {
                     frequency = '4 times per week';
                     description = 'Full-body strength and cardio circuit.';
                     exercises = [
-                        ex('Push-Ups', 'challenge videos/pushups.mp4'),
-                        ex('Lunges', 'challenge videos/lunges.mp4'),
-                        ex('Deadlifts', 'videos/strenght training.mp4'),
-                        ex('Step-Ups', 'challenge videos/step ups.mp4'),
-                        ex('Planks', 'challenge videos/planks.mp4')
+                        ex('Push-Ups', exerciseVideos['Push-Ups']),
+                        ex('Lunges', exerciseVideos['Lunges']),
+                        ex('Deadlifts', exerciseVideos['Deadlifts']),
+                        ex('Step-Ups', exerciseVideos['Step-Ups']),
+                        ex('Planks', exerciseVideos['Planks'])
                     ];
                 }
             } else if (goal === 'muscle-gain') {
@@ -124,11 +157,11 @@ function getWorkoutPlan() {
                 frequency = '4 times per week';
                 description = 'Compound and isolation exercises for muscle growth.';
                 exercises = [
-                    ex('Bench Press', 'videos/strenght training.mp4'),
-                    ex('Deadlifts', 'videos/strenght training.mp4'),
-                    ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
-                    ex('Lunges', 'challenge videos/lunges.mp4'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Bench Press', exerciseVideos['Bench Press']),
+                    ex('Deadlifts', exerciseVideos['Deadlifts']),
+                    ex('Pull-Ups', exerciseVideos['Pull-Ups']),
+                    ex('Lunges', exerciseVideos['Lunges']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Intermediate Endurance Plan';
@@ -136,11 +169,11 @@ function getWorkoutPlan() {
                 frequency = '4 times per week';
                 description = 'Moderate to high-intensity cardio for stamina.';
                 exercises = [
-                    ex('Running', 'videos/cardio.mp4'),
-                    ex('Burpees', 'challenge videos/burpees.mp4'),
-                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
-                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Running', exerciseVideos['Jogging']),
+                    ex('Burpees', exerciseVideos['Burpees']),
+                    ex('Jump Rope', exerciseVideos['Jump Rope']),
+                    ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else {
                 workoutPlanName = 'Intermediate Yoga & Flexibility Plan';
@@ -148,10 +181,10 @@ function getWorkoutPlan() {
                 frequency = '3-4 times per week';
                 description = 'Intermediate yoga and stretching.';
                 exercises = [
-                    ex('Warrior II', 'videos/workout-video.mp4'),
-                    ex('Triangle Pose', 'videos/workout-video.mp4'),
-                    ex('Bridge Pose', 'videos/workout-video.mp4'),
-                    ex('Seated Forward Bend', 'videos/workout-video.mp4')
+                    ex('Warrior II', exerciseVideos['Warrior II']),
+                    ex('Triangle Pose', exerciseVideos['Triangle Pose']),
+                    ex('Bridge Pose', exerciseVideos['Bridge Pose']),
+                    ex('Seated Forward Bend', exerciseVideos['Seated Forward Bend'])
                 ];
             }
         } else if (fitnessLevel === 'advanced') {
@@ -162,11 +195,11 @@ function getWorkoutPlan() {
                     frequency = '5 times per week';
                     description = 'Intense cardio for maximum calorie burn.';
                     exercises = [
-                        ex('HIIT Sprints', 'videos/cardio.mp4'),
-                        ex('Burpees', 'challenge videos/burpees.mp4'),
-                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                        ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
-                        ex('Planks', 'challenge videos/planks.mp4')
+                        ex('HIIT Sprints', exerciseVideos['HIIT Sprints']),
+                        ex('Burpees', exerciseVideos['Burpees']),
+                        ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                        ex('Jump Rope', exerciseVideos['Jump Rope']),
+                        ex('Planks', exerciseVideos['Planks'])
                     ];
                 } else {
                     workoutPlanName = 'Advanced Full Body Plan';
@@ -174,11 +207,11 @@ function getWorkoutPlan() {
                     frequency = '5 times per week';
                     description = 'Challenging full-body circuit for advanced users.';
                     exercises = [
-                        ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
-                        ex('Deadlifts', 'videos/strenght training.mp4'),
-                        ex('Bench Press', 'videos/strenght training.mp4'),
-                        ex('Lunges', 'challenge videos/lunges.mp4'),
-                        ex('Planks', 'challenge videos/planks.mp4')
+                        ex('Pull-Ups', exerciseVideos['Pull-Ups']),
+                        ex('Deadlifts', exerciseVideos['Deadlifts']),
+                        ex('Bench Press', exerciseVideos['Bench Press']),
+                        ex('Lunges', exerciseVideos['Lunges']),
+                        ex('Planks', exerciseVideos['Planks'])
                     ];
                 }
             } else if (goal === 'muscle-gain') {
@@ -187,11 +220,11 @@ function getWorkoutPlan() {
                 frequency = '5 times per week';
                 description = 'Heavy lifting and advanced routines for muscle gain.';
                 exercises = [
-                    ex('Squats', 'challenge videos/squats.mp4'),
-                    ex('Deadlifts', 'videos/strenght training.mp4'),
-                    ex('Bench Press', 'videos/strenght training.mp4'),
-                    ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Squats', exerciseVideos['Squats']),
+                    ex('Deadlifts', exerciseVideos['Deadlifts']),
+                    ex('Bench Press', exerciseVideos['Bench Press']),
+                    ex('Pull-Ups', exerciseVideos['Pull-Ups']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Advanced Endurance Plan';
@@ -199,11 +232,11 @@ function getWorkoutPlan() {
                 frequency = '5 times per week';
                 description = 'Long-distance and high-rep endurance.';
                 exercises = [
-                    ex('Long-Distance Running', 'videos/cardio.mp4'),
-                    ex('Burpees', 'challenge videos/burpees.mp4'),
-                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
-                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
-                    ex('Planks', 'challenge videos/planks.mp4')
+                    ex('Long-Distance Running', exerciseVideos['Long-Distance Running']),
+                    ex('Burpees', exerciseVideos['Burpees']),
+                    ex('Mountain Climbers', exerciseVideos['Mountain Climbers']),
+                    ex('Jump Rope', exerciseVideos['Jump Rope']),
+                    ex('Planks', exerciseVideos['Planks'])
                 ];
             } else {
                 workoutPlanName = 'Advanced Yoga & Flexibility Plan';
@@ -211,10 +244,10 @@ function getWorkoutPlan() {
                 frequency = '4 times per week';
                 description = 'Advanced yoga techniques for flexibility and strength.';
                 exercises = [
-                    ex('Crow Pose', 'videos/workout-video.mp4'),
-                    ex('Wheel Pose', 'videos/workout-video.mp4'),
-                    ex('King Pigeon', 'videos/workout-video.mp4'),
-                    ex('Standing Splits', 'videos/workout-video.mp4')
+                    ex('Crow Pose', exerciseVideos['Crow Pose']),
+                    ex('Wheel Pose', exerciseVideos['Wheel Pose']),
+                    ex('King Pigeon', exerciseVideos['King Pigeon']),
+                    ex('Standing Splits', exerciseVideos['Standing Splits'])
                 ];
             }
         }
@@ -230,7 +263,7 @@ function getWorkoutPlan() {
         if (exercises.length > 0) {
             let html = '<h6>Exercise Demonstrations:</h6><ul class="exercise-list">';
             exercises.forEach(ex => {
-                html += `<li><strong>${ex.name}</strong><br><video width="220" height="124" controls preload="none" poster="images/MBlogo.png"><source src="${ex.video}" type="video/mp4">Your browser does not support the video tag.</video></li>`;
+                html += `<li><strong>${ex.name}</strong><br><iframe width="220" height="124" src="${ex.video}" frameborder="0" allowfullscreen loading="lazy"></iframe></li>`;
             });
             html += '</ul>';
             planExercisesDiv.innerHTML = html;
