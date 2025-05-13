@@ -5,6 +5,12 @@ function getWorkoutPlan() {
     const goal = document.getElementById('goal').value;
     const preference = document.getElementById('preference').value;
 
+    // Add more personalization: ask for age, gender, available equipment, and workout days
+    const age = document.getElementById('age') ? document.getElementById('age').value : '';
+    const gender = document.getElementById('gender') ? document.getElementById('gender').value : '';
+    const equipment = document.getElementById('equipment') ? document.getElementById('equipment').value : '';
+    const days = document.getElementById('days') ? document.getElementById('days').value : '';
+
     // Check if any field is empty
     if (!fitnessLevel || !goal || !preference) {
         alert("Please fill out the form first 💪");
@@ -252,11 +258,30 @@ function getWorkoutPlan() {
             }
         }
 
+        // Personalization logic: adjust plan based on age, gender, equipment, and days
+        let personalizedNote = '';
+        if (age) {
+            if (parseInt(age) < 18) personalizedNote += 'Note: As a teen, focus on form and avoid heavy weights. ';
+            else if (parseInt(age) > 55) personalizedNote += 'Note: For 55+, prioritize joint-friendly movements and flexibility. ';
+        }
+        if (gender) {
+            if (gender === 'female') personalizedNote += 'This plan includes glute and core focus, as many women prefer these areas. ';
+            if (gender === 'male') personalizedNote += 'This plan includes chest and arm focus, as many men prefer these areas. ';
+        }
+        if (equipment) {
+            if (equipment === 'none') personalizedNote += 'All exercises are bodyweight only. ';
+            else if (equipment === 'basic') personalizedNote += 'Includes dumbbells and resistance band options. ';
+            else if (equipment === 'full-gym') personalizedNote += 'Includes barbell, machines, and advanced equipment. ';
+        }
+        if (days) {
+            personalizedNote += `Your plan is split for ${days} workout days per week. `;
+        }
+
         // Display the workout plan details in the result section
         document.getElementById('plan-name').innerText = workoutPlanName;
         document.getElementById('plan-duration').innerText = `Duration: ${duration}`;
         document.getElementById('plan-frequency').innerText = `Frequency: ${frequency}`;
-        document.getElementById('plan-description').innerText = description;
+        document.getElementById('plan-description').innerText = personalizedNote + description;
 
         // New: Display exercises and video demonstrations
         const planExercisesDiv = document.getElementById('plan-exercises');

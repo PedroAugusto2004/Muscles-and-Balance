@@ -350,6 +350,36 @@
                             <option value="mixed">Mixed Workouts</option>
                         </select>
                     </div>
+                    <div class="question">
+                        <input type="number" id="age" name="age" min="10" max="100" placeholder="Your age (optional)" class="form-control mb-2">
+                    </div>
+                    <div class="question">
+                        <select id="gender" name="gender" class="form-control mb-2">
+                            <option value="" selected>Gender (optional)</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other / Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="question">
+                        <select id="equipment" name="equipment" class="form-control mb-2">
+                            <option value="" selected>Available Equipment (optional)</option>
+                            <option value="none">None (Bodyweight Only)</option>
+                            <option value="basic">Basic (Dumbbells/Bands)</option>
+                            <option value="full-gym">Full Gym</option>
+                        </select>
+                    </div>
+                    <div class="question">
+                        <select id="days" name="days" class="form-control mb-2">
+                            <option value="" selected>How many days per week?</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
                     <button type="button" class="button-1" onclick="getWorkoutPlan()">
                         <span></span>
                         Get My Workout Plan
