@@ -3348,6 +3348,47 @@ h5{
   }
 }
 
+/* Add styles for the exercise video list in the workout plan result */
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+.exercise-list li {
+  background: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1em;
+  text-align: center;
+  width: 240px;
+  transition: box-shadow 0.2s;
+}
+.exercise-list li:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+.exercise-list video {
+  border-radius: 8px;
+  margin-top: 0.5em;
+  width: 100%;
+  max-width: 220px;
+  height: 124px;
+  background: #000;
+}
+@media (max-width: 600px) {
+  .exercise-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .exercise-list li {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 /*--------------------MEAL PLANNER-------------------*/
 
 #meal-planner {

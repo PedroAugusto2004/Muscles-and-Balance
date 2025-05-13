@@ -21,86 +21,246 @@ function getWorkoutPlan() {
         let duration = '';
         let frequency = '';
         let description = '';
+        let exercises = [];
 
-        // Workout plan logic
+        // Helper for exercise objects
+        function ex(name, video) {
+            return { name, video };
+        }
+
+        // Workout plan logic (now with detailed exercises and video links)
         if (fitnessLevel === 'beginner') {
             if (goal === 'weight-loss') {
-                workoutPlanName = preference === 'cardio' ? 'Beginner Cardio Plan' : 'Beginner Full Body Plan';
-                duration = '30-45 minutes per session';
-                frequency = '3-4 times per week';
-                description = 'This plan combines low-impact cardio or bodyweight exercises designed for weight loss at an introductory level.';
+                if (preference === 'cardio') {
+                    workoutPlanName = 'Beginner Cardio Plan';
+                    duration = '30-45 minutes per session';
+                    frequency = '3-4 times per week';
+                    description = 'Low-impact cardio and bodyweight exercises for weight loss.';
+                    exercises = [
+                        ex('Brisk Walking', 'videos/cardio.mp4'),
+                        ex('Jumping Jacks', 'challenge videos/jumping jacks.mp4'),
+                        ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
+                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                        ex('Planks', 'challenge videos/planks.mp4')
+                    ];
+                } else {
+                    workoutPlanName = 'Beginner Full Body Plan';
+                    duration = '30-45 minutes per session';
+                    frequency = '3-4 times per week';
+                    description = 'Introductory full-body routine for weight loss and general fitness.';
+                    exercises = [
+                        ex('Push-Ups', 'challenge videos/pushups.mp4'),
+                        ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
+                        ex('Lunges', 'challenge videos/lunges.mp4'),
+                        ex('Planks', 'challenge videos/planks.mp4'),
+                        ex('Step-Ups', 'challenge videos/step ups.mp4')
+                    ];
+                }
             } else if (goal === 'muscle-gain') {
                 workoutPlanName = 'Beginner Strength Training Plan';
                 duration = '45-60 minutes per session';
                 frequency = '3 times per week';
-                description = 'Focuses on basic strength exercises, ideal for muscle toning and initial strength gains.';
+                description = 'Basic strength exercises for muscle toning and initial gains.';
+                exercises = [
+                    ex('Push-Ups', 'challenge videos/pushups.mp4'),
+                    ex('Bodyweight Squats', 'challenge videos/squats.mp4'),
+                    ex('Dumbbell Rows', 'videos/strenght training.mp4'),
+                    ex('Lunges', 'challenge videos/lunges.mp4'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Beginner Endurance Plan';
                 duration = '40-50 minutes per session';
                 frequency = '3-4 times per week';
-                description = 'Improves cardiovascular endurance with steady, moderate-intensity exercises.';
+                description = 'Steady, moderate-intensity exercises to improve cardiovascular endurance.';
+                exercises = [
+                    ex('Jogging', 'videos/cardio.mp4'),
+                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
+                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else {
                 workoutPlanName = 'Beginner Yoga & Flexibility Plan';
                 duration = '30-40 minutes per session';
                 frequency = '3 times per week';
-                description = 'Gentle yoga and stretching routines to enhance flexibility and mindfulness.';
+                description = 'Gentle yoga and stretching routines.';
+                exercises = [
+                    ex('Sun Salutation', 'videos/workout-video.mp4'),
+                    ex('Child\'s Pose', 'videos/workout-video.mp4'),
+                    ex('Cat-Cow Stretch', 'videos/workout-video.mp4'),
+                    ex('Seated Forward Bend', 'videos/workout-video.mp4')
+                ];
             }
         } else if (fitnessLevel === 'intermediate') {
             if (goal === 'weight-loss') {
-                workoutPlanName = preference === 'cardio' ? 'Intermediate Cardio Plan' : 'Intermediate Full Body Plan';
-                duration = '45-60 minutes per session';
-                frequency = '4 times per week';
-                description = 'A balanced program incorporating moderate cardio and strength exercises aimed at weight loss.';
+                if (preference === 'cardio') {
+                    workoutPlanName = 'Intermediate Cardio Plan';
+                    duration = '45-60 minutes per session';
+                    frequency = '4 times per week';
+                    description = 'Moderate cardio and strength for weight loss.';
+                    exercises = [
+                        ex('Running', 'videos/cardio.mp4'),
+                        ex('Burpees', 'challenge videos/burpees.mp4'),
+                        ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
+                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                        ex('Planks', 'challenge videos/planks.mp4')
+                    ];
+                } else {
+                    workoutPlanName = 'Intermediate Full Body Plan';
+                    duration = '45-60 minutes per session';
+                    frequency = '4 times per week';
+                    description = 'Full-body strength and cardio circuit.';
+                    exercises = [
+                        ex('Push-Ups', 'challenge videos/pushups.mp4'),
+                        ex('Lunges', 'challenge videos/lunges.mp4'),
+                        ex('Deadlifts', 'videos/strenght training.mp4'),
+                        ex('Step-Ups', 'challenge videos/step ups.mp4'),
+                        ex('Planks', 'challenge videos/planks.mp4')
+                    ];
+                }
             } else if (goal === 'muscle-gain') {
                 workoutPlanName = 'Intermediate Strength Training Plan';
                 duration = '60 minutes per session';
                 frequency = '4 times per week';
-                description = 'Targets muscle growth with compound and isolation exercises, perfect for building strength and mass.';
+                description = 'Compound and isolation exercises for muscle growth.';
+                exercises = [
+                    ex('Bench Press', 'videos/strenght training.mp4'),
+                    ex('Deadlifts', 'videos/strenght training.mp4'),
+                    ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
+                    ex('Lunges', 'challenge videos/lunges.mp4'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Intermediate Endurance Plan';
                 duration = '50-60 minutes per session';
                 frequency = '4 times per week';
-                description = 'Increases stamina with a combination of moderate to high-intensity cardio exercises.';
+                description = 'Moderate to high-intensity cardio for stamina.';
+                exercises = [
+                    ex('Running', 'videos/cardio.mp4'),
+                    ex('Burpees', 'challenge videos/burpees.mp4'),
+                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
+                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else {
                 workoutPlanName = 'Intermediate Yoga & Flexibility Plan';
                 duration = '40-50 minutes per session';
                 frequency = '3-4 times per week';
-                description = 'Enhances flexibility and mental relaxation with intermediate-level yoga and stretching routines.';
+                description = 'Intermediate yoga and stretching.';
+                exercises = [
+                    ex('Warrior II', 'videos/workout-video.mp4'),
+                    ex('Triangle Pose', 'videos/workout-video.mp4'),
+                    ex('Bridge Pose', 'videos/workout-video.mp4'),
+                    ex('Seated Forward Bend', 'videos/workout-video.mp4')
+                ];
             }
         } else if (fitnessLevel === 'advanced') {
             if (goal === 'weight-loss') {
-                workoutPlanName = preference === 'cardio' ? 'Advanced Cardio Plan' : 'Advanced Full Body Plan';
-                duration = '60-75 minutes per session';
-                frequency = '5 times per week';
-                description = 'A challenging program with intense cardio workouts designed for maximum calorie burn and fat loss.';
+                if (preference === 'cardio') {
+                    workoutPlanName = 'Advanced Cardio Plan';
+                    duration = '60-75 minutes per session';
+                    frequency = '5 times per week';
+                    description = 'Intense cardio for maximum calorie burn.';
+                    exercises = [
+                        ex('HIIT Sprints', 'videos/cardio.mp4'),
+                        ex('Burpees', 'challenge videos/burpees.mp4'),
+                        ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                        ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
+                        ex('Planks', 'challenge videos/planks.mp4')
+                    ];
+                } else {
+                    workoutPlanName = 'Advanced Full Body Plan';
+                    duration = '60-75 minutes per session';
+                    frequency = '5 times per week';
+                    description = 'Challenging full-body circuit for advanced users.';
+                    exercises = [
+                        ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
+                        ex('Deadlifts', 'videos/strenght training.mp4'),
+                        ex('Bench Press', 'videos/strenght training.mp4'),
+                        ex('Lunges', 'challenge videos/lunges.mp4'),
+                        ex('Planks', 'challenge videos/planks.mp4')
+                    ];
+                }
             } else if (goal === 'muscle-gain') {
                 workoutPlanName = 'Advanced Strength Training Plan';
                 duration = '75-90 minutes per session';
                 frequency = '5 times per week';
-                description = 'Focuses on heavy lifting and advanced strength routines for maximum muscle gain and power.';
+                description = 'Heavy lifting and advanced routines for muscle gain.';
+                exercises = [
+                    ex('Squats', 'challenge videos/squats.mp4'),
+                    ex('Deadlifts', 'videos/strenght training.mp4'),
+                    ex('Bench Press', 'videos/strenght training.mp4'),
+                    ex('Pull-Ups', 'challenge videos/pull ups.mp4'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else if (goal === 'endurance') {
                 workoutPlanName = 'Advanced Endurance Plan';
                 duration = '60-75 minutes per session';
                 frequency = '5 times per week';
-                description = 'An intense program incorporating long-distance running, cycling, or high-rep endurance exercises.';
+                description = 'Long-distance and high-rep endurance.';
+                exercises = [
+                    ex('Long-Distance Running', 'videos/cardio.mp4'),
+                    ex('Burpees', 'challenge videos/burpees.mp4'),
+                    ex('Mountain Climbers', 'challenge videos/Mountain climber.mov'),
+                    ex('Jump Rope', 'challenge videos/jumping jacks.mp4'),
+                    ex('Planks', 'challenge videos/planks.mp4')
+                ];
             } else {
                 workoutPlanName = 'Advanced Yoga & Flexibility Plan';
                 duration = '50-60 minutes per session';
                 frequency = '4 times per week';
-                description = 'Advanced yoga techniques aimed at enhancing flexibility, strength, and mindfulness for experienced practitioners.';
+                description = 'Advanced yoga techniques for flexibility and strength.';
+                exercises = [
+                    ex('Crow Pose', 'videos/workout-video.mp4'),
+                    ex('Wheel Pose', 'videos/workout-video.mp4'),
+                    ex('King Pigeon', 'videos/workout-video.mp4'),
+                    ex('Standing Splits', 'videos/workout-video.mp4')
+                ];
             }
         }
 
         // Display the workout plan details in the result section
-
         document.getElementById('plan-name').innerText = workoutPlanName;
         document.getElementById('plan-duration').innerText = `Duration: ${duration}`;
         document.getElementById('plan-frequency').innerText = `Frequency: ${frequency}`;
         document.getElementById('plan-description').innerText = description;
 
+        // New: Display exercises and video demonstrations
+        const planExercisesDiv = document.getElementById('plan-exercises');
+        if (exercises.length > 0) {
+            let html = '<h6>Exercise Demonstrations:</h6><ul class="exercise-list">';
+            exercises.forEach(ex => {
+                html += `<li><strong>${ex.name}</strong><br><video width="220" height="124" controls preload="none" poster="images/MBlogo.png"><source src="${ex.video}" type="video/mp4">Your browser does not support the video tag.</video></li>`;
+            });
+            html += '</ul>';
+            planExercisesDiv.innerHTML = html;
+        } else {
+            planExercisesDiv.innerHTML = '';
+        }
+
         // Hide loading animation and show result section
         document.getElementById('loading').style.display = 'none';
         document.getElementById('workout-result').style.display = 'block';
+
+        // Fix: Re-apply ScrollReveal to new exercise items
+        if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('.exercise-list li', {
+                distance: '40px',
+                duration: 900,
+                origin: 'bottom',
+                interval: 120,
+                opacity: 0,
+                reset: true
+            });
+            // Optionally, re-apply to the whole result area
+            ScrollReveal().reveal('#workout-result', {
+                distance: '30px',
+                duration: 700,
+                origin: 'bottom',
+                opacity: 0,
+                reset: true
+            });
+        }
     }, 1500); // 1.5-second delay to simulate loading
 }
 
