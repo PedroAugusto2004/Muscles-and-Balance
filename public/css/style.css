@@ -326,6 +326,10 @@ h1 {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
   background-size: 200%;
   -webkit-background-clip: text;
+  background-clip: text;
+  background-clip: text;
+  background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent; /* Text will use the gradient */
   animation: continuousShine 3s linear infinite; /* Continuous shine */
 }
@@ -1451,7 +1455,7 @@ h6 {
   overflow: hidden;
   background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
   background-position: 0;
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent; /* Text gradient effect */
   
   animation: fadeZoomIn 2s ease-in-out forwards, shine 3s linear infinite; /* Combine animations */
@@ -3798,4 +3802,51 @@ container {
 
 .readmore-btn.active:hover::after {
     transform: rotate(-135deg) translateY(-3px);
+}
+
+/* Quiz Form Input Styles */
+.quiz-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.9em 1.1em;
+  margin-bottom: 1.1em;
+  border: 1.5px solid #d1d5db;
+  border-radius: 1.5em;
+  font-size: 1.1em;
+  background: #f9fafb;
+  color: #222;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+.quiz-input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px #e0e7ff;
+  background: #fff;
+}
+.quiz-input::-webkit-input-placeholder { color: #888; }
+.quiz-input:-ms-input-placeholder { color: #888; }
+.quiz-input::placeholder { color: #888; }
+
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 0.5em;
+  }
+  .quiz-input {
+    font-size: 1em;
+    padding: 0.8em 1em;
+    border-radius: 1.2em;
+  }
+  .button-1 {
+    font-size: 1em;
+    padding: 0.8em 1.2em;
+  }
+}
+
+/* Make selects look consistent on all platforms */
+.quiz-input select,
+.quiz-input option {
+  color: #222;
+  background: #f9fafb;
 }

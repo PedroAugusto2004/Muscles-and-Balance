@@ -277,6 +277,91 @@ function getWorkoutPlan() {
             personalizedNote += `Your plan is split for ${days} workout days per week. `;
         }
 
+        // --- Enhanced Weekly Split Logic ---
+        // Define exercise pools by muscle group and type
+        const exercisePool = {
+            upper: [
+                ex('Push-Ups', exerciseVideos['Push-Ups']),
+                ex('Bench Press', exerciseVideos['Bench Press']),
+                ex('Pull-Ups', exerciseVideos['Pull-Ups']),
+                ex('Dumbbell Rows', exerciseVideos['Dumbbell Rows']),
+                ex('Shoulder Press', 'https://www.youtube.com/embed/B-aVuyhvLHU'),
+                ex('Lateral Raises', 'https://www.youtube.com/embed/3VcKaXpzqRo'),
+                ex('Planks', exerciseVideos['Planks'])
+            ],
+            lower: [
+                ex('Bodyweight Squats', exerciseVideos['Bodyweight Squats']),
+                ex('Lunges', exerciseVideos['Lunges']),
+                ex('Deadlifts', exerciseVideos['Deadlifts']),
+                ex('Step-Ups', exerciseVideos['Step-Ups']),
+                ex('Leg Raises', 'https://www.youtube.com/embed/JB2oyawG9KI')
+            ],
+            core: [
+                ex('Planks', exerciseVideos['Planks']),
+                ex('Russian Twists', 'https://www.youtube.com/embed/wkD8rjkodUI'),
+                ex('Crunches', 'https://www.youtube.com/embed/Xyd_fa5zoEU'),
+                ex('Mountain Climbers', exerciseVideos['Mountain Climbers'])
+            ],
+            cardio: [
+                ex('Jumping Jacks', exerciseVideos['Jumping Jacks']),
+                ex('Burpees', exerciseVideos['Burpees']),
+                ex('Jogging', exerciseVideos['Jogging']),
+                ex('Jump Rope', exerciseVideos['Jump Rope'])
+            ],
+            yoga: [
+                ex('Sun Salutation', exerciseVideos['Sun Salutation']),
+                ex('Child\'s Pose', exerciseVideos["Child's Pose"]),
+                ex('Cat-Cow Stretch', exerciseVideos['Cat-Cow Stretch']),
+                ex('Seated Forward Bend', exerciseVideos['Seated Forward Bend'])
+            ]
+        };
+
+        // Helper to pick N random exercises from a pool
+        function pickRandom(arr, n) {
+            const shuffled = arr.slice().sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, n);
+        }
+
+        // Build a weekly split based on days and preference
+        let weekPlan = [];
+        let splitType = 'full';
+        if (days >= 5) splitType = 'push-pull-legs';
+        else if (days >= 3) splitType = 'upper-lower';
+        // Assign days
+        for (let d = 1; d <= (parseInt(days) || 3); d++) {
+            let dayName = `Day ${d}`;
+            let focus = '';
+            let dayExercises = [];
+            if (splitType === 'push-pull-legs') {
+                if (d % 3 === 1) { focus = 'Push (Chest/Shoulders/Triceps)'; dayExercises = pickRandom(exercisePool.upper, 4); }
+                else if (d % 3 === 2) { focus = 'Pull (Back/Biceps)'; dayExercises = pickRandom(exercisePool.upper, 4); }
+                else { focus = 'Legs/Core'; dayExercises = pickRandom(exercisePool.lower, 3).concat(pickRandom(exercisePool.core, 2)); }
+            } else if (splitType === 'upper-lower') {
+                if (d % 2 === 1) { focus = 'Upper Body'; dayExercises = pickRandom(exercisePool.upper, 4); }
+                else { focus = 'Lower Body/Core'; dayExercises = pickRandom(exercisePool.lower, 3).concat(pickRandom(exercisePool.core, 2)); }
+            } else {
+                // Full body or mixed
+                dayExercises = pickRandom(exercisePool.upper, 2).concat(pickRandom(exercisePool.lower, 2), pickRandom(exercisePool.core, 1));
+                focus = 'Full Body';
+            }
+            // Add a cardio or yoga finisher if user prefers
+            if (preference === 'cardio') dayExercises.push(pickRandom(exercisePool.cardio, 1)[0]);
+            if (preference === 'yoga') dayExercises.push(pickRandom(exercisePool.yoga, 1)[0]);
+            weekPlan.push({ dayName, focus, exercises: dayExercises });
+        }
+
+        // --- Display the weekly plan ---
+        const planExercisesDiv = document.getElementById('plan-exercises'); // <-- Moved up before use
+        let weekHtml = '<h6 class="mt-3">Your Weekly Workout Plan:</h6>';
+        weekPlan.forEach(day => {
+            weekHtml += `<div class="weekly-day"><strong>${day.dayName} - ${day.focus}</strong><ul class="exercise-list">`;
+            day.exercises.forEach(ex => {
+                weekHtml += `<li><strong>${ex.name}</strong><br><iframe width="220" height="124" src="${ex.video}" frameborder="0" allowfullscreen loading="lazy"></iframe><br><span style='font-size:0.95em;'>3 sets x 10-15 reps</span></li>`;
+            });
+            weekHtml += '</ul></div>';
+        });
+        planExercisesDiv.innerHTML = weekHtml;
+
         // Display the workout plan details in the result section
         document.getElementById('plan-name').innerText = workoutPlanName;
         document.getElementById('plan-duration').innerText = `Duration: ${duration}`;
@@ -284,15 +369,17 @@ function getWorkoutPlan() {
         document.getElementById('plan-description').innerText = personalizedNote + description;
 
         // New: Display exercises and video demonstrations
-        const planExercisesDiv = document.getElementById('plan-exercises');
         if (exercises.length > 0) {
             let html = '<h6>Exercise Demonstrations:</h6><ul class="exercise-list">';
             exercises.forEach(ex => {
                 html += `<li><strong>${ex.name}</strong><br><iframe width="220" height="124" src="${ex.video}" frameborder="0" allowfullscreen loading="lazy"></iframe></li>`;
             });
             html += '</ul>';
-            planExercisesDiv.innerHTML = html;
-        } else {
+            // Only overwrite if weekPlan is empty (fallback)
+            if (!weekPlan || weekPlan.length === 0) {
+                planExercisesDiv.innerHTML = html;
+            }
+        } else if (!weekPlan || weekPlan.length === 0) {
             planExercisesDiv.innerHTML = '';
         }
 

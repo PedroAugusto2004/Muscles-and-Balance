@@ -325,7 +325,7 @@
             <div class="quiz-container">
                 <form id="quiz-form">
                     <div class="question">
-                        <select id="fitness-level" name="fitness-level">
+                        <select id="fitness-level" name="fitness-level" class="quiz-input">
                             <option value="" disabled selected>What is your fitness level?</option>
                             <option value="beginner">Beginner</option>
                             <option value="intermediate">Intermediate</option>
@@ -333,7 +333,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <select id="goal" name="goal">
+                        <select id="goal" name="goal" class="quiz-input">
                             <option value="" disabled selected>What is your fitness goal?</option>
                             <option value="weight-loss">Weight Loss</option>
                             <option value="muscle-gain">Muscle Gain</option>
@@ -342,7 +342,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <select id="preference" name="preference">
+                        <select id="preference" name="preference" class="quiz-input">
                             <option value="" disabled selected>Which workouts do you prefer?</option>
                             <option value="strength">Strength Training</option>
                             <option value="cardio">Cardio</option>
@@ -351,10 +351,10 @@
                         </select>
                     </div>
                     <div class="question">
-                        <input type="number" id="age" name="age" min="10" max="100" placeholder="Your age (optional)" class="form-control mb-2">
+                        <input type="number" id="age" name="age" min="10" max="100" placeholder="Your age (optional)" class="quiz-input">
                     </div>
                     <div class="question">
-                        <select id="gender" name="gender" class="form-control mb-2">
+                        <select id="gender" name="gender" class="quiz-input">
                             <option value="" selected>Gender (optional)</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -362,7 +362,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <select id="equipment" name="equipment" class="form-control mb-2">
+                        <select id="equipment" name="equipment" class="quiz-input">
                             <option value="" selected>Available Equipment (optional)</option>
                             <option value="none">None (Bodyweight Only)</option>
                             <option value="basic">Basic (Dumbbells/Bands)</option>
@@ -370,7 +370,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <select id="days" name="days" class="form-control mb-2">
+                        <select id="days" name="days" class="quiz-input">
                             <option value="" selected>How many days per week?</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -764,7 +764,7 @@
 
 	<!-- Bootstrap Javascript -->          
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOY5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="js/main.js"></script>
     <script type="module" src="js/register.js" defer></script>
