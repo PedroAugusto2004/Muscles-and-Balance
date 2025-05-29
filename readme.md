@@ -6,6 +6,14 @@ Welcome to **Muscles & Balance** – your all-in-one platform for achieving a he
 
 ---
 
+## 🎬 Project Presentation Video
+
+[![Watch the Muscles & Balance Presentation](https://img.youtube.com/vi/bhsddRrvvh0/0.jpg)](https://youtu.be/bhsddRrvvh0?si=TISFgPWqLhPs5UgX)
+
+Curious to see Muscles & Balance in action? Click the image above or [watch the full presentation on YouTube](https://youtu.be/bhsddRrvvh0?si=TISFgPWqLhPs5UgX) for a guided tour and feature highlights!
+
+---
+
 ## 🌟 Project Overview
 
 Muscles & Balance is a modern, interactive web application that provides:
