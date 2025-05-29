@@ -114,7 +114,7 @@ Contributions are welcome! Feel free to fork the project, open issues, or submit
 
 ## 📧 Contact
 
-For questions, feedback, or support, use the [Contact Page](public/contact.htm) or email the project maintainers.
+For questions, feedback, or support, use the [Contact Page](https://muscles-and-balance-7.web.app/contact.htm) or email the project maintainers.
 
 ---
 
