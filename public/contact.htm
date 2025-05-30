@@ -171,31 +171,25 @@
 	    <article class="about-section py-5">
 			<div class="section">
 				<div class="content">
-
 			<div class="container-1">
 				<div class="card">
 					<a class="contact">Get in touch</a>
-					<form action="https://api.web3forms.com/submit" method="POST" class="form" id="contactForm">
-						<input type="hidden" name="access_key" value="26bf9e79-cc2f-4094-894a-7719cdaa17cb">
-						
-						<div class="inputBox">
-							<input type="text" required="required" name="name" id="name">
-							<span class="user">Your Name</span>
-						</div>
-						
-						<div class="inputBox">
-							<input type="text" required="required" name="email" id="email">
-							<span class="user">Your Email</span>
-						</div>
-						
-						<div class="inputBox">
-							<textarea  required="required" cols="50" rows="10" id="textarea" name="textarea"></textarea>
-							<span class="user">Subject</span>
-						</div>
-						
-						<button type="submit" class="form-submit-btn enter">Submit</button>
-						<button type="reset" class="form-reset-btn enter">Reset</button>
-					</form>
+					<form action="https://formspree.io/f/xanjwyad" method="POST" class="form" id="contactForm">
+  <div class="inputBox">
+    <input type="text" required="required" name="name" id="name">
+    <span class="user">Your Name</span>
+  </div>
+  <div class="inputBox">
+    <input type="text" required="required" name="email" id="email">
+    <span class="user">Your Email</span>
+  </div>
+  <div class="inputBox">
+    <textarea required="required" cols="50" rows="10" id="message" name="message"></textarea>
+    <span class="user">Your Message</span>
+  </div>
+  <button type="submit" class="form-submit-btn enter">Send</button>
+  <button type="reset" class="form-reset-btn enter">Reset</button>
+</form>
 				</div>
 			</div>
 
@@ -226,4 +220,4 @@
     <script type="module" src="js/register.js" defer></script>
 
 </body>
-</html> 
+</html>
