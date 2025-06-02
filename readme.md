@@ -96,6 +96,24 @@ All features are 100% free and accessible to everyone!
 
 ---
 
+## 🛠️ Technical Highlights
+
+### API Integrations
+- **Firebase Authentication**: Secure user sign-up, login, Google OAuth, and email verification using Firebase (see `register.js`).
+- **Barcode Nutrition API**: Scan food barcodes and fetch nutrition data from an external API (see `scan.js`).
+
+### Authentication & Security
+- **Google Sign-In**: OAuth integration for easy and secure login.
+- **Email Verification**: Users must verify their email before accessing certain features.
+- **Session Management**: User state is managed with Firebase Auth listeners.
+
+### Advanced JavaScript Features
+- **Dynamic UI**: Uses event listeners, DOM manipulation, and async/await for a responsive experience.
+- **Modular Code**: JavaScript is organized by feature for maintainability.
+- **Error Handling**: Robust error and success messaging throughout the app.
+
+---
+
 ## 📚 Learn More & Get Started
 
 - **Explore the Home Page** for quick access to all features.
