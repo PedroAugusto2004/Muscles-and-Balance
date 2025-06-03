@@ -87,8 +87,6 @@ document.getElementById('mealForm').addEventListener('submit', function (e) {
         return; // Stop further execution
     }
 
-    // console.log('Food items:', foodItems);
-
     getNutritionData(foodItems);
 });
 
@@ -123,7 +121,6 @@ async function getNutritionData(foodItems) {
                 }
 
                 const data = await response.json();
-                // console.log('Fetched nutrition data:', data); // Add this line for debugging
                 const food = data.foods ? data.foods[0] : null;
                 if (!food) continue;
 
