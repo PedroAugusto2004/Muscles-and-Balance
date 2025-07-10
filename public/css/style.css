@@ -1420,6 +1420,24 @@ h6 {
   color: #fff
 }
 
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
 /*SITE TITLE */
 
 .header .site-title {
