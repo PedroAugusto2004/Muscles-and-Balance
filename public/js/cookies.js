@@ -204,6 +204,14 @@ class CookieConsent {
         }
         return consent;
     }
+
+    static init() {
+        // Show popup on every page until user makes a choice
+        const consent = CookieManager.get('cookieConsent');
+        if (!consent && CookieManager.isEnabled()) {
+            setTimeout(() => this.show(), 1000);
+        }
+    }
 }
 
 // Initialize cookie consent on page load
