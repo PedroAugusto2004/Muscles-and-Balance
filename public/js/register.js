@@ -3,6 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/fireba
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
+// Import cookie management
+import './cookies.js';
+
 let app;
 let auth;
 let db;
@@ -46,8 +49,17 @@ await initializeFirebase();
 function setupAuthStateListener() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
+            // Save user session in cookies
+            CookieManager.set('userSession', JSON.stringify({
+                uid: user.uid,
+                email: user.email,
+                emailVerified: user.emailVerified,
+                lastLogin: Date.now()
+            }), 7);
             displayWelcomeMessageAndAuthButtons(user.uid);
         } else {
+            // Clear user session cookies
+            CookieManager.delete('userSession');
             document.getElementById("signin-link")?.classList.remove("hidden");
             document.getElementById("welcome-message")?.classList.add("hidden");
             document.getElementById("logout-button")?.classList.add("hidden");
@@ -207,6 +219,14 @@ async function handleSignUp(event) {
             country,
             gender,
             createdAt: new Date(),
+        });
+
+        // Save user preferences in cookies
+        UserPreferences.save({
+            name,
+            country,
+            gender,
+            registrationDate: Date.now()
         });
 
         // Send verification email

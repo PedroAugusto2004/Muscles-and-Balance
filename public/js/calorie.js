@@ -97,6 +97,14 @@ function calculateCaloriesAndMacros() {
         return;
     }
 
+    // Save nutrition data to cookies
+    if (typeof FormMemory !== 'undefined') {
+        FormMemory.save('nutrition', {
+            age, gender, weight, height, weightUnit, heightUnit, activityLevel, goal,
+            timestamp: Date.now()
+        });
+    }
+
     let weightInKg = weight;
     if (weightUnit === "lbs") {
         weightInKg = weight * 0.453592; // Convert lbs to kg

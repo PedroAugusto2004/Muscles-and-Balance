@@ -9,6 +9,13 @@ $(document).ready(function() {
 		}
 	});
 
+	// Load user preferences from cookies
+	if (typeof UserPreferences !== 'undefined') {
+		const prefs = UserPreferences.load();
+		if (prefs.theme) {
+			document.body.classList.add(`theme-${prefs.theme}`);
+		}
+	}
 });
 
 //HAMBURGER

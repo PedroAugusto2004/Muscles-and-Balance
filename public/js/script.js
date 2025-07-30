@@ -17,6 +17,14 @@ function getWorkoutPlan() {
         return; // Stop the function if form is incomplete
     }
 
+    // Save workout preferences to cookies
+    if (typeof WorkoutSession !== 'undefined') {
+        WorkoutSession.save({
+            fitnessLevel, goal, preference, age, gender, equipment, days,
+            timestamp: Date.now()
+        });
+    }
+
     // Show loading animation and hide result section initially
     document.getElementById('loading').style.display = 'flex';
     document.getElementById('workout-result').style.display = 'none';
