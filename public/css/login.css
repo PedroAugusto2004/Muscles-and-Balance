@@ -1,13 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    color: #868686;
+    color: #e0e0e0;
 }
 
 .video-bg {
@@ -25,17 +25,19 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 90%; /* Adjusted for smaller screens */
-  max-width: 400px;
-  padding: 20px; /* Reduced padding for smaller screens */
-  margin: 20px auto;
+  width: 95%;
+  max-width: 420px;
+  padding: 30px 25px;
+  margin: 0;
   transform: translate(-50%, -50%);
-  background: rgba(29, 29, 29, 0.9);
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  max-height: 90vh;
-  overflow-y: auto; /* Enable vertical scrolling for small screens */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  max-height: 95vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Style the scroll bar */
@@ -72,17 +74,23 @@ body {
 .login-box .user-box input,
 .login-box .user-box select {
     width: 100%;
-    padding: 10px 0;
-    font-size: 14px; /* Slightly smaller font size for better spacing */    
-    color: #757575;
-    margin-bottom: 30px;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #e0e0e0;
+    margin-bottom: 25px;
     border: none;
-    border-bottom: 1px solid #575757;
+    border-bottom: 2px solid #404040;
     outline: none;
     background: transparent;
     appearance: none;
     -webkit-appearance: none;
-    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.login-box .user-box select option {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 8px;
 }
 
 .login-box .user-box label {
@@ -96,14 +104,21 @@ body {
     transition: .5s;
 }
 
+.login-box .user-box input:focus,
+.login-box .user-box select:focus {
+    border-bottom-color: #4285f4;
+    color: #fff;
+}
+
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label,
 .login-box .user-box select:focus ~ label,
 .login-box .user-box select:valid ~ label {
-    top: -20px;
+    top: -22px;
     left: 0;
-    color: #fff;
+    color: #4285f4;
     font-size: 12px;
+    font-weight: 500;
 }
 
 .login-box .user-box label.gender-label {
@@ -153,11 +168,15 @@ body {
 .login-box .terms-container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Add more space at the bottom */
+    margin-bottom: 25px;
+    gap: 0;
 }
 
-.login-box .terms-container label {
-    margin-left: 5px;
+.login-box .terms-container p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #ccc;
 }
 
 .login-box .form-container {
@@ -178,13 +197,52 @@ body {
     margin-right: 5px;
 }
 
-/* Media query for ultra-small screens */
-@media (max-width: 375px) {
+/* Enhanced mobile responsiveness */
+@media (max-width: 480px) {
   .login-box {
-      width: 95%; /* Maximize available space */
-      padding: 15px; /* Further reduce padding */
+      width: 98%;
+      padding: 20px 15px;
+      max-height: 98vh;
+      border-radius: 12px;
   }
+  
+  .login-box p:first-child {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+  }
+  
+  .login-box .user-box {
+      margin-bottom: 15px;
+  }
+  
+  .login-box .user-box input,
+  .login-box .user-box select {
+      font-size: 16px; /* Prevents zoom on iOS */
+      margin-bottom: 20px;
+  }
+  
+  .button {
+      width: 100%;
+      max-width: none;
+      padding: 12px 20px;
+      font-size: 14px;
+  }
+  
+  #password-tip {
+      padding: 15px;
+      margin-top: 15px;
+  }
+  
+  #password-tip .requirement {
+      font-size: 13px;
+      padding-left: 1rem;
+  }
+}
 
+@media (max-width: 320px) {
+  .login-box {
+      padding: 15px 10px;
+  }
 }
 
 /* Style for the input container */
@@ -328,49 +386,60 @@ body {
 
 /* Google Button */
 .button {
+  width: 100%;
   max-width: 320px;
   display: flex;
-  padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+  padding: 12px 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
   text-align: center;
-  text-transform: uppercase;
   vertical-align: middle;
   align-items: center;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  gap: 0.75rem;
-  color: rgb(65, 63, 63);
-  background-color: #fff;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 12px;
+  color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   cursor: pointer;
-  transition: all 0.6s ease;
+  transition: all 0.3s ease;
+  text-transform: none;
 }
 
 .button svg {
-  height: 24px;
+  height: 20px;
+  width: 20px;
+  flex-shrink: 0;
 }
 
 .button:hover {
-  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* agreement text */
 .agreement-text {
-  font-size: 14px; /* Smaller text size */
-  color: #666; /* Lighter grey for a subtle look */
-  margin-top: 10px; /* Space above the text */
-  text-align: center; /* Center the text */
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .agreement-text a {
-  color: #4285F4; /* Google blue for the links */
-  text-decoration: none; /* Remove underline */
-  font-weight: 500; /* Slightly bold for emphasis */
+  color: #4285f4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .agreement-text a:hover {
-  text-decoration: underline; /* Underline on hover for interaction */
+  color: #5a95f5;
+  text-decoration: underline;
 }
 
 .center-container {
@@ -463,8 +532,8 @@ body {
 .hl-line {
   stroke: #fff;
   stroke-width: 2;
-  stroke-dasharray: 398; /* Total perimeter of the button */
-  stroke-dashoffset: 398; /* Start position of the dash */
+  stroke-dasharray: 398;
+  stroke-dashoffset: 398;
   animation: draw-line 2s linear infinite;
 }
 
@@ -476,13 +545,12 @@ body {
   z-index: 2;
 }
 
-/* Keyframes for seamless animation */
 @keyframes draw-line {
   0% {
-      stroke-dashoffset: 398; /* Fully offset (line not visible) */
+      stroke-dashoffset: 398;
   }
   100% {
-      stroke-dashoffset: 0; /* Line fully drawn */
+      stroke-dashoffset: 0;
   }
 }
   
@@ -552,41 +620,67 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-  }
-  
-  .container input {
+    min-height: 20px;
+    flex-shrink: 0;
+}
+
+.container input {
     display: none;
-  }
-  
-  .container svg {
-    overflow: visible;
-    margin-right: 10px;
-  }
-  
-  .path {
-    fill: none;
-    stroke: white;
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
-    stroke-dasharray: 241 9999999;
-    stroke-dashoffset: 0;
-  }
-  
-  .container input:checked ~ svg .path {
-    stroke-dasharray: 70.5096664428711 9999999;
-    stroke-dashoffset: -262.2723388671875;
-  }
-  
-  .a2 {
-    color: #ffffff;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4285f4;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    background: transparent;
+}
+
+.checkbox::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.container input:checked ~ .checkbox {
+    background: #4285f4;
+    border-color: #4285f4;
+}
+
+.container input:checked ~ .checkbox::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.container:hover .checkbox {
+    border-color: #5a95f5;
+}
+
+.container:hover input:checked ~ .checkbox {
+    background: #5a95f5;
+    border-color: #5a95f5;
+}
+
+.a2 {
+    color: #4285f4;
     text-decoration: none;
-  }
-  
-  .a2:hover {
-    text-decoration: none;
-  }
+    transition: color 0.3s ease;
+}
+
+.a2:hover {
+    color: #5a95f5;
+    text-decoration: underline;
+}
   
 /*--------------------BACKGROUND-------------------*/
 
