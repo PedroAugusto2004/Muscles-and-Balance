@@ -1,5 +1,6 @@
 //----------SUPPLEMENT QUIZ----------//
 
+// eslint-disable-next-line no-unused-vars
 function calculateRecommendation() {
     const goal = document.getElementById('goal').value;
     const activityLevel = document.getElementById('activityLevel').value;

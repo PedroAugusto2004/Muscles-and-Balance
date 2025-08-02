@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Handle header scroll effect
     const header = document.querySelector('header');
-    let lastScrollTop = 0;
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -39,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             header.classList.remove('scrolled');
         }
-        
-        lastScrollTop = scrollTop;
     });
 });
 

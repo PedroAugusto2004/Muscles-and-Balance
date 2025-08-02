@@ -173,6 +173,7 @@ function hideLoadingSpinner() {
 
 // RECIPES
 
+// eslint-disable-next-line no-unused-vars
 function filterRecipes() {
     const searchTerm = document.getElementById('search').value.toLowerCase();
     const recipes = document.getElementsByClassName('recipe-card');

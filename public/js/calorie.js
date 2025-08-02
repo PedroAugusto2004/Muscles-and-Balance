@@ -82,6 +82,7 @@ heightUnit.addEventListener('change', () => {
 });
 
 // Function to calculate calories and macros
+// eslint-disable-next-line no-unused-vars
 function calculateCaloriesAndMacros() { 
     const age = parseInt(document.getElementById("age").value);
     const gender = document.getElementById("gender").value;
@@ -181,6 +182,7 @@ function calculateCaloriesAndMacros() {
 
 
 // EXPORT PDF
+// eslint-disable-next-line no-unused-vars
 function exportToPDF() {
     const userName = localStorage.getItem("userName") || "User";
     const { jsPDF } = window.jspdf;

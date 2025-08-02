@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.querySelector("#signup-phone");
     if (phoneInput) {
         const ipInfoToken = '526cbc626b7e19';
-        const iti = window.intlTelInput(phoneInput, {
+        window.intlTelInput(phoneInput, {
             initialCountry: "auto",
             geoIpLookup: function(callback) {
                 fetch(`https://ipinfo.io?token=${ipInfoToken}`, {

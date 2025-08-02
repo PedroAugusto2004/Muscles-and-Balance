@@ -1,5 +1,6 @@
 //----------WORKOUT PLAN----------//
 
+// eslint-disable-next-line no-unused-vars
 function getWorkoutPlan() {
     const fitnessLevel = document.getElementById('fitness-level').value;
     const goal = document.getElementById('goal').value;
@@ -439,16 +440,19 @@ window.addEventListener('click', (event) => {
   /*===== SHARE BUTTON =====*/
 
  // Function to open modal
+ // eslint-disable-next-line no-unused-vars
  function openModal() {
     document.getElementById("shareModal").style.display = "flex";
 }
 
 // Function to close modal
+// eslint-disable-next-line no-unused-vars
 function closeModal() {
     document.getElementById("shareModal").style.display = "none";
 }
 
 // Function to copy the link
+// eslint-disable-next-line no-unused-vars
 function copyLink() {
     const shareLink = document.getElementById("shareLink");
     shareLink.select();
@@ -464,6 +468,7 @@ function copyLink() {
     }, 2000);
 }
 
+// eslint-disable-next-line no-unused-vars
 function share(platform) {
     const pageUrl = encodeURIComponent('https://muscles-and-balance-7.web.app/');
     const message = encodeURIComponent("Check the best healthy platform of all time!");

@@ -161,6 +161,7 @@ function resetAllVideos() {
         video.hidden = true;
         video.pause();
         video.load(); // Reset the video to its initial state
+        video.classList.remove('fade-in');
     });
 }
 
@@ -217,15 +218,7 @@ function updateWorkout() {
     currentIndex = (currentIndex + 1) % selectedExercises.length;
 }
 
-// Utility function to reset all videos and remove the fade-in class
-function resetAllVideos() {
-    document.querySelectorAll('.exercise-video').forEach(video => {
-        video.hidden = true;
-        video.pause();
-        video.load(); // Reset the video to its initial state
-        video.classList.remove('fade-in');
-    });
-}
+
 
 // Show a motivational message when the timer ends
 function showMotivationalMessage() {

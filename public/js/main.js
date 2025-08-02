@@ -85,6 +85,7 @@ navLinks.forEach(link => {
 
 //REDIRECTION
 
+// eslint-disable-next-line no-unused-vars
 function redirectToSection(button) {
   const target = button.getAttribute('data-target');
   window.location.href = target;
