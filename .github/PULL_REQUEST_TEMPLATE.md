@@ -1,20 +1,25 @@
----
-name: Pull Request
-about: Submit a pull request
----
+## Description
+Brief description of changes made.
 
-**Description**
-Please include a summary of the change and which issue is fixed.
-
-**Type of change**
+## Type of Change
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
-- [ ] Documentation
+- [ ] Documentation update
+- [ ] Security fix
 
-**Checklist**
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
+## Testing
+- [ ] Tests pass locally
+- [ ] New tests added for new functionality
+- [ ] Manual testing completed
+
+## Security
+- [ ] No new security vulnerabilities introduced
+- [ ] Dependencies updated if needed
+- [ ] Code follows security best practices
+
+## Checklist
+- [ ] Code follows project style guidelines
+- [ ] Self-review completed
+- [ ] Code is commented where necessary
+- [ ] Documentation updated if needed
