@@ -1,8 +1,17 @@
 {
-  "name": "muscles-e-balance",
+  "name": "muscles-and-balance",
   "version": "1.0.0",
-  "description": "Welcome to **Muscles & Balance** – your all-in-one platform for achieving a healthier, more balanced lifestyle! Whether you want to optimize your nutrition, find the perfect workout, track supplements, or simply learn more about fitness, this project is designed to empower you at every step of your journey.",
-  "main": "index.js",
+  "description": "All-in-one fitness platform for personalized workouts, nutrition tracking, and supplement recommendations",
+  "main": "public/index.htm",
+  "homepage": "https://muscles-and-balance-7.web.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/muscles-and-balance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/muscles-and-balance/issues",
+    "email": "support@muscles-and-balance.com"
+  },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -16,11 +25,46 @@
     "security": "npm audit && npm run lint",
     "ci": "npm ci && npm run security && npm test",
     "build": "echo 'Build step - static files ready'",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "start": "firebase serve",
+    "dev": "firebase serve --port 3000"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "fitness",
+    "nutrition",
+    "workout",
+    "health",
+    "supplements",
+    "calorie-calculator",
+    "meal-planner",
+    "exercise-tracker",
+    "wellness",
+    "bodybuilding",
+    "weight-loss",
+    "muscle-gain"
+  ],
+  "author": {
+    "name": "Muscles & Balance Team",
+    "email": "team@muscles-and-balance.com",
+    "url": "https://muscles-and-balance-7.web.app"
+  },
+  "contributors": [
+    {
+      "name": "Lead Developer",
+      "email": "dev@muscles-and-balance.com",
+      "role": "Full-stack Developer"
+    }
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "eslint": "^9.28.0",
