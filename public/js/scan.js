@@ -24,7 +24,7 @@ document.getElementById('start-scan').addEventListener('click', () => {
         }
     }, (err) => {
         if (err) {
-            console.error(err);
+            Logger.error('Barcode scanner initialization failed', err);
             showErrorMessage("Error initializing the scanner.");
             return;
         }
@@ -56,7 +56,7 @@ function fetchNutritionData(barcode) {
         }
     })
     .catch(err => {
-        console.error("Error fetching data:", err);
+        Logger.error('Failed to fetch barcode data', err);
         showErrorMessage("There was an issue fetching the product data.");
     });
 }

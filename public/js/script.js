@@ -1,5 +1,12 @@
 //----------WORKOUT PLAN----------//
 
+/**
+ * Generate personalized workout plan based on user preferences
+ * @function getWorkoutPlan
+ * @global
+ * @returns {void}
+ * @throws {Error} When form validation fails or workout generation fails
+ */
 // eslint-disable-next-line no-unused-vars
 function getWorkoutPlan() {
     const fitnessLevel = document.getElementById('fitness-level').value;
@@ -439,19 +446,34 @@ window.addEventListener('click', (event) => {
 
   /*===== SHARE BUTTON =====*/
 
- // Function to open modal
- // eslint-disable-next-line no-unused-vars
- function openModal() {
+/**
+ * Open the share modal dialog
+ * @function openModal
+ * @global
+ * @returns {void}
+ */
+// eslint-disable-next-line no-unused-vars
+function openModal() {
     document.getElementById("shareModal").style.display = "flex";
 }
 
-// Function to close modal
+/**
+ * Close the share modal dialog
+ * @function closeModal
+ * @global
+ * @returns {void}
+ */
 // eslint-disable-next-line no-unused-vars
 function closeModal() {
     document.getElementById("shareModal").style.display = "none";
 }
 
-// Function to copy the link
+/**
+ * Copy share link to clipboard
+ * @function copyLink
+ * @global
+ * @returns {void}
+ */
 // eslint-disable-next-line no-unused-vars
 function copyLink() {
     const shareLink = document.getElementById("shareLink");
@@ -468,6 +490,13 @@ function copyLink() {
     }, 2000);
 }
 
+/**
+ * Share content on social media platforms
+ * @function share
+ * @global
+ * @param {string} platform - Social media platform (facebook, twitter, whatsapp, linkedin)
+ * @returns {void}
+ */
 // eslint-disable-next-line no-unused-vars
 function share(platform) {
     const pageUrl = encodeURIComponent('https://muscles-and-balance-7.web.app/');
@@ -523,7 +552,7 @@ document.addEventListener('DOMContentLoaded', function() {
             reset: true // Whether to reset the animation on scroll back up
         });
     } else {
-        console.error('ScrollReveal is not loaded');
+        Logger.warn('ScrollReveal library not loaded - animations disabled');
     }
 });
 

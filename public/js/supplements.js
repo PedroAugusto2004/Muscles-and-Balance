@@ -1,5 +1,12 @@
 //----------SUPPLEMENT QUIZ----------//
 
+/**
+ * Calculate personalized supplement recommendations based on user goals
+ * @function calculateRecommendation
+ * @global
+ * @returns {void}
+ * @throws {Error} When form validation fails
+ */
 // eslint-disable-next-line no-unused-vars
 function calculateRecommendation() {
     const goal = document.getElementById('goal').value;

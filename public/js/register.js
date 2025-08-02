@@ -37,7 +37,7 @@ async function initializeFirebase() {
         }
         return true;
     } catch (error) {
-        console.error('Error initializing Firebase:', error);
+        Logger.error('Failed to initialize Firebase', error);
         return false;
     }
 }
@@ -125,7 +125,7 @@ function showAlert(message, type = 'info') {
             closeAlert();
         }, 5000);
     } else {
-        console.error("Alert elements not found.");
+        Logger.error('Alert elements not found in DOM');
     }
 }
 
@@ -239,7 +239,7 @@ async function handleSignUp(event) {
         }, 3000);
 
     } catch (error) {
-        console.error("Error during sign up:", error);
+        Logger.error('Sign up failed', error);
         if (error.code === 'auth/email-already-in-use') {
             showAlert('Email already in use.', 'error');
         } else if (error.code === 'auth/invalid-email') {
@@ -281,7 +281,7 @@ async function handleSignIn(event) {
             window.location.href = "home.htm";
         }, 1000);
     } catch (error) {
-        console.error("Error during sign in:", error);
+        Logger.error('Sign in failed', error);
         if (error.code === 'auth/wrong-password') {
             showAlert('Incorrect password.', 'error');
         } else if (error.code === 'auth/user-not-found') {
@@ -313,7 +313,7 @@ async function handleForgotPassword(event) {
             document.getElementById("sign-in-form").style.display = "block";
         }, 3000);
     } catch (error) {
-        console.error("Error sending password reset email:", error);
+        Logger.error('Password reset email failed', error);
         showAlert("Failed to send password reset email. Try again later.", "error");
     }
 }
@@ -349,7 +349,7 @@ async function handleGoogleSignIn() {
             window.location.href = "home.htm";
         }, 1000);
     } catch (error) {
-        console.error("Google Sign-In Error:", error);
+        Logger.error('Google Sign-In failed', error);
         showAlert("Google Sign-In failed: " + error.message, "error");
     }
 }
@@ -382,7 +382,7 @@ async function displayWelcomeMessageAndAuthButtons(userId) {
             logoutButton?.classList.remove("hidden");
         }
     } catch (error) {
-        console.error("Error retrieving user data:", error);
+        Logger.error('Failed to retrieve user data', error);
     }
 }
 
@@ -431,7 +431,7 @@ function handleLogout() {
     signOut(auth).then(() => {
         window.location.href = "home.htm";
     }).catch((error) => {
-        console.error("Error signing out:", error);
+        Logger.error('Sign out failed', error);
     });
 }
 
@@ -464,7 +464,7 @@ async function showWelcomeMessage(userId) {
             signUpButton?.classList.add("hidden");
         }
     } catch (error) {
-        console.error("Error fetching user data:", error);
+        Logger.error('Failed to fetch user data', error);
     }
 }
 

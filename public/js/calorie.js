@@ -81,24 +81,39 @@ heightUnit.addEventListener('change', () => {
     }
 });
 
-// Function to calculate calories and macros
+/**
+ * Calculate daily calorie and macronutrient requirements
+ * Uses Harris-Benedict equation for BMR calculation
+ * @function calculateCaloriesAndMacros
+ * @global
+ * @returns {void}
+ * @throws {Error} When form validation fails
+ */
 // eslint-disable-next-line no-unused-vars
 function calculateCaloriesAndMacros() { 
-    const age = parseInt(document.getElementById("age").value);
-    const gender = document.getElementById("gender").value;
-    const weight = parseFloat(document.getElementById("weight").value);
-    const height = document.getElementById("height").value; // Will be in the format "5'6"
-    const weightUnit = document.getElementById("weightUnit").value;
-    const heightUnit = document.getElementById("heightUnit").value;
-    const activityLevel = parseFloat(document.getElementById("activityLevel").value);
-    const goal = document.getElementById("goal").value;
+    try {
+        const formData = {
+            age: parseInt(document.getElementById("age").value),
+            gender: document.getElementById("gender").value,
+            weight: parseFloat(document.getElementById("weight").value),
+            height: document.getElementById("height").value,
+            weightUnit: document.getElementById("weightUnit").value,
+            heightUnit: document.getElementById("heightUnit").value,
+            activityLevel: parseFloat(document.getElementById("activityLevel").value),
+            goal: document.getElementById("goal").value
+        };
 
-    if (!age || !gender || !weight || !height || !activityLevel || !goal) {
-        document.getElementById("result").innerHTML = "Please fill out all fields 💪";
-        return;
-    }
+        const validation = ErrorHandler.validateForm(formData, 
+            ['age', 'gender', 'weight', 'height', 'activityLevel', 'goal']);
+        
+        if (!validation.isValid) {
+            ErrorHandler.showUserMessage("Please fill out all fields 💪");
+            return;
+        }
 
-    // Save nutrition data to cookies
+        const { age, gender, weight, height, weightUnit, heightUnit, activityLevel, goal } = formData;
+
+        // Save nutrition data to cookies
     if (typeof FormMemory !== 'undefined') {
         FormMemory.save('nutrition', {
             age, gender, weight, height, weightUnit, heightUnit, activityLevel, goal,
@@ -178,10 +193,21 @@ function calculateCaloriesAndMacros() {
 
         document.getElementById("exportBtn").style.display = "block";
     }, 1000); // Delay to simulate loading
+    
+    } catch (error) {
+        Logger.error('Calorie calculation failed', error);
+        ErrorHandler.showUserMessage('Calculation failed. Please try again.');
+    }
 }
 
 
-// EXPORT PDF
+/**
+ * Export nutrition calculation results to PDF
+ * @function exportToPDF
+ * @global
+ * @returns {void}
+ * @requires jsPDF
+ */
 // eslint-disable-next-line no-unused-vars
 function exportToPDF() {
     const userName = localStorage.getItem("userName") || "User";

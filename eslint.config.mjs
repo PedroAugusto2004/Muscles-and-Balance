@@ -21,6 +21,9 @@ export default [
         WorkoutSession: "readonly",
         FormMemory: "readonly",
         CookieConsent: "readonly",
+        // Utility classes
+        Logger: "readonly",
+        ErrorHandler: "readonly",
         // Functions used in HTML onclick handlers
         getWorkoutPlan: "readonly",
         calculateCaloriesAndMacros: "readonly",

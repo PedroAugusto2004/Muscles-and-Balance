@@ -116,7 +116,7 @@ async function getNutritionData(foodItems) {
                 });
 
                 if (!response.ok) {
-                    console.error('API request failed with status:', response.status);
+                    Logger.error(`API request failed with status: ${response.status}`);
                     continue;
                 }
 
@@ -133,7 +133,7 @@ async function getNutritionData(foodItems) {
                 totalSodium += food.nf_sodium || 0;
                 totalCholesterol += food.nf_cholesterol || 0;
             } catch (error) {
-                console.error('Error fetching nutrition data:', error);
+                Logger.error('Failed to fetch nutrition data', error);
             }
         }
     }
@@ -173,6 +173,12 @@ function hideLoadingSpinner() {
 
 // RECIPES
 
+/**
+ * Filter recipe results based on user criteria
+ * @function filterRecipes
+ * @global
+ * @returns {void}
+ */
 // eslint-disable-next-line no-unused-vars
 function filterRecipes() {
     const searchTerm = document.getElementById('search').value.toLowerCase();

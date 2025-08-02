@@ -85,6 +85,13 @@ navLinks.forEach(link => {
 
 //REDIRECTION
 
+/**
+ * Redirect to a specific section based on button data-target attribute
+ * @function redirectToSection
+ * @global
+ * @param {HTMLElement} button - Button element containing data-target attribute
+ * @returns {void}
+ */
 // eslint-disable-next-line no-unused-vars
 function redirectToSection(button) {
   const target = button.getAttribute('data-target');
