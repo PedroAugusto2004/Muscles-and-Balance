@@ -1286,243 +1286,184 @@ box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   
 }
 
-/* CONTACT FORM - Monochrome Glassmorphic Style */
+/* CONTACT FORM - Minimalistic Design */
 .container-1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh; /* Reduced from 70vh */
-  padding: 10px; /* Reduced padding */
+  min-height: 60vh;
+  padding: 20px;
 }
 
 .card {
-  position: relative;
   width: 100%;
-  max-width: 800px;
-  padding: 20px 50px; /* Reduced top/bottom padding */
-  background: rgba(0, 0, 0, 0.356);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  transform: skewX(-15deg);
-  pointer-events: none;
+  max-width: 600px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f0f0f0;
 }
 
 .contact {
-  color: #000000;
-  font-size: 1.6rem; /* Slightly smaller */
+  color: #333;
+  font-size: 1.8rem;
   font-weight: 300;
   text-align: center;
-  margin-bottom: 15px; /* Reduced margin */
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
 .form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px; /* Reduced gap */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .inputBox {
   position: relative;
-  width: 100%;
-}
-
-.inputBox.full-width {
-  grid-column: span 2;
 }
 
 .inputBox input,
 .inputBox textarea {
   width: 100%;
-  padding: 10px 15px; /* Reduced padding */
-  font-size: 15px;
-  color: #3f3f3f;
-  background: rgba(0, 0, 0, 0.137);
+  padding: 16px 0;
+  font-size: 16px;
+  color: #333;
+  background: transparent;
   border: none;
-  border-radius: 8px;
+  border-bottom: 2px solid #e0e0e0;
   outline: none;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .inputBox textarea {
-  min-height: 80px; /* Reduced height */
-  max-height: 150px;
+  min-height: 100px;
   resize: vertical;
+  font-family: inherit;
 }
 
 .inputBox span {
   position: absolute;
-  left: 15px;
-  top: 15px;
+  left: 0;
+  top: 16px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
+  color: #999;
   pointer-events: none;
   transition: all 0.3s ease;
 }
 
-.inputBox input:valid ~ span,
-.inputBox input:focus ~ span,
-.inputBox textarea:valid ~ span,
-.inputBox textarea:focus ~ span {
-  transform: translateY(-25px) translateX(-5px);
-  font-size: 12px;
-  color: #ffffff;
-  padding: 0 6px;
-  background: rgba(0, 0, 0, 0.356);
-  border-radius: 4px;
-}
-
 .inputBox input:focus,
 .inputBox textarea:focus {
-  background: rgba(255, 255, 255, 0.15);
+  border-bottom-color: #333;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox textarea:valid ~ span {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: #333;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .enter {
-  grid-column: span 2;
-  width: 50%;
-  margin: 10px auto 0; /* Reduced top margin */
-  padding: 12px; /* Slightly reduced padding */
-  background: rgba(0, 0, 0, 0.8);
-  color: #c0c0c0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  font-size: 15px;
+  flex: 1;
+  padding: 16px 24px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .enter:hover {
-  background: #ffffff;
-  color: #000000;
-  transform: translateY(-2px);
+  background: #555;
+  transform: translateY(-1px);
 }
 
-.enter:active {
-  transform: translateY(0);
+.form-reset-btn {
+  background: transparent;
+  color: #666;
+  border: 1px solid #ddd;
 }
 
-/* Add subtle animation for form elements */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.form-reset-btn:hover {
+  background: #f5f5f5;
+  color: #333;
 }
-
-.inputBox {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-.inputBox:nth-child(2) { animation-delay: 0.1s; }
-.inputBox:nth-child(3) { animation-delay: 0.2s; }
-.inputBox:nth-child(4) { animation-delay: 0.3s; }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .container-1 {
+    padding: 15px;
+  }
+  
   .card {
-    padding: 25px 20px;
-    max-width: 95%;
-  }
-  
-  .form {
-    grid-template-columns: 1fr;
-  }
-  
-  .inputBox.full-width,
-  .enter {
-    grid-column: span 1;
-  }
-  
-  .enter {
-    width: 100%;
+    padding: 30px 20px;
   }
   
   .contact {
     font-size: 1.5rem;
   }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .inputBox input,
+  .inputBox textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
 }
 
 /* Formspree Powered Section */
 .formspree-powered {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  z-index: 100;
-  text-align: left;
-  padding: 3px 8px 5px 7px;
-  border-radius: 7px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  font-size: 0.85em;
-  color: #000;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 0.8em;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .formspree-powered span {
-  color: #000;
-  font-size: 0.85em;
-  font-weight: 500;
+  color: #999;
+  font-size: 0.8em;
 }
 
 .formspree-powered img {
-  height: 18px;
-  margin-top: 1px;
-  border-radius: 4px;
-  vertical-align: middle;
-  box-shadow: none;
-  transition: none;
+  height: 16px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-.formspree-powered a:hover img,
-.formspree-powered a:active img {
-  /* Remove hover/active animation */
-  transform: none;
-  box-shadow: none;
+.formspree-powered a:hover img {
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
   .formspree-powered {
-    left: 4px;
-    bottom: 4px;
-    padding: 2px 5px 3px 4px;
     font-size: 0.75em;
-    display: flex;
-    align-items: center;
     gap: 4px;
-    flex-direction: row;
-    width: auto;
-    min-width: 0;
-    max-width: 95vw;
-    white-space: nowrap;
   }
-  .formspree-powered span {
-    display: inline;
-    margin-right: 3px;
-  }
+  
   .formspree-powered img {
-    height: 13px;
-    margin-top: 0;
-    margin-left: 2px;
-    margin-right: 0;
-    vertical-align: middle;
+    height: 14px;
   }
 }
