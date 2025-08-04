@@ -24,6 +24,8 @@ export default [
         // Utility classes
         Logger: "readonly",
         ErrorHandler: "readonly",
+        InputValidator: "readonly",
+        PerformanceOptimizer: "readonly",
         // Functions used in HTML onclick handlers
         getWorkoutPlan: "readonly",
         calculateCaloriesAndMacros: "readonly",

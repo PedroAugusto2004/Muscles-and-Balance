@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!input.value) {
         return false;
       }
+      // Sanitize input values
+      if (input.type === 'text' || input.type === 'number') {
+        input.value = InputValidator.sanitizeHTML(input.value);
+      }
     }
     return true;
   };
@@ -28,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.next-btn').forEach((btn, index) => {
     btn.addEventListener('click', () => {
       const age = parseInt(document.getElementById('age').value);
-      if (age < 14) {
-        alert('You must be at least 14 years old to proceed.');
-        return; // Prevent moving to the next step
+      if (!InputValidator.isValidAge(age)) {
+        ErrorHandler.showUserMessage('Please enter a valid age (14-120 years)');
+        return;
       }
 
       if (!validateStep(currentStep)) {
