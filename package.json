@@ -10,7 +10,7 @@
   },
   "bugs": {
     "url": "https://github.com/username/muscles-and-balance/issues",
-    "email": "support@muscles-and-balance.com"
+    "email": "mailto:musclesbalance@gmail.com"
   },
   "scripts": {
     "test": "jest",
@@ -45,13 +45,13 @@
   ],
   "author": {
     "name": "Muscles & Balance Team",
-    "email": "team@muscles-and-balance.com",
+    "email": "mailto:musclesbalance@gmail.com",
     "url": "https://muscles-and-balance-7.web.app"
   },
   "contributors": [
     {
       "name": "Lead Developer",
-      "email": "dev@muscles-and-balance.com",
+      "email": "mailto:musclesbalance@gmail.com",
       "role": "Full-stack Developer"
     }
   ],

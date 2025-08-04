@@ -8,7 +8,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it by emailing [security@muscles-and-balance.com](mailto:security@muscles-and-balance.com).
+If you discover a security vulnerability, please report it by emailing [musclesbalance@gmail.com](mailto:musclesbalance@gmail.com).
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 

@@ -313,7 +313,7 @@ firebase projects:list
 ### Support Channels
 - **Technical Issues:** GitHub Issues
 - **Deployment Issues:** Firebase Support
-- **General Support:** team@muscles-and-balance.com
+- **General Support:** mailto:musclesbalance@gmail.com
 
 ### Documentation Updates
 This deployment documentation should be updated when:

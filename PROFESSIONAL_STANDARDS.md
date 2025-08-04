@@ -23,7 +23,7 @@ This document outlines how Muscles & Balance meets professional development stan
   "name": "muscles-and-balance",
   "author": {
     "name": "Muscles & Balance Team",
-    "email": "team@muscles-and-balance.com",
+    "email": "mailto:musclesbalance@gmail.com",
     "url": "https://muscles-and-balance-7.web.app"
   },
   "keywords": [
@@ -120,7 +120,7 @@ This document outlines how Muscles & Balance meets professional development stan
   },
   "bugs": {
     "url": "https://github.com/username/muscles-and-balance/issues",
-    "email": "support@muscles-and-balance.com"
+    "email": "mailto:musclesbalance@gmail.com"
   },
   "engines": {
     "node": ">=16.0.0",

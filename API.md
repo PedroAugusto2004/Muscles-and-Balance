@@ -207,4 +207,4 @@ No rate limits for client-side APIs. External API calls (nutrition data, barcode
 ## Support
 - **Documentation:** [GitHub Repository](https://github.com/username/muscles-and-balance)
 - **Issues:** [GitHub Issues](https://github.com/username/muscles-and-balance/issues)
-- **Email:** musclesbalance@gmail.com
+- **Email:** mailto:musclesbalance@gmail.com

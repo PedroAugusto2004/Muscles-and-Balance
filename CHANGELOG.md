@@ -85,5 +85,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For questions about releases or to report issues:
 - **GitHub Issues**: [Report bugs or request features](https://github.com/username/muscles-and-balance/issues)
-- **Email Support**: support@muscles-and-balance.com
+- **Email Support**: mailto:musclesbalance@gmail.com
 - **Documentation**: See README.md and API.md for detailed information

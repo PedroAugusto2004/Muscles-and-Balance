@@ -4,14 +4,14 @@
 
 ### Lead Developer
 - **Name:** Lead Developer
-- **Email:** dev@muscles-and-balance.com
+- **Email:** mailto:musclesbalance@gmail.com
 - **Role:** Full-stack Developer & Project Lead
 - **Contributions:** Core architecture, API development, UI/UX design
 
 ### Muscles & Balance Team
 - **Organization:** Muscles & Balance
 - **Website:** https://muscles-and-balance-7.web.app
-- **Contact:** team@muscles-and-balance.com
+- **Contact:** mailto:musclesbalance@gmail.com
 
 ---
 
@@ -63,6 +63,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 For questions about authorship or contributions:
-- **General Inquiries:** team@muscles-and-balance.com
-- **Technical Questions:** dev@muscles-and-balance.com
+- **General Inquiries:** mailto:musclesbalance@gmail.com
+- **Technical Questions:** mailto:musclesbalance@gmail.com
 - **Issues & Bugs:** [GitHub Issues](https://github.com/username/muscles-and-balance/issues)
