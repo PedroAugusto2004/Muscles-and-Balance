@@ -1,10 +1,10 @@
 // NUTRITION CALCULATOR
 document.getElementById('addFoodItem').addEventListener('click', function () {
-    const foodItemCount = document.querySelectorAll('.food-item').length + 1;
+  const foodItemCount = document.querySelectorAll('.food-item').length + 1;
 
-    const newFoodItem = document.createElement('div');
-    newFoodItem.classList.add('food-item');
-    newFoodItem.innerHTML = `
+  const newFoodItem = document.createElement('div');
+  newFoodItem.classList.add('food-item');
+  newFoodItem.innerHTML = `
         <label for="foodItem${foodItemCount}">Food Item ${foodItemCount}:</label>
         <input type="text" id="foodItem${foodItemCount}" name="foodItem${foodItemCount}" class="foodInput" placeholder="Enter food name">
         <input type="number" id="portion${foodItemCount}" name="portion${foodItemCount}" class="portionInput" placeholder="Portion size (grams)">
@@ -54,122 +54,137 @@ document.getElementById('addFoodItem').addEventListener('click', function () {
 </button>
     `;
 
-    document.getElementById('additionalFoodItems').appendChild(newFoodItem);
+  document.getElementById('additionalFoodItems').appendChild(newFoodItem);
 
-    // Add event listener to the delete button
-    newFoodItem.querySelector('.deleteFoodItem').addEventListener('click', function () {
-        newFoodItem.remove();
+  // Add event listener to the delete button
+  newFoodItem
+    .querySelector('.deleteFoodItem')
+    .addEventListener('click', function () {
+      newFoodItem.remove();
     });
 });
 
 document.getElementById('mealForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const foodItems = [];
-    let isFormValid = true; // Track if all inputs are filled
+  const foodItems = [];
+  let isFormValid = true; // Track if all inputs are filled
 
-    const foodItemElements = document.querySelectorAll('.food-item');
-    foodItemElements.forEach((item) => {
-        const foodName = item.querySelector('input[type="text"]').value.trim();
-        const portionSize = parseFloat(item.querySelector('input[type="number"]').value);
+  const foodItemElements = document.querySelectorAll('.food-item');
+  foodItemElements.forEach((item) => {
+    const foodName = item.querySelector('input[type="text"]').value.trim();
+    const portionSize = parseFloat(
+      item.querySelector('input[type="number"]').value
+    );
 
-        // Check if any field is empty or invalid
-        if (!foodName || isNaN(portionSize) || portionSize <= 0) {
-            isFormValid = false;
-        } else {
-            foodItems.push({ name: foodName, portion: portionSize });
-        }
-    });
-
-    // Show alert if form is not valid
-    if (!isFormValid) {
-        alert("Enter your food first🍔");
-        return; // Stop further execution
+    // Check if any field is empty or invalid
+    if (!foodName || isNaN(portionSize) || portionSize <= 0) {
+      isFormValid = false;
+    } else {
+      foodItems.push({ name: foodName, portion: portionSize });
     }
+  });
 
-    getNutritionData(foodItems);
+  // Show alert if form is not valid
+  if (!isFormValid) {
+    alert('Enter your food first🍔');
+    return; // Stop further execution
+  }
+
+  getNutritionData(foodItems);
 });
 
 async function getNutritionData(foodItems) {
-    let totalCalories = 0;
-    let totalProteins = 0;
-    let totalFats = 0;
-    let totalCarbs = 0;
-    let totalFiber = 0;
-    let totalSugars = 0;
-    let totalSodium = 0;
-    let totalCholesterol = 0;
+  let totalCalories = 0;
+  let totalProteins = 0;
+  let totalFats = 0;
+  let totalCarbs = 0;
+  let totalFiber = 0;
+  let totalSugars = 0;
+  let totalSodium = 0;
+  let totalCholesterol = 0;
 
-    showLoadingSpinner();
+  showLoadingSpinner();
 
-    for (let item of foodItems) {
-        if (item.name && item.portion > 0) {
-            try {
-                const response = await fetch('https://python-backend-679194909576.us-central1.run.app/api/nutrition', {  // Updated to use deployed backend URL
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        barcode: `${item.portion} grams of ${item.name}`
-                    }),
-                });
+  for (let item of foodItems) {
+    if (item.name && item.portion > 0) {
+      try {
+        const response = await fetch(
+          'https://python-backend-679194909576.us-central1.run.app/api/nutrition',
+          {
+            // Updated to use deployed backend URL
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              barcode: `${item.portion} grams of ${item.name}`,
+            }),
+          }
+        );
 
-                if (!response.ok) {
-                    Logger.error(`API request failed with status: ${response.status}`);
-                    continue;
-                }
-
-                const data = await response.json();
-                const food = data.foods ? data.foods[0] : null;
-                if (!food) continue;
-
-                totalCalories += food.nf_calories;
-                totalProteins += food.nf_protein;
-                totalFats += food.nf_total_fat;
-                totalCarbs += food.nf_total_carbohydrate;
-                totalFiber += food.nf_dietary_fiber || 0;
-                totalSugars += food.nf_sugars || 0;
-                totalSodium += food.nf_sodium || 0;
-                totalCholesterol += food.nf_cholesterol || 0;
-            } catch (error) {
-                Logger.error('Failed to fetch nutrition data', error);
-            }
+        if (!response.ok) {
+          Logger.error(`API request failed with status: ${response.status}`);
+          continue;
         }
+
+        const data = await response.json();
+        const food = data.foods ? data.foods[0] : null;
+        if (!food) continue;
+
+        totalCalories += food.nf_calories;
+        totalProteins += food.nf_protein;
+        totalFats += food.nf_total_fat;
+        totalCarbs += food.nf_total_carbohydrate;
+        totalFiber += food.nf_dietary_fiber || 0;
+        totalSugars += food.nf_sugars || 0;
+        totalSodium += food.nf_sodium || 0;
+        totalCholesterol += food.nf_cholesterol || 0;
+      } catch (error) {
+        Logger.error('Failed to fetch nutrition data', error);
+      }
     }
+  }
 
-    document.getElementById('caloriesValue').textContent = totalCalories.toFixed(2);
-    document.getElementById('proteinsValue').textContent = `${totalProteins.toFixed(2)} g`;
-    document.getElementById('fatsValue').textContent = `${totalFats.toFixed(2)} g`;
-    document.getElementById('carbsValue').textContent = `${totalCarbs.toFixed(2)} g`;
-    document.getElementById('fiberValue').textContent = `${totalFiber.toFixed(2)} g`;
-    document.getElementById('sugarsValue').textContent = `${totalSugars.toFixed(2)} g`;
-    document.getElementById('sodiumValue').textContent = `${totalSodium.toFixed(2)} mg`;
-    document.getElementById('cholesterolValue').textContent = `${totalCholesterol.toFixed(2)} mg`;
+  document.getElementById('caloriesValue').textContent =
+    totalCalories.toFixed(2);
+  document.getElementById('proteinsValue').textContent =
+    `${totalProteins.toFixed(2)} g`;
+  document.getElementById('fatsValue').textContent =
+    `${totalFats.toFixed(2)} g`;
+  document.getElementById('carbsValue').textContent =
+    `${totalCarbs.toFixed(2)} g`;
+  document.getElementById('fiberValue').textContent =
+    `${totalFiber.toFixed(2)} g`;
+  document.getElementById('sugarsValue').textContent =
+    `${totalSugars.toFixed(2)} g`;
+  document.getElementById('sodiumValue').textContent =
+    `${totalSodium.toFixed(2)} mg`;
+  document.getElementById('cholesterolValue').textContent =
+    `${totalCholesterol.toFixed(2)} mg`;
 
-    hideLoadingSpinner();
+  hideLoadingSpinner();
 }
 
 function showLoadingSpinner() {
-    document.getElementById('nutritionLabel').style.display = 'none';
-    document.getElementById('loadingSpinnerNew').style.display = 'flex';
+  document.getElementById('nutritionLabel').style.display = 'none';
+  document.getElementById('loadingSpinnerNew').style.display = 'flex';
 }
 
 function hideLoadingSpinner() {
-    const nutritionLabel = document.getElementById('nutritionLabel');
-    const loadingSpinner = document.getElementById('loadingSpinnerNew');
+  const nutritionLabel = document.getElementById('nutritionLabel');
+  const loadingSpinner = document.getElementById('loadingSpinnerNew');
 
-    loadingSpinner.style.display = 'none'; // Hide the spinner
+  loadingSpinner.style.display = 'none'; // Hide the spinner
 
-    // Ensure the nutrition label is hidden initially
-    nutritionLabel.style.display = 'block'; 
+  // Ensure the nutrition label is hidden initially
+  nutritionLabel.style.display = 'block';
 
-    // Add the 'show' class to trigger the animation
-    setTimeout(() => {
-        nutritionLabel.classList.add('show'); 
-    }, 100); // Delay to ensure visibility change takes effect
+  // Add the 'show' class to trigger the animation
+  setTimeout(() => {
+    nutritionLabel.classList.add('show');
+  }, 100); // Delay to ensure visibility change takes effect
 }
-
 
 // RECIPES
 
@@ -181,16 +196,18 @@ function hideLoadingSpinner() {
  */
 // eslint-disable-next-line no-unused-vars
 function filterRecipes() {
-    const searchTerm = document.getElementById('search').value.toLowerCase();
-    const recipes = document.getElementsByClassName('recipe-card');
+  const searchTerm = document.getElementById('search').value.toLowerCase();
+  const recipes = document.getElementsByClassName('recipe-card');
 
-    for (let i = 0; i < recipes.length; i++) {
-        const recipeTitle = recipes[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+  for (let i = 0; i < recipes.length; i++) {
+    const recipeTitle = recipes[i]
+      .getElementsByTagName('h2')[0]
+      .innerText.toLowerCase();
 
-        if (recipeTitle.includes(searchTerm)) {
-            recipes[i].style.display = '';
-        } else {
-            recipes[i].style.display = 'none';
-        }
+    if (recipeTitle.includes(searchTerm)) {
+      recipes[i].style.display = '';
+    } else {
+      recipes[i].style.display = 'none';
     }
+  }
 }
