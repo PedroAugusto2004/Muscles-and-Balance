@@ -29,23 +29,37 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   };
 
-  document.querySelectorAll('.next-btn').forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      const age = parseInt(document.getElementById('age').value);
-      if (!InputValidator.isValidAge(age)) {
-        ErrorHandler.showUserMessage('Please enter a valid age (14-120 years)');
-        return;
-      }
+  const nextStepHandler = () => {
+    const age = parseInt(document.getElementById('age').value);
+    if (!InputValidator.isValidAge(age)) {
+      ErrorHandler.showUserMessage('Please enter a valid age (14-120 years)');
+      return;
+    }
 
-      if (!validateStep(currentStep)) {
-        alert('Please fill all the fields ⚡');
-        return;
+    if (!validateStep(currentStep)) {
+      alert('Please fill all the fields ⚡');
+      return;
+    }
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  };
+
+  document.querySelectorAll('.next-btn').forEach((btn) => {
+    btn.addEventListener('click', nextStepHandler);
+  });
+
+  // Add Enter key support
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (currentStep < steps.length - 1) {
+        nextStepHandler();
+      } else {
+        calculateCaloriesAndMacros();
       }
-      if (index < steps.length - 1) {
-        currentStep++;
-        showStep(currentStep);
-      }
-    });
+    }
   });
 
   document.querySelectorAll('.back-btn').forEach((btn) => {
@@ -59,6 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize first step
   showStep(currentStep);
+  
+  // Listen for reset event
+  document.addEventListener('resetStep', () => {
+    currentStep = 0;
+    showStep(currentStep);
+  });
 });
 
 const heightInput = document.getElementById('height');
@@ -226,6 +246,7 @@ function calculateCaloriesAndMacros() {
       document.getElementById('macroResult').classList.add('show');
 
       document.getElementById('exportBtn').style.display = 'block';
+      document.getElementById('startOverBtn').style.display = 'block';
     }, 1000); // Delay to simulate loading
   } catch (error) {
     Logger.error('Calorie calculation failed', error);
@@ -311,4 +332,40 @@ function exportToPDF() {
 
   // Save PDF
   pdf.save(`Calorie_and_Macronutrient_Report_${userName}.pdf`);
+}
+
+/**
+ * Reset the calculator to start over
+ * @function startOver
+ * @global
+ * @returns {void}
+ */
+// eslint-disable-next-line no-unused-vars
+function startOver() {
+  // Reset form
+  document.getElementById('calorieMacroForm').reset();
+  
+  // Hide results and buttons
+  document.getElementById('result').innerHTML = '';
+  document.getElementById('macroResult').innerHTML = '';
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('macroResult').classList.remove('show');
+  document.getElementById('exportBtn').style.display = 'none';
+  document.getElementById('startOverBtn').style.display = 'none';
+  
+  // Reset to first step
+  const steps = document.querySelectorAll('.question-step');
+  steps.forEach((step, index) => {
+    if (index === 0) {
+      step.classList.add('active');
+      step.style.display = 'block';
+    } else {
+      step.classList.remove('active');
+      step.style.display = 'none';
+    }
+  });
+  
+  // Reset current step counter
+  const event = new CustomEvent('resetStep');
+  document.dispatchEvent(event);
 }
