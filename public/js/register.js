@@ -54,7 +54,7 @@ async function initializeFirebase() {
     }
     return true;
   } catch (error) {
-    Logger.error('Failed to initialize Firebase', error);
+    console.error('Failed to initialize Firebase', error);
     return false;
   }
 }
@@ -146,7 +146,7 @@ function showAlert(message, type = 'info') {
       closeAlert();
     }, 5000);
   } else {
-    Logger.error('Alert elements not found in DOM');
+    console.error('Alert elements not found in DOM');
   }
 }
 
@@ -267,7 +267,7 @@ async function handleSignUp(event) {
       window.location.href = 'email-verification.htm';
     }, 3000);
   } catch (error) {
-    Logger.error('Sign up failed', error);
+    console.error('Sign up failed', error);
     if (error.code === 'auth/email-already-in-use') {
       showAlert('Email already in use.', 'error');
     } else if (error.code === 'auth/invalid-email') {
@@ -313,7 +313,7 @@ async function handleSignIn(event) {
       window.location.href = 'home.htm';
     }, 1000);
   } catch (error) {
-    Logger.error('Sign in failed', error);
+    console.error('Sign in failed', error);
     if (error.code === 'auth/wrong-password') {
       showAlert('Incorrect password.', 'error');
     } else if (error.code === 'auth/user-not-found') {
@@ -345,7 +345,7 @@ async function handleForgotPassword(event) {
       document.getElementById('sign-in-form').style.display = 'block';
     }, 3000);
   } catch (error) {
-    Logger.error('Password reset email failed', error);
+    console.error('Password reset email failed', error);
     showAlert('Failed to send password reset email. Try again later.', 'error');
   }
 }
@@ -381,7 +381,7 @@ async function handleGoogleSignIn() {
       window.location.href = 'home.htm';
     }, 1000);
   } catch (error) {
-    Logger.error('Google Sign-In failed', error);
+    console.error('Google Sign-In failed', error);
     showAlert('Google Sign-In failed: ' + error.message, 'error');
   }
 }
@@ -414,7 +414,7 @@ async function displayWelcomeMessageAndAuthButtons(userId) {
       logoutButton?.classList.remove('hidden');
     }
   } catch (error) {
-    Logger.error('Failed to retrieve user data', error);
+    console.error('Failed to retrieve user data', error);
   }
 }
 
@@ -467,7 +467,7 @@ function handleLogout() {
       window.location.href = 'home.htm';
     })
     .catch((error) => {
-      Logger.error('Sign out failed', error);
+      console.error('Sign out failed', error);
     });
 }
 
@@ -500,7 +500,7 @@ async function showWelcomeMessage(userId) {
       signUpButton?.classList.add('hidden');
     }
   } catch (error) {
-    Logger.error('Failed to fetch user data', error);
+    console.error('Failed to fetch user data', error);
   }
 }
 

@@ -110,7 +110,7 @@ class FormMemory {
 document.addEventListener('DOMContentLoaded', function () {
   // Check if cookies are enabled
   if (!CookieManager.isEnabled()) {
-    Logger.warn('Cookies are disabled. Some features may not work properly.');
+    console.warn('Cookies are disabled. Some features may not work properly.');
     return;
   }
 
@@ -207,13 +207,13 @@ class CookieConsent {
   static accept() {
     CookieManager.set('cookieConsent', 'accepted', 365);
     this.hide();
-    Logger.info('Cookies accepted - full functionality enabled');
+    console.info('Cookies accepted - full functionality enabled');
   }
 
   static decline() {
     CookieManager.set('cookieConsent', 'declined', 365);
     this.hide();
-    Logger.info('Cookies declined - limited functionality');
+    console.info('Cookies declined - limited functionality');
   }
 
   static check() {
